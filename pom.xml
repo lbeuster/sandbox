@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.zanox.maven</groupId>
+		<artifactId>master-pom-common</artifactId>
+		<version>1.43</version>
+		<relativePath></relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.lbe.sandbox</groupId>
+	<artifactId>sandbox</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Sandbox: Parent</name>
+
+	<properties>
+		<zxlib_commons.version>2.2.25.0-SNAPSHOT</zxlib_commons.version>
+		<openejb.version>4.5.1</openejb.version>
+	</properties>
+
+	<modules>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.zanox.lib.commons</groupId>
+				<artifactId>zx-commons</artifactId>
+				<version>${zxlib_commons.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
