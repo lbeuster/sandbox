@@ -21,6 +21,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-openejb-arquillian</module>
 	</modules>
 
 	<dependencyManagement>
