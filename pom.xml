@@ -23,6 +23,7 @@
 	<modules>
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
+		<module>sandbox-weld-se</module>
 	</modules>
 
 	<dependencyManagement>
@@ -36,5 +37,17 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>jdk17</id>
+			<activation>
+				<jdk>1.7</jdk>
+			</activation>
+			<modules>
+				<module>sandbox-java7</module>
+			</modules>
+		</profile>
+	</profiles>
 
 </project>
