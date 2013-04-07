@@ -18,9 +18,12 @@
 		<zxlib_commons.version>2.2.25.0-SNAPSHOT</zxlib_commons.version>
 		<openejb.version>4.5.1</openejb.version>
 		<tomee.version>1.5.1</tomee.version>
+		<jboss.version>7.2.0.Final</jboss.version>
 	</properties>
 
 	<modules>
+		<module>sandbox-jboss7-embedded</module>
+		<module>sandbox-jboss7-embedded-arquillian</module>
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
 		<module>sandbox-weld-se</module>
