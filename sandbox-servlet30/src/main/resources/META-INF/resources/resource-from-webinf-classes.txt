@@ -1,0 +1,1 @@
+This is text file in inside a jar file.

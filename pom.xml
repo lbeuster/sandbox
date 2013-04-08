@@ -27,6 +27,8 @@
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
 		<module>sandbox-weld-se</module>
+		<module>sandbox-servlet30-test-jar</module>
+		<module>sandbox-servlet30</module>
 	</modules>
 
 	<dependencyManagement>
