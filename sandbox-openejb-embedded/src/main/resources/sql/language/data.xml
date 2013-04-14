@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <languages language_id="1" name_eng="English" status="1" iso639_a2="en" iso639_a3="eng" iso3166_a2="gb"/>
+  <languages language_id="2" name_eng="German" status="1" iso639_a2="de" iso639_a3="ger" iso3166_a2="de"/>
+  <languages language_id="0" name_eng="default language" status="1" iso639_a2="en" iso639_a3="eng" iso3166_a2="gb"/>
+  <languages language_id="3" name_eng="French" status="1" iso639_a2="fr" iso639_a3="fre" iso3166_a2="fr"/>
+  <languages language_id="4" name_eng="Spanish" status="1" iso639_a2="es" iso639_a3="spa" iso3166_a2="es"/>
+  <languages language_id="5" name_eng="Italian" status="1" iso639_a2="it" iso639_a3="ita" iso3166_a2="it"/>
+  <languages language_id="6" name_eng="(Afan), Oromo" status="0" iso639_a2="om" iso639_a3="orm" iso3166_a2=""/>
+  <languages language_id="7" name_eng="Abkhazian" status="0" iso639_a2="ab" iso639_a3="abk" iso3166_a2=""/>
+  <languages language_id="8" name_eng="Afar " status="0" iso639_a2="aa" iso639_a3="aar" iso3166_a2=""/>
+  <languages language_id="9" name_eng="Afrikaans " status="0" iso639_a2="af" iso639_a3="afr" iso3166_a2=""/>
+  <languages language_id="10" name_eng="Albanian" status="0" iso639_a2="sq" iso639_a3="alb" iso3166_a2=""/>
+  <languages language_id="11" name_eng="Amharic" status="0" iso639_a2="am" iso639_a3="amh" iso3166_a2=""/>
+  <languages language_id="12" name_eng="Arabic " status="0" iso639_a2="ar" iso639_a3="ara" iso3166_a2=""/>
+  <languages language_id="13" name_eng="Armenian" status="0" iso639_a2="hy" iso639_a3="arm" iso3166_a2=""/>
+  <languages language_id="14" name_eng="Assamese" status="0" iso639_a2="as" iso639_a3="asm" iso3166_a2=""/>
+  <languages language_id="15" name_eng="Aymara " status="0" iso639_a2="ay" iso639_a3="aym" iso3166_a2=""/>
+  <languages language_id="16" name_eng="Azerbaijani" status="0" iso639_a2="az" iso639_a3="aze" iso3166_a2=""/>
+  <languages language_id="17" name_eng="Bashkir " status="0" iso639_a2="ba" iso639_a3="bak" iso3166_a2=""/>
+  <languages language_id="18" name_eng="Basque " status="0" iso639_a2="eu" iso639_a3="baq" iso3166_a2=""/>
+  <languages language_id="19" name_eng="Bengali" status="0" iso639_a2="bn" iso639_a3="ben" iso3166_a2=""/>
+  <languages language_id="20" name_eng="Bhutani " status="0" iso639_a2="dz" iso639_a3="dzo" iso3166_a2=""/>
+  <languages language_id="21" name_eng="Bihari" status="0" iso639_a2="bh" iso639_a3="bih" iso3166_a2=""/>
+  <languages language_id="22" name_eng="Bislama " status="0" iso639_a2="bi" iso639_a3="bis" iso3166_a2=""/>
+  <languages language_id="23" name_eng="Breton" status="0" iso639_a2="br" iso639_a3="bre" iso3166_a2=""/>
+  <languages language_id="24" name_eng="Bulgarian " status="0" iso639_a2="bg" iso639_a3="bul" iso3166_a2=""/>
+  <languages language_id="25" name_eng="Burmese" status="0" iso639_a2="my" iso639_a3="bur" iso3166_a2=""/>
+  <languages language_id="26" name_eng="Byelorussian" status="0" iso639_a2="be" iso639_a3="bel" iso3166_a2=""/>
+  <languages language_id="27" name_eng="Cambodian" status="0" iso639_a2="km" iso639_a3="khm" iso3166_a2=""/>
+  <languages language_id="28" name_eng="Catalan " status="0" iso639_a2="ca" iso639_a3="cat" iso3166_a2=""/>
+  <languages language_id="29" name_eng="Chinese " status="1" iso639_a2="zh" iso639_a3="chi" iso3166_a2="cn"/>
+  <languages language_id="30" name_eng="Corsican" status="0" iso639_a2="co" iso639_a3="cos" iso3166_a2=""/>
+  <languages language_id="31" name_eng="Croatian" status="0" iso639_a2="hr" iso639_a3="scr" iso3166_a2=""/>
+  <languages language_id="32" name_eng="Czech " status="0" iso639_a2="cs" iso639_a3="cze" iso3166_a2=""/>
+  <languages language_id="33" name_eng="Danish " status="0" iso639_a2="da" iso639_a3="dan" iso3166_a2=""/>
+  <languages language_id="34" name_eng="Dutch " status="1" iso639_a2="nl" iso639_a3="dut" iso3166_a2="nl"/>
+  <languages language_id="35" name_eng="Esperanto" status="0" iso639_a2="eo" iso639_a3="epo" iso3166_a2=""/>
+  <languages language_id="36" name_eng="Estonian" status="0" iso639_a2="et" iso639_a3="est" iso3166_a2=""/>
+  <languages language_id="37" name_eng="Faeroese " status="0" iso639_a2="fo" iso639_a3="fao" iso3166_a2=""/>
+  <languages language_id="38" name_eng="Fiji" status="0" iso639_a2="fj" iso639_a3="fij" iso3166_a2=""/>
+  <languages language_id="41" name_eng="Frisian " status="0" iso639_a2="fy" iso639_a3="fry" iso3166_a2=""/>
+  <languages language_id="42" name_eng="Galician" status="0" iso639_a2="gl" iso639_a3="glg" iso3166_a2=""/>
+  <languages language_id="43" name_eng="Georgian " status="0" iso639_a2="ka" iso639_a3="geo" iso3166_a2=""/>
+  <languages language_id="44" name_eng="Greek" status="0" iso639_a2="el" iso639_a3="gre" iso3166_a2=""/>
+  <languages language_id="45" name_eng="Greenlandic " status="0" iso639_a2="kl" iso639_a3="kal" iso3166_a2=""/>
+  <languages language_id="46" name_eng="Guarani " status="0" iso639_a2="gn" iso639_a3="grn" iso3166_a2=""/>
+  <languages language_id="47" name_eng="Gujarati" status="0" iso639_a2="gu" iso639_a3="guj" iso3166_a2=""/>
+  <languages language_id="48" name_eng="Hausa" status="0" iso639_a2="ha" iso639_a3="hau" iso3166_a2=""/>
+  <languages language_id="49" name_eng="Hebrew " status="0" iso639_a2="he" iso639_a3="heb" iso3166_a2=""/>
+  <languages language_id="50" name_eng="Hebrew (obsolete)     " status="0" iso639_a2="" iso639_a3="" iso3166_a2=""/>
+  <languages language_id="51" name_eng="Hindi " status="0" iso639_a2="hi" iso639_a3="hin" iso3166_a2=""/>
+  <languages language_id="52" name_eng="Hungarian " status="0" iso639_a2="hu" iso639_a3="hun" iso3166_a2=""/>
+  <languages language_id="53" name_eng="Icelandic" status="0" iso639_a2="is" iso639_a3="ice" iso3166_a2=""/>
+  <languages language_id="54" name_eng="Yiddish" status="0" iso639_a2="" iso639_a3="" iso3166_a2=""/>
+  <languages language_id="55" name_eng="Indonesian" status="0" iso639_a2="id" iso639_a3="ind" iso3166_a2=""/>
+  <languages language_id="56" name_eng="Indonesian " status="0" iso639_a2="" iso639_a3="" iso3166_a2=""/>
+  <languages language_id="57" name_eng="Interlingua " status="0" iso639_a2="ia" iso639_a3="ina" iso3166_a2=""/>
+  <languages language_id="58" name_eng="Interlingue " status="0" iso639_a2="ie" iso639_a3="ile" iso3166_a2=""/>
+  <languages language_id="59" name_eng="Inuktitut" status="0" iso639_a2="iu" iso639_a3="iku" iso3166_a2=""/>
+  <languages language_id="60" name_eng="Inupiak" status="0" iso639_a2="ik" iso639_a3="ipk" iso3166_a2=""/>
+  <languages language_id="61" name_eng="Irish" status="0" iso639_a2="ga" iso639_a3="gle" iso3166_a2=""/>
+  <languages language_id="63" name_eng="Javanese" status="0" iso639_a2="" iso639_a3="" iso3166_a2=""/>
+  <languages language_id="64" name_eng="Kannada " status="0" iso639_a2="kn" iso639_a3="kan" iso3166_a2=""/>
+  <languages language_id="65" name_eng="Kashmiri " status="0" iso639_a2="ks" iso639_a3="kas" iso3166_a2=""/>
+  <languages language_id="66" name_eng="Kazakh" status="0" iso639_a2="kk" iso639_a3="kaz" iso3166_a2=""/>
+  <languages language_id="67" name_eng="Kinyarwanda " status="0" iso639_a2="rw" iso639_a3="kin" iso3166_a2=""/>
+  <languages language_id="68" name_eng="Kirghiz " status="0" iso639_a2="ky" iso639_a3="kir" iso3166_a2=""/>
+  <languages language_id="69" name_eng="Kirundi" status="0" iso639_a2="rn" iso639_a3="run" iso3166_a2=""/>
+  <languages language_id="70" name_eng="Korean" status="0" iso639_a2="ko" iso639_a3="kor" iso3166_a2=""/>
+  <languages language_id="71" name_eng="Kurdish" status="0" iso639_a2="ku" iso639_a3="kur" iso3166_a2=""/>
+  <languages language_id="72" name_eng="Laothian" status="0" iso639_a2="lo" iso639_a3="lao" iso3166_a2=""/>
+  <languages language_id="73" name_eng="Latin" status="0" iso639_a2="la" iso639_a3="lat" iso3166_a2=""/>
+  <languages language_id="74" name_eng="Latvian, Lettish" status="0" iso639_a2="lv" iso639_a3="lav" iso3166_a2=""/>
+  <languages language_id="75" name_eng="Lingala " status="0" iso639_a2="ln" iso639_a3="lin" iso3166_a2=""/>
+  <languages language_id="76" name_eng="Lithuanian " status="0" iso639_a2="lt" iso639_a3="lit" iso3166_a2=""/>
+  <languages language_id="77" name_eng="Macedonian " status="0" iso639_a2="mk" iso639_a3="mac" iso3166_a2=""/>
+  <languages language_id="78" name_eng="Malagasy " status="0" iso639_a2="mg" iso639_a3="mlg" iso3166_a2=""/>
+  <languages language_id="79" name_eng="Malay" status="0" iso639_a2="ms" iso639_a3="may" iso3166_a2=""/>
+  <languages language_id="80" name_eng="Malayalam" status="0" iso639_a2="ml" iso639_a3="mal" iso3166_a2=""/>
+  <languages language_id="81" name_eng="Maltese " status="0" iso639_a2="mt" iso639_a3="mlt" iso3166_a2=""/>
+  <languages language_id="82" name_eng="Maori" status="0" iso639_a2="mi" iso639_a3="mao" iso3166_a2=""/>
+  <languages language_id="83" name_eng="Marathi " status="0" iso639_a2="mr" iso639_a3="mar" iso3166_a2=""/>
+  <languages language_id="84" name_eng="Moldavian" status="0" iso639_a2="mo" iso639_a3="mol" iso3166_a2=""/>
+  <languages language_id="85" name_eng="Mongolian " status="0" iso639_a2="mn" iso639_a3="mon" iso3166_a2=""/>
+  <languages language_id="86" name_eng="Nauru " status="0" iso639_a2="na" iso639_a3="nau" iso3166_a2=""/>
+  <languages language_id="87" name_eng="Nepali" status="0" iso639_a2="ne" iso639_a3="nep" iso3166_a2=""/>
+  <languages language_id="88" name_eng="Norwegian" status="0" iso639_a2="no" iso639_a3="nor" iso3166_a2=""/>
+  <languages language_id="89" name_eng="Occitan " status="0" iso639_a2="oc" iso639_a3="oci" iso3166_a2=""/>
+  <languages language_id="90" name_eng="Oriya " status="0" iso639_a2="or" iso639_a3="ori" iso3166_a2=""/>
+  <languages language_id="91" name_eng="Pashto, Pushto" status="0" iso639_a2="ps" iso639_a3="pus" iso3166_a2=""/>
+  <languages language_id="92" name_eng="Persian" status="0" iso639_a2="fa" iso639_a3="per" iso3166_a2=""/>
+  <languages language_id="93" name_eng="Polish " status="1" iso639_a2="pl" iso639_a3="pol" iso3166_a2="pl"/>
+  <languages language_id="94" name_eng="Portuguese " status="1" iso639_a2="pt" iso639_a3="por" iso3166_a2="pt"/>
+  <languages language_id="95" name_eng="Punjabi" status="0" iso639_a2="pa" iso639_a3="pan" iso3166_a2=""/>
+  <languages language_id="96" name_eng="Quechua" status="0" iso639_a2="qu" iso639_a3="que" iso3166_a2=""/>
+  <languages language_id="97" name_eng="Rhaeto-Romance " status="0" iso639_a2="rm" iso639_a3="roh" iso3166_a2=""/>
+  <languages language_id="98" name_eng="Romanian " status="0" iso639_a2="ro" iso639_a3="rum" iso3166_a2=""/>
+  <languages language_id="99" name_eng="Russian" status="0" iso639_a2="ru" iso639_a3="rus" iso3166_a2=""/>
+  <languages language_id="100" name_eng="Samoan " status="0" iso639_a2="sm" iso639_a3="smo" iso3166_a2=""/>
+  <languages language_id="101" name_eng="Sangro" status="0" iso639_a2="sg" iso639_a3="sag" iso3166_a2=""/>
+  <languages language_id="102" name_eng="Sanskrit" status="0" iso639_a2="sa" iso639_a3="san" iso3166_a2=""/>
+  <languages language_id="103" name_eng="Scots, Gaelic " status="0" iso639_a2="gd" iso639_a3="gla" iso3166_a2=""/>
+  <languages language_id="104" name_eng="Serbian " status="0" iso639_a2="sr" iso639_a3="scc" iso3166_a2=""/>
+  <languages language_id="105" name_eng="Serbo-Croatian " status="0" iso639_a2="" iso639_a3="" iso3166_a2=""/>
+  <languages language_id="106" name_eng="Sesotho " status="0" iso639_a2="st" iso639_a3="sot" iso3166_a2=""/>
+  <languages language_id="107" name_eng="Setswana" status="0" iso639_a2="tn" iso639_a3="tsn" iso3166_a2=""/>
+  <languages language_id="108" name_eng="Shona" status="0" iso639_a2="sn" iso639_a3="sna" iso3166_a2=""/>
+  <languages language_id="109" name_eng="Sindhi " status="0" iso639_a2="sd" iso639_a3="snd" iso3166_a2=""/>
+  <languages language_id="110" name_eng="Singhalese" status="0" iso639_a2="si" iso639_a3="sin" iso3166_a2=""/>
+  <languages language_id="111" name_eng="Siswati" status="0" iso639_a2="ss" iso639_a3="ssw" iso3166_a2=""/>
+  <languages language_id="112" name_eng="Slovak " status="0" iso639_a2="sk" iso639_a3="slo" iso3166_a2=""/>
+  <languages language_id="113" name_eng="Slovenian" status="0" iso639_a2="sl" iso639_a3="slv" iso3166_a2=""/>
+  <languages language_id="114" name_eng="Somali " status="0" iso639_a2="so" iso639_a3="som" iso3166_a2=""/>
+  <languages language_id="115" name_eng="Sundanese" status="0" iso639_a2="su" iso639_a3="sun" iso3166_a2=""/>
+  <languages language_id="116" name_eng="Swahili" status="0" iso639_a2="sw" iso639_a3="swa" iso3166_a2=""/>
+  <languages language_id="117" name_eng="Swedish " status="1" iso639_a2="sv" iso639_a3="swe" iso3166_a2="se"/>
+  <languages language_id="118" name_eng="Tagalog " status="0" iso639_a2="tl" iso639_a3="tgl" iso3166_a2=""/>
+  <languages language_id="119" name_eng="Tajik " status="0" iso639_a2="tg" iso639_a3="tgk" iso3166_a2=""/>
+  <languages language_id="120" name_eng="Tamil " status="0" iso639_a2="ta" iso639_a3="tam" iso3166_a2=""/>
+  <languages language_id="121" name_eng="Tatar" status="0" iso639_a2="tt" iso639_a3="tat" iso3166_a2=""/>
+  <languages language_id="122" name_eng="Tegulu" status="0" iso639_a2="te" iso639_a3="tel" iso3166_a2=""/>
+  <languages language_id="123" name_eng="Thai" status="0" iso639_a2="th" iso639_a3="tha" iso3166_a2=""/>
+  <languages language_id="124" name_eng="Tibetan " status="0" iso639_a2="bo" iso639_a3="tib" iso3166_a2=""/>
+  <languages language_id="125" name_eng="Tigrinya " status="0" iso639_a2="ti" iso639_a3="tir" iso3166_a2=""/>
+  <languages language_id="126" name_eng="Tonga " status="0" iso639_a2="to" iso639_a3="ton" iso3166_a2=""/>
+  <languages language_id="127" name_eng="Tsonga " status="0" iso639_a2="ts" iso639_a3="tso" iso3166_a2=""/>
+  <languages language_id="128" name_eng="Turkish" status="1" iso639_a2="tr" iso639_a3="tur" iso3166_a2="tr"/>
+  <languages language_id="129" name_eng="Turkmen" status="0" iso639_a2="tk" iso639_a3="tuk" iso3166_a2=""/>
+  <languages language_id="130" name_eng="Twi " status="0" iso639_a2="tw" iso639_a3="twi" iso3166_a2=""/>
+  <languages language_id="131" name_eng="Uigur" status="0" iso639_a2="ug" iso639_a3="uig" iso3166_a2=""/>
+  <languages language_id="132" name_eng="Ukrainian " status="0" iso639_a2="uk" iso639_a3="ukr" iso3166_a2=""/>
+  <languages language_id="133" name_eng="Urdu" status="0" iso639_a2="ur" iso639_a3="urd" iso3166_a2=""/>
+  <languages language_id="134" name_eng="Uzbek " status="0" iso639_a2="uz" iso639_a3="uzb" iso3166_a2=""/>
+  <languages language_id="135" name_eng="Vietnamese" status="0" iso639_a2="vi" iso639_a3="vie" iso3166_a2=""/>
+  <languages language_id="136" name_eng="Volapuk " status="0" iso639_a2="vo" iso639_a3="vol" iso3166_a2=""/>
+  <languages language_id="137" name_eng="Welsh" status="0" iso639_a2="cy" iso639_a3="wel" iso3166_a2=""/>
+  <languages language_id="138" name_eng="Wolof" status="0" iso639_a2="wo" iso639_a3="wol" iso3166_a2=""/>
+  <languages language_id="139" name_eng="Xhosa " status="0" iso639_a2="xh" iso639_a3="xho" iso3166_a2=""/>
+  <languages language_id="140" name_eng="Yiddish (obsolete)     " status="0" iso639_a2="" iso639_a3="" iso3166_a2=""/>
+  <languages language_id="141" name_eng="Yoruba " status="0" iso639_a2="yo" iso639_a3="yor" iso3166_a2=""/>
+  <languages language_id="142" name_eng="Zuang" status="0" iso639_a2="za" iso639_a3="zha" iso3166_a2=""/>
+  <languages language_id="143" name_eng="Zulu" status="0" iso639_a2="zu" iso639_a3="zul" iso3166_a2=""/>
+  <languages language_id="144" name_eng="English US" status="1" iso639_a2="en" iso639_a3="eng" iso3166_a2="us"/>
+  <languages language_id="39" name_eng="Finnish" status="0" iso639_a2="fi" iso639_a3="fin" iso3166_a2="fi"/>
+  <languages language_id="62" name_eng="Japanese" status="0" iso639_a2="ja" iso639_a3="jpn" iso3166_a2="jp"/>
+  <languages language_id="145" name_eng="Portugues (Brasil)" status="1" iso639_a2="pt" iso639_a3="por" iso3166_a2="br"/>
+</dataset>

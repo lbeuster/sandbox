@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<persistence-unit name="Language">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/LanguageTX</jta-data-source>
+
+		<!-- we need this if our entities are not in the same jar as the persistence.xml -->
+		<!-- <class>test.ejb.common.LanguageEntity</class> -->
+
+		<properties>
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.generate_statistics" value="true" />
+			<!-- only for tests -->
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="validate" /> -->
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.use_sql_comments" value="false" />
+
+			<!-- jdbc options -->
+			<property name="hibernate.jdbc.batch_size" value="10" />
+			<property name="hibernate.jdbc.batch_versioned_data" value="false" />
+			<property name="hibernate.jdbc.use_scrollable_resultset" value="true" />
+
+			<property name="hibernate.connection.release_mode" value="auto" />
+			<!-- <property name="hibernate.current_session_context_class" value="org.hibernate.context.JTASessionContext" /> -->
+			<property name="hibernate.transaction.auto_close_session" value="true" />
+			<!-- <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup" 
+				/> -->
+
+			<!--cache options -->
+			<property name="hibernate.cache.use_query_cache" value="false" />
+			<property name="hibernate.cache.use_second_level_cache" value="false" />
+			<!-- <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jbc2.JndiMultiplexedJBossCacheRegionFactory" 
+				/> -->
+			<property name="hibernate.cache.region.jbc2.cachefactory" value="java:CacheManager" />
+			<property name="hibernate.bytecode.use_reflection_optimizer" value="false" />
+		</properties>
+	</persistence-unit>
+</persistence>
