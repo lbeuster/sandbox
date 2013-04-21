@@ -1,11 +1,8 @@
 package de.lbe.sandbox.jetty;
 
-import java.io.File;
-
 import org.apache.http.HttpResponse;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ExplodedImporter;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 
@@ -32,17 +29,7 @@ public class JettyArquillianTest extends AbstractJUnit4ArquillianTest {
 	@Deployment
 	public static WebArchive deployment1() {
 		WebArchive archive = ShrinkWrap.create(WebArchive.class, CONTEXT_PATH);
-		// archive.setWebXML(new File("src/main/webapp/WEB-INF/web.xml"));
-		// archive.add(new FileAsset(new File("src/main/webapp/index.html")), "index.html");
-		// archive.addAsDirectory("src/main/webapp/index.html");
-		archive = ShrinkWrapUtils.addDirectory(archive, "src/main/webapp");
-//
-//		archive = archive.as(ExplodedImporter.class)
-//
-//		.importDirectory("src/main/webapp")
-//
-//		.as(WebArchive.class);
-		return archive;
+		return ShrinkWrapUtils.addDirectory(archive, "src/main/webapp");
 	}
 
 	/**
