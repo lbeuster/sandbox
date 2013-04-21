@@ -1,12 +1,9 @@
 package de.lbe.sandbox.openejb;
 
 import javax.annotation.ManagedBean;
-import javax.annotation.Resource;
 import javax.ejb.EJB;
 
 import org.junit.Test;
-
-import com.zanox.lib.commons.lang.ClassLoaderUtils;
 
 /**
  * @ManagedBean? Remove it and run the test... 

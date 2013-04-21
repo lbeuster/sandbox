@@ -8,7 +8,6 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 
 import com.zanox.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
-import com.zanox.lib.commons.lang.ClassLoaderUtils;
 import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**

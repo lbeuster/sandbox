@@ -11,6 +11,6 @@ public class LanguageDao {
 	private EntityManager dbSession;
 
 	public Language findByPrimaryKey(int id) {
-		return (Language) dbSession.find(Language.class, id);
+		return dbSession.find(Language.class, id);
 	}
 }

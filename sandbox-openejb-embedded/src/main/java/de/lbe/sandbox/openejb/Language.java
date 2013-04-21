@@ -172,6 +172,7 @@ public class Language implements Serializable {
 		ois.defaultReadObject();
 	}
 
+	@Override
 	public String toString() {
 		return getClass().getSimpleName() + "[id=" + getId() + "]";
 	}
