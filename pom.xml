@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<zxlib_commons.version>2.2.25.0-SNAPSHOT</zxlib_commons.version>
+		<zxlib_commons.version>2.2.26.0-SNAPSHOT</zxlib_commons.version>
 		<tomee.version>1.5.1</tomee.version>
 		<jboss.version>7.2.0.Final</jboss.version>
 	</properties>
