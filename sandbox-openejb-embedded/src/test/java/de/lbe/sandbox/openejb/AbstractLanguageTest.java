@@ -4,8 +4,8 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import com.zanox.lib.commons.dbunit.AbstractJUnit4DBUnitTest;
-import com.zanox.lib.commons.dbunit.DBUnitExtensions;
-import com.zanox.lib.commons.dbunit.DataSourceDBUnitExtension;
+import com.zanox.lib.commons.dbunit.DBUnits;
+import com.zanox.lib.commons.dbunit.DataSourceDBUnit;
 
 /**
  *
@@ -34,7 +34,7 @@ public abstract class AbstractLanguageTest extends AbstractJUnit4DBUnitTest {
      *
      */
 	@Override
-	protected DBUnitExtensions createDBUnitExtensions() {
-		return new DBUnitExtensions(new DataSourceDBUnitExtension(this.dataSource));
+	protected DBUnits createDBUnits() {
+		return new DBUnits(new DataSourceDBUnit(this.dataSource));
 	}
 }

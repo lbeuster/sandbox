@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.zanox.maven</groupId>
 		<artifactId>master-pom-common</artifactId>
-		<version>1.44-SNAPSHOT</version>
+		<version>1.47-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<zxlib_commons.version>2.2.26.0-SNAPSHOT</zxlib_commons.version>
+		<zxlib_commons.version>2.3.0-SNAPSHOT</zxlib_commons.version>
 		<tomee.version>1.5.1</tomee.version>
 		<jboss.version>7.2.0.Final</jboss.version>
 	</properties>
@@ -26,6 +26,7 @@
         <module>sandbox-jetty-embedded-arquillian</module>
 		<module>sandbox-jboss7-embedded</module>
         <module>sandbox-jboss7-embedded-arquillian</module>
+        <module>sandbox-jboss7-managed-arquillian</module>
 		<module>sandbox-openejb-embedded</module>
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
