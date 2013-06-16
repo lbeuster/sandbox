@@ -18,10 +18,13 @@
 		<zxlib_commons.version>2.3.2-SNAPSHOT</zxlib_commons.version>
 		<tomee.version>1.5.1</tomee.version>
 		<jboss.version>7.2.0.Final</jboss.version>
+		<orika.version>1.4.2</orika.version>
 	</properties>
 
 	<modules>
+		<module>sandbox-orika</module>
 		<module>sandbox-weld</module>
+		<module>sandbox-weld-se</module>
 		<module>sandbox-servlet30</module>
         <module>sandbox-jetty-embedded-arquillian</module>
 		<module>sandbox-jboss7-embedded</module>
@@ -29,7 +32,6 @@
 		<module>sandbox-openejb-embedded</module>
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
-		<module>sandbox-weld-se</module>
 	</modules>
 
 	<dependencyManagement>
