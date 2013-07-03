@@ -20,7 +20,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-core</artifactId>
+			<artifactId>zx-commons-cdi</artifactId>
 		</dependency>
 
 		<!-- Test -->

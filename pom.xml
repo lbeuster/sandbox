@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.zanox.maven</groupId>
 		<artifactId>master-pom-common</artifactId>
-		<version>1.49-SNAPSHOT</version>
+		<version>1.50-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<zxlib_commons.version>2.3.2-SNAPSHOT</zxlib_commons.version>
+		<zxlib_commons.version>2.3.5-SNAPSHOT</zxlib_commons.version>
 		<tomee.version>1.5.1</tomee.version>
 		<jboss.version>7.2.0.Final</jboss.version>
 		<orika.version>1.4.2</orika.version>
