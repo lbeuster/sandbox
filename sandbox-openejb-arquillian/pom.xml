@@ -10,6 +10,18 @@
 
 	<artifactId>sandbox-openejb-arquillian</artifactId>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>de.lbe.maven</groupId>
+				<artifactId>openejb-bom</artifactId>
+				<version>${maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 
 		<dependency>

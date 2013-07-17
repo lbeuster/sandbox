@@ -8,30 +8,18 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>sandbox-jboss7-embedded</artifactId>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>de.lbe.maven</groupId>
-				<artifactId>jboss72-bom</artifactId>
-				<version>${maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	<artifactId>sandbox-cal10n</artifactId>
 
 	<dependencies>
 
 		<dependency>
-			<groupId>org.jboss.as</groupId>
-			<artifactId>jboss-as-embedded</artifactId>
+			<groupId>ch.qos.cal10n</groupId>
+			<artifactId>cal10n-api</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-arquillian</artifactId>
+			<artifactId>zx-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 

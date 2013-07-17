@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<parent>
 		<groupId>de.lbe.sandbox</groupId>
@@ -10,6 +9,18 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>sandbox-jetty-embedded-arquillian</artifactId>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>de.lbe.maven</groupId>
+				<artifactId>jetty8-bom</artifactId>
+				<version>${maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 
@@ -34,7 +45,7 @@
 			<artifactId>arquillian-jetty-embedded-7</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- additional required dependency -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>

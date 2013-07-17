@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<parent>
-		<groupId>com.zanox.maven</groupId>
-		<artifactId>master-pom-common</artifactId>
-		<version>1.49-SNAPSHOT</version>
+		<groupId>de.lbe.maven</groupId>
+		<artifactId>parent-bom</artifactId>
+		<version>1.0-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -15,20 +14,22 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<zxlib_commons.version>2.3.2-SNAPSHOT</zxlib_commons.version>
+		<maven-boms.version>1.0-SNAPSHOT</maven-boms.version>
+		<zxlib_commons.version>2.3.6-SNAPSHOT</zxlib_commons.version>
 		<tomee.version>1.5.1</tomee.version>
-		<jboss.version>7.2.0.Final</jboss.version>
 		<orika.version>1.4.2</orika.version>
 	</properties>
 
 	<modules>
+		<module>sandbox-java7</module>
 		<module>sandbox-orika</module>
+		<module>sandbox-cal10n</module>
 		<module>sandbox-weld</module>
 		<module>sandbox-weld-se</module>
 		<module>sandbox-servlet30</module>
-        <module>sandbox-jetty-embedded-arquillian</module>
+		<module>sandbox-jetty-embedded-arquillian</module>
 		<module>sandbox-jboss7-embedded</module>
-        <module>sandbox-jboss7-embedded-arquillian</module>
+		<module>sandbox-jboss7-embedded-arquillian</module>
 		<module>sandbox-openejb-embedded</module>
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
@@ -45,17 +46,5 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<profiles>
-		<profile>
-			<id>jdk17</id>
-			<activation>
-				<jdk>1.7</jdk>
-			</activation>
-			<modules>
-				<module>sandbox-java7</module>
-			</modules>
-		</profile>
-	</profiles>
 
 </project>
