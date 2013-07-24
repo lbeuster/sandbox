@@ -24,7 +24,7 @@ public class AbstractJettyTest extends AbstractJUnit4Test {
 	@Before
 	public void setUp() throws Exception {
 		this.jetty = new EmbeddedTestJetty();
-		this.jetty.setHttpConnectorPort(8080);
+		this.jetty.setHttpConnectorPort(1234);
 		this.jetty.start();
 
 		this.httpClient = new DefaultHttpClient(this.jetty.getWebappContextURL());

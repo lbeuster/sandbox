@@ -24,7 +24,7 @@ public class AbstractTomcatTest extends AbstractJUnit4Test {
 	@Before
 	public void setUp() throws Exception {
 		this.tomcat = new EmbeddedTestTomcat();
-		this.tomcat.setHttpConnectorPort(8080);
+		this.tomcat.setHttpConnectorPort(1234);
 		this.tomcat.start();
 
 		this.httpClient = new DefaultHttpClient(this.tomcat.getWebappContextURL());
