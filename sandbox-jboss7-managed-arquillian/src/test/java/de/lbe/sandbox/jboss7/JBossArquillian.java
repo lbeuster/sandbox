@@ -1,6 +1,5 @@
 package de.lbe.sandbox.jboss7;
 
-
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.runners.model.InitializationError;
 
@@ -12,7 +11,7 @@ import org.junit.runners.model.InitializationError;
 public class JBossArquillian extends Arquillian {
 
 	static {
-		System.setProperty("jboss.home", JBoss.JBOSS_HOME);
+		System.setProperty("jboss.home", "d:/jboss/EAP-6.1.0");
 		System.setProperty("java.util.logging.manager", "org.jboss.logmanager.LogManager");
 		// System.setProperty("jboss.embedded.root", "e:/tmp/jboss720");
 	}

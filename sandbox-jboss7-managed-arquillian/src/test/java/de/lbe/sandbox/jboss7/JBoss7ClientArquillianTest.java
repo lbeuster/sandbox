@@ -22,7 +22,7 @@ import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
  * @author lars.beuster
  */
 @RunWith(JBossArquillian.class)
-public class ClientArquillianTest extends Assert {
+public class JBoss7ClientArquillianTest extends Assert {
 
 	@ArquillianResource
 	private URL contextPathURL;

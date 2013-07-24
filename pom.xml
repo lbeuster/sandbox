@@ -29,6 +29,7 @@
 		<module>sandbox-jetty-embedded-arquillian</module>
 		<module>sandbox-jboss7-embedded</module>
 		<module>sandbox-jboss7-embedded-arquillian</module>
+		<module>sandbox-jboss7-managed-arquillian</module>
 		<module>sandbox-openejb-embedded</module>
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
