@@ -28,7 +28,7 @@ public class JettyArquillianTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Deployment
 	public static WebArchive deployment1() {
-		WebArchive archive = ShrinkWrap.create(WebArchive.class, CONTEXT_PATH);
+		WebArchive archive = ShrinkWrap.create(WebArchive.class, CONTEXT_PATH + ".war");
 		return ShrinkWrapUtils.addDirectory(archive, "src/main/webapp");
 	}
 
