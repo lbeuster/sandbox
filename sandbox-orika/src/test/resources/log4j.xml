@@ -10,7 +10,7 @@
 	</appender>
 
 	<logger name="ma.glasnost.orika">
-		<level value="debug"></level>
+		<level value="warn" />
 	</logger>
 
 	<root>
