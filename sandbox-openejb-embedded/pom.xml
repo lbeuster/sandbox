@@ -13,7 +13,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>de.lbe.maven</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>openejb-bom</artifactId>
 				<version>${maven-boms.version}</version>
 				<type>pom</type>
