@@ -26,7 +26,7 @@ public class BeanArchiveArquillianTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Deployment
 	public static JavaArchive deployment() {
-		JavaArchive archive = ShrinkWrapUtils.prepareCdiJar(TestService.class);
+		JavaArchive archive = ShrinkWrapUtils.prepareCdiJar();
 		return archive;
 	}
 
