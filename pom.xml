@@ -15,7 +15,6 @@
 	<properties>
 		<maven-boms.version>1.0-SNAPSHOT</maven-boms.version>
 		<zxlib_commons.version>1.0-SNAPSHOT</zxlib_commons.version>
-		<tomee.version>1.5.1</tomee.version>
 		<orika.version>1.4.2</orika.version>
 	</properties>
 
