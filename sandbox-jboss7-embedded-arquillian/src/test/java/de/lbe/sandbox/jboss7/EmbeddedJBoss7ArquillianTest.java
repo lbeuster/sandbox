@@ -31,10 +31,6 @@ public class EmbeddedJBoss7ArquillianTest {
 	@Deployment
 	public static JavaArchive deployment() {
 		JavaArchive archive = ShrinkWrapUtils.prepareCdiJar("jboss-embedded.jar");
-
-		// needed to load the TestCase inside JBoss
-		// archive.addClass(EmbeddedJBoss7ArquillianTest.class);
-		// archive.addClass(EmbeddedJBoss7ArquillianTest.TestService.class);
 		archive.addClass(JBossArquillian.class);
 		return archive;
 	}

@@ -22,7 +22,8 @@
 	<modules>
 		<module>sandbox-java7</module>
 		<module>sandbox-orika</module>
-		<module>sandbox-cal10n</module>
+		<!-- currently doesn't compile because of the PostProcessor -->
+		<!-- <module>sandbox-cal10n</module> -->
 		<module>sandbox-weld</module>
 		<module>sandbox-weld-se</module>
 		<module>sandbox-servlet30</module>
