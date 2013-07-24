@@ -11,23 +11,26 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>sandbox-jboss7-embedded-arquillian</artifactId>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>de.lbe.maven</groupId>
-				<artifactId>jboss72-bom</artifactId>
-				<version>${maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+<!-- 	<dependencyManagement> -->
+<!-- 		<dependencies> -->
+		
+<!-- 			<dependency> -->
+<!-- 				<groupId>de.lbe.maven</groupId> -->
+<!-- 				<artifactId>jboss72-bom</artifactId> -->
+<!-- 				<version>${maven-boms.version}</version> -->
+<!-- 				<type>pom</type> -->
+<!-- 				<scope>import</scope> -->
+<!-- 			</dependency> -->
+			
+<!-- 		</dependencies> -->
+<!-- 	</dependencyManagement> -->
 
 	<dependencies>
 
 		<dependency>
 			<groupId>org.jboss.as</groupId>
 			<artifactId>jboss-as-embedded</artifactId>
+			<version>7.2.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>com.zanox.lib.commons</groupId>
@@ -43,6 +46,7 @@
 		<dependency>
 			<groupId>org.jboss.as</groupId>
 			<artifactId>jboss-as-arquillian-container-embedded</artifactId>
+			<version>7.2.0.Final</version>
 			<scope>test</scope>
 		</dependency>
 		

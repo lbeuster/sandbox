@@ -17,7 +17,7 @@ import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
  * @author lars.beuster
  */
 @RunWith(JBossArquillian.class)
-public class SimpleArquillianTest extends Assert {
+public class EmbeddedJBoss7ArquillianTest {
 
 	@Inject
 	private BeanManager beanManager;
@@ -29,12 +29,13 @@ public class SimpleArquillianTest extends Assert {
 	 * 
 	 */
 	@Deployment
-	public static JavaArchive deployment1() {
-		JavaArchive archive = ShrinkWrapUtils.prepareCdiJar(TestService.class);
+	public static JavaArchive deployment() {
+		JavaArchive archive = ShrinkWrapUtils.prepareCdiJar("jboss-embedded.jar");
 
 		// needed to load the TestCase inside JBoss
+		// archive.addClass(EmbeddedJBoss7ArquillianTest.class);
+		// archive.addClass(EmbeddedJBoss7ArquillianTest.TestService.class);
 		archive.addClass(JBossArquillian.class);
-
 		return archive;
 	}
 
@@ -43,12 +44,12 @@ public class SimpleArquillianTest extends Assert {
 	 */
 	@Test
 	public void testModuleClassLoader() throws Exception {
-		assertNotNull(this.beanManager);
-		assertNotNull(this.testService);
+		Assert.assertNotNull(this.beanManager);
+		Assert.assertNotNull(this.testService);
 
 		try {
 			System.out.println(ClassLoaderUtils.toString(getClass().getClassLoader()));
-			fail("JBoss-module-classloader");
+			Assert.fail("JBoss-module-classloader");
 		} catch (NoClassDefFoundError ex) {
 			// expected since we have a different runtime-CL (JBoss-module-CL)
 		}
