@@ -5,6 +5,7 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
 import com.zanox.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
 import com.zanox.lib.commons.net.httpclient.DefaultHttpClient;
