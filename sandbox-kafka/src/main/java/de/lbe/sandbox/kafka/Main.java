@@ -9,12 +9,15 @@ import kafka.javaapi.producer.Producer;
 import kafka.producer.ProducerConfig;
 import kafka.serializer.StringEncoder;
 
-import org.junit.Assert;
-
 /**
- * https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+Producer+Example
+ * https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+Producer+Example 
+ * https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example
+ * 
+ * (1) Start zookeper 
+ * (2) Start kafka 
+ * (3) create queue: bin/kafka-create-topic.sh --topic TestProducer --replica 1 --zookeeper localhost:2181 --partition 5
  */
-public class Main extends Assert {
+public class Main {
 
 	/**
 	 * 
@@ -28,23 +31,27 @@ public class Main extends Assert {
 
 			// producer
 			producer = createProducer();
-			producerThread = new TestProducerThread(producer);
+			producerThread = new TestProducerThread(producer, 500);
 
 			// consumer
 			consumer = createConsumer();
 			consumerStarter = new TestConsumerStarter(consumer);
 
-			// start
+			// start: our topic has 5 partitions - so we need at max 5 consumers
 			producerThread.start();
-			consumerStarter.start(4);
+			consumerStarter.start(5);
 
-			Thread.sleep(2000);
+			Thread.sleep(10_000);
 		} finally {
 			producerThread.shutdown();
 			producerThread.join();
 			producer.close();
-			consumerStarter.stop();
-			consumer.shutdown();
+			if (consumerStarter != null) {
+				consumerStarter.stop();
+			}
+			if (consumer != null) {
+				consumer.shutdown();
+			}
 		}
 	}
 

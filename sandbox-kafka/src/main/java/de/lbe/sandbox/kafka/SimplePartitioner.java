@@ -9,8 +9,8 @@ public class SimplePartitioner implements Partitioner<String> {
 
 	}
 
-	public int partition(String key, int a_numPartitions) {
-		return Math.abs(key.hashCode()) % a_numPartitions;
+	public int partition(String key, int numberOfPartitions) {
+		return Math.abs(key.hashCode()) % numberOfPartitions;
 	}
 
 }

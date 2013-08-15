@@ -1,0 +1,47 @@
+Messages are published to Topics (Category, Feed Name)
+One Topic has several Partitions
+One Partition (is one commit log) has ordered messages
+One Message has a unique number (Offset) that is unique in one partition
+
+Messages are durable for a defined period of time (e.g. 2 days) -> replay (e.g. useful if we have a Bug in consumer)
+Consumers can reset to an old Offset to replay
+
+Kafka writes incoming messages sequentially without caching in App-Layer -> Caching of OS-layer
+OS-Cache stays warm after a service-restart!
+
+Heavily relays on Filesystem (linear vs. random writes: factor 6000)
+Batching of Messages over the network -> No many small IO
+Compression of messages
+No Byte copying (sendfile protocol)
+Async-Batch-Sends of messages
+
+Slaves (Followers) are just consumers to the Leader
+Committed if a messages is synced in the the cluster
+Producers can wait for commit or not
+a committed message will not be lost as long as a single in sync replica survives. 
+
+Partition: 
+* each partion has to fit on the servers that host it
+* each is shared between some cluster-nodes
+* one node is the leader
+* the leader hadles all reads and writes, followers replicate the leader
+* Producers decide to which partion a message goes (round robin or semantic LB)
+
+Consumer:
+* groups -> handles queue + publish/subscibe
+* each message in one group is published to one consumer
+* Ordering guranteed at consumer side: each partition is consumed by exaclty one consumer in the group -> the consumer id the only reader
+  -> it's not possible to have more consumers than partitions
+* keeps track of what has been consumed (just the current offset)
+
+Pull vs Push
+* Consumers always pull -> no overload, the server keeps the messages in any way
+
+
+Delivery strategies:
+    At most once—Messages may be lost but are never redelivered.
+    At least once—Messages are never lost but may be redelivered.
+    Exactly once—this is what people actually want, each message is delivered once and only once.
+
+Wenn man den Zookeeper gekillt hat, haben sowohl Server als auch Client Warnungen geloggt, aber Producer und Consumer haben weitergearbeitet
+Hat man den Zookeeper wieder gestartet, haben sie Client und Server wieder erholt
