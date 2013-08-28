@@ -5,7 +5,6 @@ import java.util.Collection;
 import com.google.code.morphia.Datastore;
 import com.google.code.morphia.Key;
 import com.google.code.morphia.Morphia;
-<<<<<<< HEAD
 import com.mongodb.MongoClient;
 import com.zanox.lib.commons.util.CollectionUtils;
 
@@ -30,34 +29,6 @@ public class MorphiaMain {
 		Morphia morphia = new Morphia();
 
 		Datastore ds = morphia.createDatastore(mongoClient, TESTDB);
-=======
-import com.mongodb.DB;
-import com.mongodb.MongoClient;
-import com.zanox.lib.commons.util.CollectionUtils;
-
-/**
- * Orika says that we should use the mapper factory as a singleton.
- * 
- * http://orika-mapper.github.io/orika-docs/performance-tuning.html
- * 
- * @author lars.beuster
- */
-public class MorphiaMain {
-
-	private static final String TESTDB = "morphiadb";
-
-	public static void main(String[] args) throws Exception {
-
-		MongoClient mongoClient = new MongoClient("localhost", 27017);
-
-		// delete the test db
-		DB db = mongoClient.getDB(TESTDB);
-		// mongoClient.dropDatabase(TESTDB);
-
-		Morphia morphia = new Morphia();
-
-		Datastore ds = morphia.createDatastore(TESTDB);
->>>>>>> branch 'master' of https://github.com/lbeuster/sandbox.git
 		morphia.map(Employee.class);
 
 		System.out.println(ds.getCount(Employee.class));
