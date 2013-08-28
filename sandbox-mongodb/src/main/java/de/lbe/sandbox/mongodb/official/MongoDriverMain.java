@@ -1,4 +1,4 @@
-package de.lbe.sandbox.mongodb;
+package de.lbe.sandbox.mongodb.official;
 
 import java.util.Set;
 
@@ -9,10 +9,6 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 
 /**
- * Orika says that we should use the mapper factory as a singleton.
- * 
- * http://orika-mapper.github.io/orika-docs/performance-tuning.html
- * 
  * @author lars.beuster
  */
 public class MongoDriverMain {
