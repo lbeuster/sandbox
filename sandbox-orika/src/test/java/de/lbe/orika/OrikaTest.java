@@ -7,7 +7,7 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 import org.junit.Test;
 
-import com.zanox.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 
 /**
  * Orika say that we should use the

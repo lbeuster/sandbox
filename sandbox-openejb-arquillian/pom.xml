@@ -13,7 +13,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
+				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>openejb-bom</artifactId>
 				<version>${maven-boms.version}</version>
 				<type>pom</type>
@@ -25,12 +25,12 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-core</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-arquillian</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 

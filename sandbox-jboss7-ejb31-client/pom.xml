@@ -49,8 +49,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-core</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.ejb</groupId>
@@ -101,8 +101,8 @@
 		<!-- <scope>test</scope> -->
 		<!-- </dependency> -->
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-test</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<!-- <dependency> -->

@@ -3,9 +3,9 @@ package de.lbe.sandbox.openejb;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-import com.zanox.lib.commons.dbunit.AbstractJUnit4DBUnitTest;
-import com.zanox.lib.commons.dbunit.DBUnits;
-import com.zanox.lib.commons.dbunit.DataSourceDBUnit;
+import de.asideas.lib.commons.dbunit.AbstractJUnit4DBUnitTest;
+import de.asideas.lib.commons.dbunit.DBUnits;
+import de.asideas.lib.commons.dbunit.DataSourceDBUnit;
 
 /**
  *

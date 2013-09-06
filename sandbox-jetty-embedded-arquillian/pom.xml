@@ -13,7 +13,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
+				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>jetty9-bom</artifactId>
 				<version>${maven-boms.version}</version>
 				<type>pom</type>
@@ -26,18 +26,18 @@
 
 		<!-- Test -->
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-httpclient</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-httpclient</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-arquillian</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-jetty</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-jetty</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

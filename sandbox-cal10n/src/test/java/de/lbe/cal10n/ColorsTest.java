@@ -15,7 +15,7 @@ import ch.qos.cal10n.verifier.Cal10nError;
 import ch.qos.cal10n.verifier.IMessageKeyVerifier;
 import ch.qos.cal10n.verifier.MessageKeyVerifier;
 
-import com.zanox.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 
 /**
  * Orika say that we should use the

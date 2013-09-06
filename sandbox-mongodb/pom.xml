@@ -29,8 +29,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-core</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-core</artifactId>
 		</dependency>
 
 	</dependencies>

@@ -6,7 +6,8 @@ import com.google.code.morphia.Datastore;
 import com.google.code.morphia.Key;
 import com.google.code.morphia.Morphia;
 import com.mongodb.MongoClient;
-import com.zanox.lib.commons.util.CollectionUtils;
+
+import de.asideas.lib.commons.util.CollectionUtils;
 
 /**
  * Orika says that we should use the mapper factory as a singleton.

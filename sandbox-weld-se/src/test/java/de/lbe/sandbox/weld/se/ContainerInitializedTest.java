@@ -2,7 +2,7 @@ package de.lbe.sandbox.weld.se;
 
 import org.junit.Test;
 
-import com.zanox.lib.commons.cdi.BeanManagerUtils;
+import de.asideas.lib.commons.cdi.BeanManagerUtils;
 
 /**
  * @author Lars Beuster

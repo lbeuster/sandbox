@@ -12,7 +12,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
+				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>tomee15-bom</artifactId>
 				<version>${maven-boms.version}</version>
 				<type>pom</type>
@@ -24,8 +24,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-arquillian</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 

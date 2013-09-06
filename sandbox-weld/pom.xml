@@ -14,8 +14,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-cdi</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-cdi</artifactId>
 		</dependency>
 
 		<!-- Weld -->
@@ -26,8 +26,8 @@
 
 		<!-- Test -->
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-arquillian</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

@@ -8,7 +8,7 @@ import java.io.InputStream;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.zanox.lib.commons.io.IOUtils;
+import de.asideas.lib.commons.io.IOUtils;
 
 /**
  * 

@@ -9,7 +9,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 
-import com.zanox.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
+import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
 
 /**
  * @author lars.beuster

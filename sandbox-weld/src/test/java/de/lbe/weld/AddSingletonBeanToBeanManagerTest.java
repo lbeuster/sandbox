@@ -7,8 +7,7 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 
-import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
-
+import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 import de.lbe.weld.WeldBeanManagerUtils;
 
 /**

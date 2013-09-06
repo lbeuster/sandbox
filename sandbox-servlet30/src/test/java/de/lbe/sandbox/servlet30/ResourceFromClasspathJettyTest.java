@@ -16,7 +16,7 @@ public class ResourceFromClasspathJettyTest extends AbstractJettyTest {
 	 */
 	@Test
 	public void testWebInfClasses() throws Exception {
-		this.httpClient.GET("resource-from-webinf-classes.txt", HttpServletResponse.SC_NOT_FOUND);
+		this.httpClient.get("resource-from-webinf-classes.txt", HttpServletResponse.SC_NOT_FOUND);
 	}
 
 	/**
@@ -25,6 +25,6 @@ public class ResourceFromClasspathJettyTest extends AbstractJettyTest {
 	@Test
 	public void testJar() throws Exception {
 		// should work according to servlet-spec but doesn't
-		this.httpClient.GET("resource-from-jar.txt", HttpServletResponse.SC_NOT_FOUND);
+		this.httpClient.get("resource-from-jar.txt", HttpServletResponse.SC_NOT_FOUND);
 	}
 }

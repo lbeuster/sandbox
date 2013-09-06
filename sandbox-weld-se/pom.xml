@@ -13,8 +13,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-cdi</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-cdi</artifactId>
 		</dependency>
 
 		<dependency>
@@ -23,8 +23,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-test</artifactId>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 

@@ -5,12 +5,11 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
-import org.slf4j.bridge.SLF4JBridgeHandler;
 
-import com.zanox.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
-import com.zanox.lib.commons.net.httpclient.DefaultHttpClient;
-import com.zanox.lib.commons.net.httpclient.HttpClientUtils;
-import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
+import de.asideas.lib.commons.net.httpclient.DefaultHttpClient;
+import de.asideas.lib.commons.net.httpclient.HttpClientUtils;
+import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**
  * @author lars.beuster
@@ -39,7 +38,7 @@ public class JettyArquillianTest extends AbstractJUnit4ArquillianTest {
 	@Test
 	public void testStartJetty() throws Exception {
 		DefaultHttpClient client = new DefaultHttpClient("http://localhost:" + HTTP_PORT + "/" + CONTEXT_PATH);
-		HttpResponse response = client.GET200("index.html");
+		HttpResponse response = client.get200("index.html");
 		String content = HttpClientUtils.toString(response).trim();
 		assertEquals("INDEX.HTML", content);
 	}

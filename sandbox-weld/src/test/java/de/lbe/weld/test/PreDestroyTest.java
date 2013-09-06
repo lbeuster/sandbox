@@ -7,8 +7,7 @@ import javax.inject.Singleton;
 
 import org.junit.Test;
 
-import com.zanox.lib.commons.test.junit.AbstractJUnit4Test;
-
+import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 import de.lbe.weld.test.EmbeddedWeld;
 
 /**

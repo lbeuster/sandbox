@@ -16,7 +16,8 @@ import com.google.code.morphia.annotations.Property;
 import com.google.code.morphia.annotations.Reference;
 import com.google.code.morphia.annotations.Transient;
 import com.mongodb.DBObject;
-import com.zanox.lib.commons.lang.ObjectUtils;
+
+import de.asideas.lib.commons.lang.ObjectUtils;
 
 @Entity("employees")
 public class Employee {

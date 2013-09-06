@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<parent>
-		<groupId>de.lbe.maven.boms</groupId>
+		<groupId>de.asideas.maven.boms</groupId>
 		<artifactId>parent-bom</artifactId>
-		<version>1.1-SNAPSHOT</version>
+		<version>1.2-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -15,12 +14,13 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<maven-boms.version>1.1-SNAPSHOT</maven-boms.version>
-		<zxlib_commons.version>1.0-SNAPSHOT</zxlib_commons.version>
+		<maven-boms.version>1.2-SNAPSHOT</maven-boms.version>
+		<lib-commons.version>1.1</lib-commons.version>
 		<orika.version>1.4.2</orika.version>
 	</properties>
 
 	<modules>
+		<module>sandbox-jee6-webapp</module>
 		<module>sandbox-mongodb</module>
 		<module>sandbox-zookeeper</module>
 		<module>sandbox-kafka</module>
@@ -43,9 +43,9 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.zanox.lib.commons</groupId>
-				<artifactId>zx-commons</artifactId>
-				<version>${zxlib_commons.version}</version>
+				<groupId>de.asideas.lib.commons</groupId>
+				<artifactId>asideas-commons</artifactId>
+				<version>${lib-commons.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

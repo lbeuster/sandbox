@@ -6,8 +6,7 @@ import javax.inject.Inject;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Test;
 
-import com.zanox.lib.commons.test.junit.AbstractJUnit4Test;
-
+import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 import de.lbe.weld.test.EmbeddedWeld;
 
 /**

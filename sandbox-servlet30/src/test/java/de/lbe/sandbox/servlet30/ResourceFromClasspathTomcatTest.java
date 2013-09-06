@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Test;
 
-import com.zanox.lib.commons.test.util.TestUtils;
+import de.asideas.lib.commons.test.util.TestUtils;
 
 /**
  * Provides a Jetty start up for testing against Jetty throughout several test classes.
@@ -18,7 +18,7 @@ public class ResourceFromClasspathTomcatTest extends AbstractTomcatTest {
 	 */
 	@Test
 	public void testWebInfClasses() throws Exception {
-		this.httpClient.GET("resource-from-webinf-classes.txt", HttpServletResponse.SC_NOT_FOUND);
+		this.httpClient.get("resource-from-webinf-classes.txt", HttpServletResponse.SC_NOT_FOUND);
 	}
 
 	/**
@@ -31,6 +31,6 @@ public class ResourceFromClasspathTomcatTest extends AbstractTomcatTest {
 				+ "because the required document isn't servered from the jar but from the target/classes directory of the dependent project.");
 			return;
 		}
-		this.httpClient.GET("resource-from-jar.txt", HttpServletResponse.SC_OK);
+		this.httpClient.get("resource-from-jar.txt", HttpServletResponse.SC_OK);
 	}
 }

@@ -15,8 +15,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.zanox.lib.commons.net.httpclient.DefaultHttpClient;
-import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.asideas.lib.commons.net.httpclient.DefaultHttpClient;
+import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**
  * @author lars.beuster
@@ -43,7 +43,7 @@ public class JBoss7ClientArquillianTest extends Assert {
 	@Test
 	public void testIndexHtml() throws Exception {
 		DefaultHttpClient httpClient = new DefaultHttpClient(this.contextPathURL);
-		HttpResponse response = httpClient.GET200("");
+		HttpResponse response = httpClient.get200("");
 		InputStream in = response.getEntity().getContent();
 		try {
 			String content = IOUtils.toString(in);

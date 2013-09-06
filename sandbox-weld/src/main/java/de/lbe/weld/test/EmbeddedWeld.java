@@ -20,8 +20,7 @@ import org.jboss.weld.manager.BeanManagerImpl;
 import org.jboss.weld.metadata.BeansXmlImpl;
 import org.jboss.weld.metadata.ScanningImpl;
 
-import com.zanox.lib.commons.lang.Assert;
-
+import de.asideas.lib.commons.lang.Assert;
 import de.lbe.weld.WeldBeanManagerUtils;
 
 /**

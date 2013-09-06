@@ -7,7 +7,7 @@ import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.After;
 import org.junit.Before;
 
-import com.zanox.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 
 /**
  * @author Lars Beuster

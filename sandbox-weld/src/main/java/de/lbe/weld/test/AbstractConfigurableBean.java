@@ -12,7 +12,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 
 import org.jboss.weld.literal.DefaultLiteral;
 
-import com.zanox.lib.commons.lang.Assert;
+import de.asideas.lib.commons.lang.Assert;
 
 /**
  * @author lars.beuster

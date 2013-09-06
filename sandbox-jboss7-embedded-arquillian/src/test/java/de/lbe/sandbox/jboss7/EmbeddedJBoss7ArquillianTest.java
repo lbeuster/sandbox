@@ -10,8 +10,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.zanox.lib.commons.lang.ClassLoaderUtils;
-import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.asideas.lib.commons.lang.ClassLoaderUtils;
+import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**
  * @author lars.beuster

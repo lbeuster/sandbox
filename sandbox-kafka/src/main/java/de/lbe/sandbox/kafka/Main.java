@@ -10,19 +10,17 @@ import kafka.producer.ProducerConfig;
 import kafka.serializer.StringEncoder;
 
 /**
- * https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+Producer+Example 
- * https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example
+ * https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+Producer+Example https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example
  * 
- * (1) Start zookeper 
- * (2) Start kafka 
- * (3) create queue: bin/kafka-create-topic.sh --topic TestProducer --replica 1 --zookeeper localhost:2181 --partition 5
+ * (1) Start zookeper (2) Start kafka (3) create queue: bin/kafka-create-topic.sh --topic TestProducer --replica 1 --zookeeper localhost:2181
+ * --partition 5
  */
 public class Main {
 
 	/**
 	 * 
 	 */
-	public static final void main(String[] args) throws Exception {
+	public static final void main(String[] args) throws Throwable {
 		Producer<String, String> producer = null;
 		TestProducerThread producerThread = null;
 		ConsumerConnector consumer = null;
@@ -42,10 +40,17 @@ public class Main {
 			consumerStarter.start(5);
 
 			Thread.sleep(10_000);
+		} catch (Throwable ex) {
+			ex.printStackTrace();
+			throw ex;
 		} finally {
-			producerThread.shutdown();
-			producerThread.join();
-			producer.close();
+			if (producerThread != null) {
+				producerThread.shutdown();
+				producerThread.join();
+			}
+			if (producer != null) {
+				producer.close();
+			}
 			if (consumerStarter != null) {
 				consumerStarter.stop();
 			}

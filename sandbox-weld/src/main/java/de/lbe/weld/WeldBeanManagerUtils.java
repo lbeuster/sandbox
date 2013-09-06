@@ -7,9 +7,8 @@ import org.jboss.weld.ejb.EjbDescriptors;
 import org.jboss.weld.manager.BeanManagerImpl;
 import org.jboss.weld.resources.ClassTransformer;
 
-import com.zanox.lib.commons.cdi.BeanManagerUtils;
-import com.zanox.lib.commons.lang.Assert;
-
+import de.asideas.lib.commons.cdi.BeanManagerUtils;
+import de.asideas.lib.commons.lang.Assert;
 import de.lbe.weld.test.SingletonBean;
 
 /**

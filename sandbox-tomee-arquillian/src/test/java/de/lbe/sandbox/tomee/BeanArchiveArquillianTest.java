@@ -7,8 +7,8 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 
-import com.zanox.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
-import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
+import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**
  * @author lars.beuster

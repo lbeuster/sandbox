@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.jboss.weld.manager.BeanManagerImpl;
 
-import com.zanox.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
-import com.zanox.lib.commons.cdi.BeanManagerUtils;
+import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
+import de.asideas.lib.commons.cdi.BeanManagerUtils;
 
 /**
  * @author lars.beuster

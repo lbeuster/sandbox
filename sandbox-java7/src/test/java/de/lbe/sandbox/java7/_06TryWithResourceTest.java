@@ -7,7 +7,7 @@ import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.zanox.lib.commons.io.IOUtils;
+import de.asideas.lib.commons.io.IOUtils;
 
 /**
  * Es gibt ein neues try-Konstrukt, mit dem Resourcen, die im try-Header geoeffnet werden, automatisch beim Verlassen

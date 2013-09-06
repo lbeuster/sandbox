@@ -13,7 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.zanox.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**
  * @author Lars Beuster
