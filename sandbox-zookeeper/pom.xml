@@ -14,6 +14,20 @@
 		<zookeeper.version>3.4.5</zookeeper.version>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>commons-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 
 		<dependency>

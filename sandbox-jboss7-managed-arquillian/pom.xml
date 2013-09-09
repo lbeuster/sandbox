@@ -16,7 +16,7 @@
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>jboss72-bom</artifactId>
-				<version>${maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -33,8 +33,8 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-httpclient</artifactId>
+			<groupId>com.zanox.lib.commons</groupId>
+			<artifactId>zx-commons-httpclient</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

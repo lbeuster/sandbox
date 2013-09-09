@@ -27,18 +27,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-jetty</artifactId>
+			<groupId>com.zanox.lib.commons</groupId>
+			<artifactId>zx-commons-jetty</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-tomcat</artifactId>
+			<groupId>com.zanox.lib.commons</groupId>
+			<artifactId>zx-commons-tomcat</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-httpclient</artifactId>
+			<groupId>com.zanox.lib.commons</groupId>
+			<artifactId>zx-commons-httpclient</artifactId>
 			<scope>test</scope>
 		</dependency>
 

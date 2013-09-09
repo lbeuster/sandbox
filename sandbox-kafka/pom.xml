@@ -20,14 +20,9 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>de.asideas.maven.boms</groupId>
 			<artifactId>kafka08-bom</artifactId>
-			<version>${maven-boms.version}</version>
+			<version>${asideas-maven-boms.version}</version>
 			<type>pom</type>
 		</dependency>
 

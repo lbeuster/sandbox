@@ -13,12 +13,20 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>jetty9-bom</artifactId>
-				<version>${maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -26,8 +34,8 @@
 
 		<!-- Test -->
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-httpclient</artifactId>
+			<groupId>com.zanox.lib.commons</groupId>
+			<artifactId>zx-commons-httpclient</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -36,8 +44,8 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-jetty</artifactId>
+			<groupId>com.zanox.lib.commons</groupId>
+			<artifactId>zx-commons-jetty</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
