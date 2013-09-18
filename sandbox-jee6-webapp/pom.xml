@@ -38,6 +38,7 @@
 
 	<dependencyManagement>
 		<dependencies>
+
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
@@ -45,16 +46,57 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
+			<dependency>
+				<groupId>de.lbe.maven.boms</groupId>
+				<artifactId>tomee15-bom</artifactId>
+				<version>${lbe-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
+
 		<dependency>
-			<groupId>org.jboss.spec</groupId>
-			<artifactId>jboss-javaee-web-6.0</artifactId>
-			<version>${jboss-jee6-spec.version}</version>
-			<type>pom</type>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-arquillian</artifactId>
+			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>arquillian-tomee-embedded</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>tomee-embedded</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>tomee-jaxrs</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.openejb</groupId> -->
+<!-- 			<artifactId>tomee-webservices</artifactId> -->
+<!-- 			<scope>test</scope> -->
+<!-- 			<version>1.5.1</version> -->
+<!-- 		</dependency> -->
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>openejb-cxf-rs</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 </project>
