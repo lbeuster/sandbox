@@ -16,9 +16,12 @@
  */
 package de.lbe.jee6.webapp.rest;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 
  */
+@XmlRootElement
 public class JsonHello {
 
 	private String message;
