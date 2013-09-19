@@ -41,6 +41,7 @@
 		<module>sandbox-openejb-embedded</module>
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
+		<module>sandbox-tomee-jersey-arquillian</module>
 	</modules>
 
 	<dependencyManagement>

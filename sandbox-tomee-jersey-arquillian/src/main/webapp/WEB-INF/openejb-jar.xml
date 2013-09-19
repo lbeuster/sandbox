@@ -1,0 +1,7 @@
+<openejb-jar>
+	<pojo-deployment class-name="de.lbe.tomee.webapp.rest.HelloWorldResource">
+		<properties>
+			cxf.jaxrs.providers = myJson
+		</properties>
+	</pojo-deployment>
+</openejb-jar>
