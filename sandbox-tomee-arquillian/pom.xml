@@ -8,9 +8,32 @@
 	</parent>
 
 	<artifactId>sandbox-tomee-arquillian</artifactId>
+	<packaging>war</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.openejb.maven</groupId>
+				<artifactId>tomee-maven-plugin</artifactId>
+				<version>1.5.2</version>
+				<configuration>
+					<tomeeVersion>1.5.2</tomeeVersion>
+					<tomeeClassifier>plus</tomeeClassifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>commons-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>tomee15-bom</artifactId>
@@ -18,11 +41,31 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>jersey1-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
 
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-arquillian</artifactId>
@@ -32,7 +75,23 @@
 		<dependency>
 			<groupId>org.apache.openejb</groupId>
 			<artifactId>arquillian-tomee-embedded</artifactId>
-			<scope>test</scope>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- jaxrs is an optional dependency -->
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>tomee-jaxrs</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
 		</dependency>
 
 	</dependencies>
