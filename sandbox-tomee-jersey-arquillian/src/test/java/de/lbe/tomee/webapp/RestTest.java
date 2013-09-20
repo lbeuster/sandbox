@@ -10,7 +10,6 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -25,9 +24,8 @@ import de.lbe.tomee.webapp.rest.JsonHello;
 /**
  * @author lars.beuster
  */
-@RunWith(JerseyArquillianRunner.class)
 public class RestTest extends AbstractJUnit4ArquillianTest {
-	
+
 	@ArquillianResource
 	private URL contextPathURL;
 
