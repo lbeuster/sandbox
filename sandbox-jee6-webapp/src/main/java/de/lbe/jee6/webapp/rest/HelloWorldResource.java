@@ -16,13 +16,18 @@
  */
 package de.lbe.jee6.webapp.rest;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import de.lbe.jee6.webapp.ejb.Hello;
-import de.lbe.jee6.webapp.ejb.HelloService;
+import de.lbe.jee6.webapp.ejb.HelloServiceWithDataSource;
 
 /**
  * A simple REST service which is able to say hello to someone using HelloService Please take a look at the web.xml where JAX-RS is enabled
@@ -35,28 +40,44 @@ import de.lbe.jee6.webapp.ejb.HelloService;
 public class HelloWorldResource {
 
 	@Inject
-	HelloService helloService;
+	HelloServiceWithDataSource helloService;
 
 	@GET
-	@Path("/json")
+	@Path("/hellos/get/json")
 	@Produces({ "application/json" })
-	public JsonHello getHelloWorldJSON() {
-		Hello message = helloService.createHello("World");
-		JsonHello hello = new JsonHello();
-		hello.setMessage(message.getMessage());
-		hello.setResponseId(message.getId());
-		return hello;
+	public List<JsonHello> getHellos() {
+
+		Collection<Hello> hellos = this.helloService.findAllHellos();
+
+		List<JsonHello> jsonHellos = new ArrayList<JsonHello>();
+		for (Hello hello : hellos) {
+			JsonHello jsonHello = new JsonHello();
+			jsonHello.setMessage(hello.getMessage());
+			jsonHello.setResponseId(hello.getId());
+			jsonHellos.add(jsonHello);
+		}
+		return jsonHellos;
 	}
 
 	@GET
-	@Path("/xml")
+	@Path("/hellos/get/xml")
 	@Produces({ "application/xml" })
 	public XmlHello getHelloWorldXML() {
-		Hello message = helloService.createHello("World");
-		XmlHello hello = new XmlHello();
-		hello.setMessage(message.getMessage());
-		hello.setResponseId(message.getId());
-		return hello;
+		return null;
+
+	}
+
+	@GET
+	@Path("/hellos/create/{id}/{message}")
+	@Produces({ "application/json" })
+	public JsonHello createHello(@PathParam("id") long id, @PathParam("message") String message) {
+
+		Hello hello = this.helloService.createHello(id, message);
+
+		JsonHello jsonHello = new JsonHello();
+		jsonHello.setResponseId(hello.getId());
+		jsonHello.setMessage(hello.getMessage());
+		return jsonHello;
 	}
 
 }

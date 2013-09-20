@@ -48,8 +48,24 @@
 			</dependency>
 
 			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
+				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>tomee15-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>de.lbe.maven.boms</groupId>
+				<artifactId>hibernate-bom</artifactId>
 				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -60,6 +76,10 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-core</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-arquillian</artifactId>
@@ -83,19 +103,29 @@
 			<artifactId>tomee-jaxrs</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.openejb</groupId> -->
-<!-- 			<artifactId>tomee-webservices</artifactId> -->
-<!-- 			<scope>test</scope> -->
-<!-- 			<version>1.5.1</version> -->
-<!-- 		</dependency> -->
 
 		<dependency>
-			<groupId>org.apache.openejb</groupId>
-			<artifactId>openejb-cxf-rs</artifactId>
-			<scope>provided</scope>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.openejb</groupId> -->
+		<!-- <artifactId>tomee-webservices</artifactId> -->
+		<!-- <scope>test</scope> -->
+		<!-- <version>1.5.1</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.openejb</groupId> -->
+		<!-- <artifactId>openejb-cxf-rs</artifactId> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
 
 	</dependencies>
 

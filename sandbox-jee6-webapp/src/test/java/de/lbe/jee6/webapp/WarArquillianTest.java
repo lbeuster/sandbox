@@ -11,14 +11,15 @@ import org.junit.Test;
 
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.lbe.jee6.webapp.rest.HelloWorldConfig;
 
 /**
  * @author lars.beuster
  */
 public class WarArquillianTest extends AbstractJUnit4ArquillianTest {
 
-//	@ArquillianResource
-//	private URL contextPathURL;
+	@ArquillianResource
+	private URL contextPathURL;
 
 	/**
 	 * 
@@ -26,7 +27,9 @@ public class WarArquillianTest extends AbstractJUnit4ArquillianTest {
 	@Deployment(testable = false)
 	public static WebArchive deployment() {
 		WebArchive archive = ShrinkWrap.create(WebArchive.class, "test-webapp.war").addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+		ShrinkWrapUtils.addArchiveOfClass(archive, HelloWorldConfig.class);
 		ShrinkWrapUtils.addDirectory(archive, "src/main/webapp");
+		ShrinkWrapUtils.exportToFile(archive, "/tmp/sandbox.war", true);
 		return archive;
 	}
 
@@ -38,7 +41,7 @@ public class WarArquillianTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Test
 	public void testStartup() throws Exception {
-//		System.out.println(this.contextPathURL);
+		// System.out.println(this.contextPathURL);
 
 	}
 }
