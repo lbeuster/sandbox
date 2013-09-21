@@ -20,10 +20,6 @@
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
-
-					<!-- needed for integration-tests -->
-					<attachClasses>true</attachClasses>
-
 					<!-- declare dependencies provided by JBoss -->
 					<archive>
 						<manifestEntries>

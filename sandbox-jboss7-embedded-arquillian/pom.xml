@@ -14,7 +14,7 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>jboss72-bom</artifactId>
 				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
@@ -26,6 +26,10 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.jboss.as</groupId>
 			<artifactId>jboss-as-embedded</artifactId>

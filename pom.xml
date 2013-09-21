@@ -19,6 +19,7 @@
 
 		<asideas-maven-boms.version>1.3-SNAPSHOT</asideas-maven-boms.version>
 		<asideas-commons.version>1.2-SNAPSHOT</asideas-commons.version>
+		
 		<orika.version>1.4.2</orika.version>
 	</properties>
 
@@ -33,7 +34,6 @@
 		<!-- <module>sandbox-cal10n</module> -->
 		<module>sandbox-weld</module>
 		<module>sandbox-weld-se</module>
-		<module>sandbox-servlet30</module>
 		<module>sandbox-jetty-embedded-arquillian</module>
 		<module>sandbox-jboss7-embedded</module>
 		<module>sandbox-jboss7-embedded-arquillian</module>
@@ -42,6 +42,7 @@
 		<module>sandbox-openejb-arquillian</module>
 		<module>sandbox-tomee-arquillian</module>
 		<module>sandbox-tomee-jersey-arquillian</module>
+		<module>sandbox-servlet30</module>
 	</modules>
 
 	<dependencyManagement>

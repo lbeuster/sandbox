@@ -22,6 +22,13 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>jee6-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>arquillian-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
@@ -42,6 +49,12 @@
 		<dependency>
 			<groupId>org.jboss.weld</groupId>
 			<artifactId>weld-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- Test -->
