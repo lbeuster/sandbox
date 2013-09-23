@@ -18,37 +18,26 @@ package de.lbe.jee6.webapp.ejb;
 
 import java.util.Collection;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.ejb.ConcurrencyManagement;
+import javax.ejb.ConcurrencyManagementType;
+import javax.ejb.EJB;
+import javax.ejb.Singleton;
 
 /**
  * 
  */
-@Stateless
-public class HelloService {
+@Singleton
+@ConcurrencyManagement(ConcurrencyManagementType.BEAN)
+public class SingletonHelloService {
 
-	@PersistenceContext(name = "Test-JEE6")
-	private EntityManager entityManager;
+	@EJB
+	private HelloService helloService;;
 
-	public Hello createHello(String name) {
-		String message = "Hello " + name + "!";
-		Hello hello = new Hello();
-		hello.setMessage(message);
-		this.entityManager.persist(hello);
-		return hello;
+	public Hello createHello(long id, String name) {
+		return helloService.createHello(name);
 	}
 
 	public Collection<Hello> findAllHellos() {
-		CriteriaBuilder cb = this.entityManager.getCriteriaBuilder();
-		CriteriaQuery<Hello> query = cb.createQuery(Hello.class);
-	    Root<Hello> root = query.from(Hello.class);
-	    query.select(root);
-		TypedQuery<Hello> typedQuery = this.entityManager.createQuery(query);
-		return typedQuery.getResultList();
+		return helloService.findAllHellos();
 	}
 }

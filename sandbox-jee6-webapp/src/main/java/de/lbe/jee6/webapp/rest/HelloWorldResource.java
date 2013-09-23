@@ -27,12 +27,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import de.lbe.jee6.webapp.ejb.Hello;
-import de.lbe.jee6.webapp.ejb.HelloServiceWithDataSource;
+import de.lbe.jee6.webapp.ejb.SingletonHelloService;
 
 /**
  * A simple REST service which is able to say hello to someone using HelloService Please take a look at the web.xml where JAX-RS is enabled
- * 
- * @author gbrey@redhat.com
  * 
  */
 
@@ -40,7 +38,7 @@ import de.lbe.jee6.webapp.ejb.HelloServiceWithDataSource;
 public class HelloWorldResource {
 
 	@Inject
-	HelloServiceWithDataSource helloService;
+	SingletonHelloService helloService;
 
 	@GET
 	@Path("/hellos/get/json")

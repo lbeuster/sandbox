@@ -41,7 +41,6 @@ public class WarArquillianTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Test
 	public void testStartup() throws Exception {
-		// System.out.println(this.contextPathURL);
-
+		System.out.println(this.contextPathURL);
 	}
 }
