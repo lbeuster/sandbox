@@ -60,9 +60,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
-				<artifactId>hibernate-bom</artifactId>
-				<version>${lbe-maven-boms.version}</version>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>hibernate4-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
