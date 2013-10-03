@@ -2,9 +2,10 @@ package de.lbe.sandbox.mongodb.morphia;
 
 import java.util.Collection;
 
-import com.google.code.morphia.Datastore;
-import com.google.code.morphia.Key;
-import com.google.code.morphia.Morphia;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Key;
+import org.mongodb.morphia.Morphia;
+
 import com.mongodb.MongoClient;
 
 import de.asideas.lib.commons.util.CollectionUtils;
