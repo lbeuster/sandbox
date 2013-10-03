@@ -19,6 +19,14 @@
 
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>commons-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>mongodb-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
@@ -29,6 +37,15 @@
 	</dependencyManagement>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -46,6 +63,12 @@
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
