@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-metrics</module>
 		<module>sandbox-jee6-webapp</module>
 		<module>sandbox-mongodb</module>
 		<module>sandbox-zookeeper</module>
