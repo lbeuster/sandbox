@@ -2,23 +2,16 @@ package de.lbe.sandbox.metrics.webapp;
 
 import java.net.URL;
 
-import javax.ws.rs.core.MediaType;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
-import com.sun.jersey.api.json.JSONConfiguration;
-
-import de.lbe.sandbox.metrics.webapp.Hello;
-import de.lbe.sandbox.metrics.webapp.HelloWorldResource;
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.asideas.lib.commons.test.restclient.RestClient;
 
 /**
  * @author lars.beuster
@@ -27,6 +20,24 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 
 	@ArquillianResource
 	private URL contextPathURL;
+
+	private RestClient restClient;
+
+	/**
+	 * 
+	 */
+	@Before
+	public void setUp() {
+		this.restClient = RestClient.create(this.contextPathURL);
+	}
+
+	/**
+	 * 
+	 */
+	@After
+	public void tearDown() {
+		this.restClient.close();
+	}
 
 	/**
 	 * 
@@ -45,16 +56,12 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	@Test
 	public void testHello() throws Exception {
 
-		String url = this.contextPathURL + "rest/hello";
-
-		ClientConfig clientConfig = new DefaultClientConfig();
-		clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
-		Client client = Client.create(clientConfig);
-
-		WebResource resource = client.resource(url);
-		Hello hello = resource.accept(MediaType.APPLICATION_JSON_TYPE).get(Hello.class);
-
-		assertNotNull(hello);
-		assertEquals("HALLO", hello.getMessage());
+		final int n = 10;
+		for (int i = 0; i < n; i++) {
+			Hello hello = this.restClient.path("rest/hello").acceptJSON().get().assertIsStatusOk().assertIsJSON().getEntity(Hello.class);
+			assertNotNull(hello);
+			assertEquals("HALLO", hello.getMessage());
+			assertEquals(i + 1, hello.getCounter());
+		}
 	}
 }

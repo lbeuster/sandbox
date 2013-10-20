@@ -74,6 +74,11 @@
 				<artifactId>asideas-commons-test</artifactId>
 				<version>${asideas-commons.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>de.asideas.lib.commons</groupId>
+				<artifactId>asideas-commons-test-rest</artifactId>
+				<version>${asideas-commons.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.zanox.lib.commons</groupId>
