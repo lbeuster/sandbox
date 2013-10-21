@@ -41,6 +41,7 @@
 		<module>sandbox-jboss7-managed-arquillian</module>
 		<module>sandbox-openejb-embedded</module>
 		<module>sandbox-openejb-arquillian</module>
+		<module>sandbox-tomee-embedded</module>
 		<module>sandbox-tomee-arquillian</module>
 		<module>sandbox-tomee-jersey-arquillian</module>
 		<module>sandbox-servlet30</module>
