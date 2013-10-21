@@ -15,6 +15,16 @@ public class Hello {
 	private double meanRequestRate;
 
 	private long duration;
+	
+	private long gauge;
+
+	public long getGauge() {
+		return this.gauge;
+	}
+
+	public void setGauge(long gauge) {
+		this.gauge = gauge;
+	}
 
 	public long getDuration() {
 		return this.duration;

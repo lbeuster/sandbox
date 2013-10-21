@@ -1,6 +1,7 @@
 package de.lbe.sandbox.metrics.webapp;
 
 import java.net.URL;
+import java.util.Map;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -63,5 +64,25 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 			assertEquals("HALLO", hello.getMessage());
 			assertEquals(i + 1, hello.getCounter());
 		}
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testHealthChecks() throws Exception {
+
+		Map healthChecks = this.restClient.path("rest/healthchecks").acceptJSON().get().assertIsStatusOk().assertIsJSON().getEntity(Map.class);
+		Map myCheck = (Map) healthChecks.get("myCheck");
+		assertNotNull(myCheck);
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testAdminServlet() throws Exception {
+
+		Object result = this.restClient.path("metrics").acceptJSON().get().assertIsStatusOk().getEntity(String.class);
 	}
 }
