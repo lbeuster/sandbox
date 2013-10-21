@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-metrics</module>
 		<module>sandbox-jee6-webapp</module>
 		<module>sandbox-mongodb</module>
 		<module>sandbox-zookeeper</module>
@@ -72,6 +73,11 @@
 			<dependency>
 				<groupId>de.asideas.lib.commons</groupId>
 				<artifactId>asideas-commons-test</artifactId>
+				<version>${asideas-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.lib.commons</groupId>
+				<artifactId>asideas-commons-test-rest</artifactId>
 				<version>${asideas-commons.version}</version>
 			</dependency>
 
