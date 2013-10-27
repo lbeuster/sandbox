@@ -30,10 +30,13 @@ public class HelloWorldResource {
 	@Inject
 	private MetricRegistry metricRegistry;
 
+	@Inject
 	private Counter requestCounter;
 
+	@Inject
 	private Meter requestMeter;
 
+	@Inject
 	private Timer responseTimer;
 
 	private Gauge<Long> gauge;
@@ -43,9 +46,6 @@ public class HelloWorldResource {
 
 	@PostConstruct
 	void init() {
-		this.requestCounter = metricRegistry.counter(MetricRegistry.name(getClass(), "requestCounter"));
-		this.requestMeter = metricRegistry.meter(MetricRegistry.name(getClass(), "requests"));
-		this.responseTimer = metricRegistry.timer(MetricRegistry.name(getClass(), "responses"));
 		this.gauge = new Gauge<Long>() {
 			@Override
 			public Long getValue() {
