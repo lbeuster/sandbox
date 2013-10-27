@@ -1,4 +1,4 @@
-package de.lbe.sandbox.metrics.webapp.metrics;
+package de.lbe.sandbox.metrics.webapp;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;

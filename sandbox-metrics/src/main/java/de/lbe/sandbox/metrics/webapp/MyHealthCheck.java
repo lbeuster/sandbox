@@ -1,4 +1,4 @@
-package de.lbe.sandbox.metrics.webapp.metrics;
+package de.lbe.sandbox.metrics.webapp;
 
 import com.codahale.metrics.health.HealthCheck;
 

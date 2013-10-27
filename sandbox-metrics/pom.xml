@@ -54,7 +54,7 @@
 
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-core</artifactId>
+			<artifactId>asideas-commons-cdi</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
@@ -80,6 +80,11 @@
 		<dependency>
 			<groupId>com.codahale.metrics</groupId>
 			<artifactId>metrics-servlets</artifactId>
+			<version>${metrics.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.codahale.metrics</groupId>
+			<artifactId>metrics-jersey</artifactId>
 			<version>${metrics.version}</version>
 		</dependency>
 		<dependency>
