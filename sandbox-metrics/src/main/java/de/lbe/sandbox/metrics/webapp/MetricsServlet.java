@@ -13,8 +13,10 @@ import com.codahale.metrics.servlets.HealthCheckServlet;
 /**
  * 
  */
-@WebServlet(urlPatterns = "/metrics")
+@WebServlet(urlPatterns = "/metrics/*")
 public class MetricsServlet extends AdminServlet {
+
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private HealthCheckRegistry healthCheckRegistry;
@@ -22,6 +24,7 @@ public class MetricsServlet extends AdminServlet {
 	@Inject
 	private MetricRegistry metricRegistry;
 
+	@Override
 	public void init(ServletConfig config) throws ServletException {
 		config.getServletContext().setAttribute(HealthCheckServlet.HEALTH_CHECK_REGISTRY, healthCheckRegistry);
 		config.getServletContext().setAttribute(com.codahale.metrics.servlets.MetricsServlet.METRICS_REGISTRY, metricRegistry);
