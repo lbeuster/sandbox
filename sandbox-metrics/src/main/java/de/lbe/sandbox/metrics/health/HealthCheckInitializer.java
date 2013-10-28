@@ -1,15 +1,15 @@
 package de.lbe.sandbox.metrics.health;
 
-import java.util.Map;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;
+import com.codahale.metrics.health.jvm.ThreadDeadlockHealthCheck;
 
-import de.lbe.sandbox.metrics.health.HealthCheckProducer.HealthChecks;
+import de.lbe.sandbox.metrics.MetricNameUtils;
 import de.asideas.lib.commons.cdi.Startup;
 
 /**
@@ -23,18 +23,29 @@ public class HealthCheckInitializer {
 	protected HealthCheckRegistry registry;
 
 	@Inject
-	protected HealthChecks healthChecks;
+	@HealthChecked
+	private Instance<HealthCheck> healthCheckCandidates;
 
 	/**
 	 * 
 	 */
 	@PostConstruct
 	protected void registerAll() {
-		for (Map.Entry<String, HealthCheck> entry : this.healthChecks.entries()) {
-			HealthCheck healthCheck = entry.getValue();
-			if (accept(healthCheck)) {
-				this.registry.register(entry.getKey(), healthCheck);
-			}
+		for (HealthCheck healthCheck : this.healthCheckCandidates.select()) {
+			registerIfAccepted(healthCheck);
+		}
+
+		// built-in checks
+		registerIfAccepted(new ThreadDeadlockHealthCheck());
+	}
+
+	/**
+	 * 
+	 */
+	protected void registerIfAccepted(HealthCheck healthCheck) {
+		if (accept(healthCheck)) {
+			String name = MetricNameUtils.forHealthCheck(healthCheck);
+			this.registry.register(name, healthCheck);
 		}
 	}
 

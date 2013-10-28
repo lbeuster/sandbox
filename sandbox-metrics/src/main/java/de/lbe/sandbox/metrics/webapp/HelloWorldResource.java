@@ -55,8 +55,6 @@ public class HelloWorldResource {
 		};
 		this.metricRegistry.register(MetricRegistry.name(getClass(), "gauge"), gauge);
 
-		healthChecks.register("myCheck", new MyHealthCheck());
-
 		// add the JMX
 		final JmxReporter reporter = JmxReporter.forRegistry(this.metricRegistry).inDomain("myMetrics").build();
 		reporter.start();

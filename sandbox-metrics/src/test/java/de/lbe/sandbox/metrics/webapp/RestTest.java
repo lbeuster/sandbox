@@ -13,6 +13,7 @@ import org.junit.Test;
 import de.lbe.sandbox.metrics.MetricNameUtils;
 import static de.asideas.lib.commons.test.hamcrest.Matchers.mapWithSize;
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
+import de.asideas.lib.commons.cdi.Startup;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 import de.asideas.lib.commons.test.restclient.RestClient;
 
@@ -50,6 +51,7 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 		WebArchive archive = ShrinkWrapUtils.prepareCdiWar("sandbox.war");
 		ShrinkWrapUtils.addDirectory(archive, "src/main/webapp");
 		ShrinkWrapUtils.addPackagesWithoutTestClasses(archive, MetricNameUtils.class.getPackage().getName());
+		ShrinkWrapUtils.addArchiveOfClass(archive, Startup.class);
 		return archive;
 	}
 
@@ -75,7 +77,7 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	public void testRestHealthChecks() throws Exception {
 
 		Map healthChecks = this.restClient.path("rest/healthchecks").acceptJSON().get().assertIsStatusOk().assertIsJSON().getEntity(Map.class);
-		Map myCheck = (Map) healthChecks.get("myCheck");
+		Map myCheck = (Map) healthChecks.get("myHealthCheck");
 		assertNotNull(myCheck);
 	}
 
@@ -84,8 +86,8 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Test
 	public void testServletHealthChecks() throws Exception {
-		Map<?, ?> checks = this.restClient.path("metrics").path("healthcheck").acceptJSON().get().assertIsStatusOk().assertIsJSON().getEntity(Map.class);
-		assertThat(checks, mapWithSize(1));
+		Map<?, ?> checks = this.restClient.path("admin/metrics").path("healthcheck").acceptJSON().get().assertIsStatusOk().assertIsJSON().getEntity(Map.class);
+		assertThat(checks, mapWithSize(2));
 	}
 
 	/**
@@ -93,7 +95,7 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Test
 	public void testAdminServlet() throws Exception {
-		String html = this.restClient.path("metrics").acceptJSON().get().assertIsStatusOk().assertIsHTML().getEntity(String.class);
+		String html = this.restClient.path("admin/metrics").acceptJSON().get().assertIsStatusOk().assertIsHTML().getEntity(String.class);
 		assertNotNull(html);
 	}
 }
