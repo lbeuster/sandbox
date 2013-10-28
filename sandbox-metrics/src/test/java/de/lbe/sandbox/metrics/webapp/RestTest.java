@@ -1,5 +1,7 @@
 package de.lbe.sandbox.metrics.webapp;
 
+import static de.asideas.lib.commons.test.hamcrest.Matchers.mapWithSize;
+
 import java.net.URL;
 import java.util.Map;
 
@@ -70,7 +72,7 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	 * 
 	 */
 	@Test
-	public void testHealthChecks() throws Exception {
+	public void testRestHealthChecks() throws Exception {
 
 		Map healthChecks = this.restClient.path("rest/healthchecks").acceptJSON().get().assertIsStatusOk().assertIsJSON().getEntity(Map.class);
 		Map myCheck = (Map) healthChecks.get("myCheck");
@@ -81,8 +83,17 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	 * 
 	 */
 	@Test
-	public void testAdminServlet() throws Exception {
+	public void testServletHealthChecks() throws Exception {
+		Map<?, ?> checks = this.restClient.path("metrics").path("healthcheck").acceptJSON().get().assertIsStatusOk().assertIsJSON().getEntity(Map.class);
+		assertThat(checks, mapWithSize(1));
+	}
 
-		Object result = this.restClient.path("metrics").acceptJSON().get().assertIsStatusOk().getEntity(String.class);
+	/**
+	 * 
+	 */
+	@Test
+	public void testAdminServlet() throws Exception {
+		String html = this.restClient.path("metrics").acceptJSON().get().assertIsStatusOk().assertIsHTML().getEntity(String.class);
+		assertNotNull(html);
 	}
 }

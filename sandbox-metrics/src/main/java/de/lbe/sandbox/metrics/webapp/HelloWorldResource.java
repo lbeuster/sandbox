@@ -18,13 +18,14 @@ import com.codahale.metrics.Timer;
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
-import de.lbe.sandbox.metrics.webapp.metrics.MyHealthCheck;
+import de.asideas.lib.commons.cdi.Startup;
 
 /**
  * 
  */
 @Path("")
 @ApplicationScoped
+@Startup
 public class HelloWorldResource {
 
 	@Inject
