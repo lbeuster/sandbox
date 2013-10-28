@@ -7,6 +7,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 import com.codahale.metrics.MetricRegistry;
 
+import de.lbe.sandbox.metrics.health.HealthChecked;
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
 import de.asideas.lib.commons.cdi.Startup;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
@@ -25,8 +26,9 @@ public abstract class AbstractMetricTest extends AbstractJUnit4ArquillianTest {
 	@Deployment
 	public static WebArchive deployment() {
 		WebArchive archive = ShrinkWrapUtils.createWar();
-		ShrinkWrapUtils.setBeansXmlWithInterceptors(archive, TimedInterceptor.class);
+		ShrinkWrapUtils.setBeansXmlWithInterceptors(archive, TimedInterceptor.class, MeteredInterceptor.class);
 		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(archive, MetricNameUtils.class, false);
+		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(archive, HealthChecked.class, false);
 		ShrinkWrapUtils.addArchiveOfClass(archive, Startup.class);
 		// archive.addClass(MetricRegistryProducer.class);
 		// archive.addClass(MetricProducer.class);

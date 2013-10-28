@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
 	<interceptors>
 		<class>de.lbe.sandbox.metrics.TimedInterceptor</class>
+		<class>de.lbe.sandbox.metrics.MeteredInterceptor</class>
 <!-- 		<class>com.remion.cdi.metrics.GaugedInterceptor</class> -->
-<!-- 		<class>com.remion.cdi.metrics.MeteredInterceptor</class> -->
 	</interceptors>
 </beans>
