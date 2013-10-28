@@ -1,4 +1,4 @@
-package de.lbe.sandbox.metrics;
+package de.lbe.sandbox.metrics.health;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
-import de.lbe.sandbox.metrics.HealthCheckProducer.HealthChecks;
+import de.lbe.sandbox.metrics.health.HealthCheckProducer.HealthChecks;
 import de.asideas.lib.commons.cdi.Startup;
 
 /**

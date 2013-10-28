@@ -1,4 +1,4 @@
-package de.lbe.sandbox.metrics;
+package de.lbe.sandbox.metrics.health;
 
 import javax.inject.Inject;
 
@@ -9,6 +9,9 @@ import org.junit.Test;
 
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;
+
+import de.lbe.sandbox.metrics.AbstractMetricTest;
+import de.lbe.sandbox.metrics.health.HealthChecked;
 
 /**
  * @author lars.beuster

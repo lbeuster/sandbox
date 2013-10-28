@@ -5,17 +5,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.enterprise.util.Nonbinding;
-import javax.inject.Qualifier;
+import javax.interceptor.InterceptorBinding;
 
 /**
  * @author lbeuster
  */
-@Qualifier
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
-public @interface HealthChecked {
-
-	@Nonbinding
-	String value() default "";
+@Target({ ElementType.METHOD, ElementType.TYPE })
+@InterceptorBinding
+public @interface Timed {
 }

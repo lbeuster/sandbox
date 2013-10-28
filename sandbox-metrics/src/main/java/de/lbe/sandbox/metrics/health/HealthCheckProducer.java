@@ -1,4 +1,4 @@
-package de.lbe.sandbox.metrics;
+package de.lbe.sandbox.metrics.health;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -14,6 +14,7 @@ import javax.enterprise.util.AnnotationLiteral;
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
+import de.lbe.sandbox.metrics.MetricNameUtils;
 import de.asideas.lib.commons.cdi.Startup;
 
 /**

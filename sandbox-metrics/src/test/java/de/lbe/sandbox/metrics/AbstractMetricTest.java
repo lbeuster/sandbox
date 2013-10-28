@@ -24,7 +24,8 @@ public abstract class AbstractMetricTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Deployment
 	public static WebArchive deployment() {
-		WebArchive archive = ShrinkWrapUtils.prepareCdiWar();
+		WebArchive archive = ShrinkWrapUtils.createWar();
+		ShrinkWrapUtils.setBeansXmlWithInterceptors(archive, TimedInterceptor.class);
 		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(archive, MetricNameUtils.class, false);
 		ShrinkWrapUtils.addArchiveOfClass(archive, Startup.class);
 		// archive.addClass(MetricRegistryProducer.class);

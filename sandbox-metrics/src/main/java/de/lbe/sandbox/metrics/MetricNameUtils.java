@@ -2,12 +2,14 @@ package de.lbe.sandbox.metrics;
 
 import java.beans.Introspector;
 import java.lang.reflect.Member;
+import java.lang.reflect.Method;
 
 import javax.enterprise.inject.spi.InjectionPoint;
 
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.health.HealthCheck;
 
+import de.lbe.sandbox.metrics.health.HealthChecked;
 import de.asideas.lib.commons.lang.StringUtils;
 
 /**
@@ -23,6 +25,14 @@ public class MetricNameUtils {
 		Class<?> cls = member.getDeclaringClass();
 		String memberName = member.getName();
 		return MetricRegistry.name(cls, memberName);
+	}
+
+	/**
+	 * 
+	 */
+	public static String forInterceptedMethod(Method method) {
+		String methodName = method.getName();
+		return MetricRegistry.name(method.getDeclaringClass(), methodName);
 	}
 
 	/**
