@@ -1,5 +1,8 @@
 package de.lbe.sandbox.metrics.webapp;
 
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -19,6 +22,10 @@ import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
 import de.asideas.lib.commons.cdi.Startup;
+import de.asideas.lib.commons.lang.ClassLoaderUtils;
+import de.asideas.lib.commons.util.CollectionUtils;
+import de.asideas.lib.commons.util.EnumerationUtils;
+import de.lbe.sandbox.metrics.servlet.MetricsServlet;
 
 /**
  * 
@@ -46,7 +53,12 @@ public class HelloWorldResource {
 	private HealthCheckRegistry healthChecks;
 
 	@PostConstruct
-	void init() {
+	void init() throws Exception {
+		System.out.println(ClassLoaderUtils.toString(Thread.currentThread().getContextClassLoader()));
+		Enumeration<URL> resources = Thread.currentThread().getContextClassLoader().getResources(MetricsServlet.class.getName().replace('.', '/') + ".class");
+		List<URL> res = EnumerationUtils.toList(resources);
+		System.out.println(CollectionUtils.toStringLines(res));
+
 		this.gauge = new Gauge<Long>() {
 			@Override
 			public Long getValue() {

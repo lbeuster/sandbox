@@ -1,4 +1,6 @@
-package de.lbe.sandbox.metrics.webapp;
+package de.lbe.sandbox.metrics;
+
+import static de.asideas.lib.commons.test.hamcrest.Matchers.mapWithSize;
 
 import java.net.URL;
 import java.util.Map;
@@ -10,12 +12,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.lbe.sandbox.metrics.MetricNameUtils;
-import static de.asideas.lib.commons.test.hamcrest.Matchers.mapWithSize;
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
 import de.asideas.lib.commons.cdi.Startup;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 import de.asideas.lib.commons.test.restclient.RestClient;
+import de.lbe.sandbox.metrics.webapp.Hello;
+import de.lbe.sandbox.metrics.webapp.HelloWorldResource;
 
 /**
  * @author lars.beuster
@@ -48,11 +50,13 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	 */
 	@Deployment(testable = false)
 	public static WebArchive deployment() {
-		WebArchive archive = ShrinkWrapUtils.prepareCdiWar("sandbox.war");
-		ShrinkWrapUtils.addDirectory(archive, "src/main/webapp");
-		ShrinkWrapUtils.addPackagesWithoutTestClasses(archive, MetricNameUtils.class.getPackage().getName());
-		ShrinkWrapUtils.addArchiveOfClass(archive, Startup.class);
-		return archive;
+		WebArchive war = ShrinkWrapUtils.prepareCdiWar("sandbox.war");
+		ShrinkWrapUtils.addDirectory(war, "src/main/webapp");
+		ShrinkWrapUtils.addArchiveOfClassAsLib(war, MetricNameUtils.class, "metric.jar");
+		// ShrinkWrapUtils.addPackagesWithoutTestClasses(war, MetricNameUtils.class.getPackage().getName());
+		ShrinkWrapUtils.addPackagesWithTestClasses(war, HelloWorldResource.class.getPackage().getName());
+		ShrinkWrapUtils.addArchiveOfClass(war, Startup.class);
+		return war;
 	}
 
 	/**
