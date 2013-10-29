@@ -1,9 +1,7 @@
 package de.lbe.sandbox.metrics.webapp;
 
-import java.net.URL;
-import java.util.Enumeration;
-import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -12,20 +10,19 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import org.slf4j.LoggerFactory;
+
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.Gauge;
 import com.codahale.metrics.JmxReporter;
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Slf4jReporter;
 import com.codahale.metrics.Timer;
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
 import de.asideas.lib.commons.cdi.Startup;
-import de.asideas.lib.commons.lang.ClassLoaderUtils;
-import de.asideas.lib.commons.util.CollectionUtils;
-import de.asideas.lib.commons.util.EnumerationUtils;
-import de.lbe.sandbox.metrics.servlet.MetricsServlet;
 
 /**
  * 
@@ -54,10 +51,6 @@ public class HelloWorldResource {
 
 	@PostConstruct
 	void init() throws Exception {
-		System.out.println(ClassLoaderUtils.toString(Thread.currentThread().getContextClassLoader()));
-		Enumeration<URL> resources = Thread.currentThread().getContextClassLoader().getResources(MetricsServlet.class.getName().replace('.', '/') + ".class");
-		List<URL> res = EnumerationUtils.toList(resources);
-		System.out.println(CollectionUtils.toStringLines(res));
 
 		this.gauge = new Gauge<Long>() {
 			@Override
@@ -70,6 +63,12 @@ public class HelloWorldResource {
 		// add the JMX
 		final JmxReporter reporter = JmxReporter.forRegistry(this.metricRegistry).inDomain("myMetrics").build();
 		reporter.start();
+
+		// add logging reporter
+		final Slf4jReporter loggerReporter =
+			Slf4jReporter.forRegistry(this.metricRegistry).outputTo(LoggerFactory.getLogger("metrics")).convertRatesTo(TimeUnit.SECONDS).convertDurationsTo(TimeUnit.MILLISECONDS)
+				.build();
+		loggerReporter.start(5, TimeUnit.SECONDS);
 	}
 
 	@GET
