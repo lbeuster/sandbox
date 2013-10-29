@@ -7,6 +7,6 @@ import com.codahale.metrics.servlets.AdminServlet;
 /**
  * @author lbeuster
  */
-@WebServlet(urlPatterns = "/admin/metrics/*")
+//@WebServlet(urlPatterns = "/admin/metrics/*")
 public class MetricsServlet extends AdminServlet {
 }
