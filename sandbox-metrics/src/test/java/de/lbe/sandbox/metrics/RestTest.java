@@ -54,7 +54,7 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 		ShrinkWrapUtils.addDirectory(war, "src/main/webapp");
 		ShrinkWrapUtils.addPackagesWithTestClasses(war, HelloWorldResource.class.getPackage().getName());
 
-		ShrinkWrapUtils.addArchiveOfClassAsLib(war, Startup.class, "commons-cdi.jar");
+		ShrinkWrapUtils.addArchiveOfClassAsLib(war, Startup.class, "asideas-cdi.jar");
 		ShrinkWrapUtils.addArchiveOfClassAsLib(war, MetricNameUtils.class, "metric.jar");
 		return war;
 	}
