@@ -52,10 +52,10 @@ public class RestTest extends AbstractJUnit4ArquillianTest {
 	public static WebArchive deployment() {
 		WebArchive war = ShrinkWrapUtils.prepareCdiWar("sandbox.war");
 		ShrinkWrapUtils.addDirectory(war, "src/main/webapp");
-		ShrinkWrapUtils.addArchiveOfClassAsLib(war, MetricNameUtils.class, "metric.jar");
-		// ShrinkWrapUtils.addPackagesWithoutTestClasses(war, MetricNameUtils.class.getPackage().getName());
 		ShrinkWrapUtils.addPackagesWithTestClasses(war, HelloWorldResource.class.getPackage().getName());
-		ShrinkWrapUtils.addArchiveOfClass(war, Startup.class);
+
+		ShrinkWrapUtils.addArchiveOfClassAsLib(war, Startup.class, "commons-cdi.jar");
+		ShrinkWrapUtils.addArchiveOfClassAsLib(war, MetricNameUtils.class, "metric.jar");
 		return war;
 	}
 
