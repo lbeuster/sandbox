@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
+import org.yaml.snakeyaml.constructor.ConstructorException;
 import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.NodeId;
 import org.yaml.snakeyaml.nodes.ScalarNode;
@@ -36,13 +37,11 @@ public class SnakeyamlTest extends AbstractJUnit4Test {
 	/**
 	 * 
 	 */
-	@Test
+	@Test(expected = ConstructorException.class)
 	public void testUnknownProperty() {
-
 		Yaml yaml = new Yaml();
 		String document = "unknown: test";
 		TestBean bean = yaml.loadAs(document, TestBean.class);
-		System.out.println(bean.getHello());
 	}
 
 	/**
