@@ -7,26 +7,11 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>sandbox-metrics</artifactId>
+	<artifactId>sandbox-tomcat-embedded</artifactId>
 	<packaging>war</packaging>
 
 	<dependencyManagement>
 		<dependencies>
-
-			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>tomee15-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>jersey1-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
@@ -37,8 +22,22 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>arquillian-bom</artifactId>
+				<artifactId>tests-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>weld2-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.lbe.maven.boms</groupId>
+				<artifactId>tomcat7-bom</artifactId>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -50,52 +49,42 @@
 
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-cdi</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-arquillian</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-test-rest</artifactId>
+			<artifactId>asideas-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Tomcat -->
 		<dependency>
-			<groupId>com.codahale.metrics</groupId>
-			<artifactId>metrics-core</artifactId>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+		</dependency>
+
+		<!-- Weld -->
+		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.codahale.metrics</groupId>
-			<artifactId>metrics-healthchecks</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.codahale.metrics</groupId>
-			<artifactId>metrics-servlets</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.codahale.metrics</groupId>
-			<artifactId>metrics-servlet</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.codahale.metrics</groupId>
-			<artifactId>metrics-jersey</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.openejb</groupId>
-			<artifactId>arquillian-tomee-embedded</artifactId>
-			<scope>provided</scope>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-core</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
+			<groupId>org.apache.deltaspike.core</groupId>
+			<artifactId>deltaspike-core-api</artifactId>
+		</dependency>
+
+
+		<!-- JSP-compiler -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-servlet</artifactId>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-logging-log4j</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 	</dependencies>
