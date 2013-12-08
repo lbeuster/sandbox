@@ -9,7 +9,8 @@
 <listener>
 
    <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
-
+<!--    <listener-class>de.lbe.sandbox.tomcat.MyWeldBootstrap</listener-class> -->
+   
 </listener>
 
 <!-- <filter> -->
