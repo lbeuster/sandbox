@@ -5,7 +5,6 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
-import javax.transaction.UserTransaction;
 
 import org.glassfish.jersey.servlet.ServletContainer;
 
@@ -17,9 +16,6 @@ public class JerseyServlet extends ServletContainer {
 
 	@Inject
 	BeanManager beanManager;
-
-	// @Resource
-	UserTransaction tx;
 
 	@Override
 	public void init() throws ServletException {
