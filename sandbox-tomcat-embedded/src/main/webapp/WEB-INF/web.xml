@@ -8,10 +8,30 @@
 
 <listener>
 
-   <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
-<!--    <listener-class>de.lbe.sandbox.tomcat.MyWeldBootstrap</listener-class> -->
+<!--    <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class> -->
+   <listener-class>de.lbe.sandbox.tomcat.weld.WeldListener</listener-class>
    
 </listener>
+
+<!-- <servlet> -->
+<!--         <servlet-name>Jersey Web Application</servlet-name> -->
+<!--         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> -->
+        
+<!--         <init-param> -->
+<!--             <param-name>javax.ws.rs.Application</param-name> -->
+<!--             <param-value>de.lbe.sandbox.tomcat.testapp.MyRestApplication</param-value> -->
+<!--         </init-param> -->
+<!--                 <load-on-startup>1</load-on-startup> -->
+<!--     </servlet> -->
+
+<!--     <servlet> -->
+<!--         <servlet-name>de.lbe.sandbox.tomcat.testapp.MyRestApplication</servlet-name> -->
+<!--         <load-on-startup>1</load-on-startup> -->
+<!--     </servlet> -->
+<!--     <servlet-mapping> -->
+<!--         <servlet-name>de.lbe.sandbox.tomcat.testapp.MyRestApplication</servlet-name> -->
+<!--         <url-pattern>/resources</url-pattern> -->
+<!--     </servlet-mapping> -->
 
 <!-- <filter> -->
 <!-- <filter-name>lars</filter-name> -->

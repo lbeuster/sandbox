@@ -15,7 +15,7 @@ import com.atomikos.icatch.jta.UserTransactionImp;
 /**
  * @author lars.beuster
  */
-@WebServlet(urlPatterns = "/*", loadOnStartup = 1)
+@WebServlet(urlPatterns = "/test/*", loadOnStartup = 1)
 public class TestServlet extends HttpServlet {
 
 	@Inject

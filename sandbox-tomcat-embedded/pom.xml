@@ -32,16 +32,30 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+				<groupId>de.lbe.maven.boms</groupId>
+				<artifactId>tomcat7-bom</artifactId>
+				<version>${lbe-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>weld2-bom</artifactId>
+				<artifactId>jee7-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
-				<artifactId>tomcat7-bom</artifactId>
-				<version>${lbe-maven-boms.version}</version>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>jersey2-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>weld2-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -51,6 +65,20 @@
 
 	<dependencies>
 
+		<!-- Jersey -->
+		<dependency>
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-bean-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-cdi</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-test</artifactId>
@@ -77,6 +105,8 @@
 			<groupId>org.apache.deltaspike.core</groupId>
 			<artifactId>deltaspike-core-api</artifactId>
 		</dependency>
+
+
 
 		<!-- Atomikos -->
 		<dependency>

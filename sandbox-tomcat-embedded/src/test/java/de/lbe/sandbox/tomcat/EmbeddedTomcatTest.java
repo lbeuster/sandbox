@@ -1,6 +1,11 @@
 package de.lbe.sandbox.tomcat;
 
 import java.io.File;
+import java.util.Set;
+
+import javax.enterprise.inject.spi.Bean;
+import javax.enterprise.inject.spi.BeanManager;
+import javax.enterprise.inject.spi.CDI;
 
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.deploy.ContextResource;
@@ -13,6 +18,9 @@ import org.junit.Test;
 import com.atomikos.icatch.jta.UserTransactionFactory;
 import com.atomikos.icatch.jta.UserTransactionManager;
 
+import de.lbe.sandbox.tomcat.testapp.JerseyServlet;
+import de.lbe.sandbox.tomcat.testapp.TestService;
+import de.asideas.lib.commons.cdi.BeanManagerUtils;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 
 /**
@@ -29,6 +37,9 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		tomcat.enableNaming();
 
 		StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
+//		tomcat.addServlet(ctx, "jersey", new JerseyServlet());
+
+//		ctx.addServletMapping("/U", "jersey");
 
 		// declare an alternate location for your "WEB-INF/classes" dir:
 		File additionWebInfClasses = new File("target/test-classes");
@@ -36,17 +47,7 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		resources.setExtraResourcePaths("/WEB-INF/classes=" + additionWebInfClasses);
 		ctx.setResources(resources);
 
-		// UserTransaction
-		ContextTransaction tx = new ContextTransaction();
-		tx.setProperty("factory", UserTransactionFactory.class.getName());
-		ctx.getNamingResources().setTransaction(tx);
-
-		// TX-Manager
-		ContextResource txManager = new ContextResource();
-		txManager.setAuth("Container");
-		txManager.setType(UserTransactionManager.class.getName());
-		txManager.setName("TransactionManager");
-		txManager.setProperty("factory", BeanFactory.class.getName());
+		// configureTransactions(ctx);
 		// txManager.setProperty("factor, value);
 		// <Resource name="TransactionManager"
 		// auth="Container"
@@ -73,6 +74,29 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		// EmbeddedTestTomcat tomcat = new EmbeddedTestTomcat();
 		//
 		// tomcat.start();
+
+		BeanManager beanManager = CDI.current().getBeanManager();
+		Set<Bean<?>> beans = beanManager.getBeans(Object.class);
+		// System.out.println(CollectionUtils.toStringLines(beans));
+
+		// BeanManager beanManager = BeanManagerProvider.getInstance().getBeanManager();
+		TestService service = BeanManagerUtils.getContextualReference(beanManager, TestService.class);
+		service.service();
+
+	}
+
+	private void configureTransactions(StandardContext ctx) {
+		// UserTransaction
+		ContextTransaction tx = new ContextTransaction();
+		tx.setProperty("factory", UserTransactionFactory.class.getName());
+		ctx.getNamingResources().setTransaction(tx);
+
+		// TX-Manager
+		ContextResource txManager = new ContextResource();
+		txManager.setAuth("Container");
+		txManager.setType(UserTransactionManager.class.getName());
+		txManager.setName("TransactionManager");
+		txManager.setProperty("factory", BeanFactory.class.getName());
 	}
 
 	// private File deployment() {
