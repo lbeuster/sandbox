@@ -6,16 +6,13 @@
 	<!-- <servlet-mapping> <servlet-name>javax.ws.rs.core.Application</servlet-name> <url-pattern>/rest/*</url-pattern> </servlet-mapping> -->
 
 
-	<listener>
+<!-- 	<listener> -->
+<!-- 		<listener-class>de.lbe.sandbox.tomcat.weld.WeldListener</listener-class> -->
+<!-- 	</listener> -->
 
-		<!-- <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class> -->
-		<listener-class>de.lbe.sandbox.tomcat.weld.WeldListener</listener-class>
-	</listener>
-
-	<listener>
-<!-- 		<listener-class>org.jboss.weld.environment.servlet.BeanManagerResourceBindingListener</listener-class> -->
-		<listener-class>de.lbe.sandbox.tomcat.weld.BeanManagerResourceBindingListener</listener-class>
-	</listener>
+<!-- 	<listener> -->
+<!-- 		<listener-class>de.lbe.sandbox.tomcat.weld.BeanManagerResourceBindingListener</listener-class> -->
+<!-- 	</listener> -->
 
 	<!-- <servlet> -->
 	<!-- <servlet-name>Jersey Web Application</servlet-name> -->

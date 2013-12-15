@@ -16,6 +16,7 @@ import de.lbe.sandbox.tomcat.weld.spi.TransactionServicesImpl;
  */
 public class WeldListener extends Listener {
 
+	@Override
 	protected ServletDeployment createServletDeployment(ServletContext context, Bootstrap bootstrap) {
 		ServletDeployment deployment = super.createServletDeployment(context, bootstrap);
 		deployment.getServices().add(TransactionServices.class, new TransactionServicesImpl());

@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.enterprise.inject.spi.BeanManager;
 import javax.inject.Inject;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,7 @@ import com.atomikos.icatch.jta.UserTransactionImp;
 /**
  * @author lars.beuster
  */
-@WebServlet(urlPatterns = "/test/*", loadOnStartup = 1)
+// @WebServlet(urlPatterns = "/test/*", loadOnStartup = 1)
 public class TestServlet extends HttpServlet {
 
 	@Inject
