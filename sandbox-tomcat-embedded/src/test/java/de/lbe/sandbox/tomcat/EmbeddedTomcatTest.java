@@ -13,12 +13,12 @@ import org.apache.catalina.deploy.ContextTransaction;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.naming.factory.BeanFactory;
 import org.apache.naming.resources.VirtualDirContext;
+import org.jboss.weld.resources.ManagerObjectFactory;
 import org.junit.Test;
 
 import com.atomikos.icatch.jta.UserTransactionFactory;
 import com.atomikos.icatch.jta.UserTransactionManager;
 
-import de.lbe.sandbox.tomcat.testapp.JerseyServlet;
 import de.lbe.sandbox.tomcat.testapp.TestService;
 import de.asideas.lib.commons.cdi.BeanManagerUtils;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
@@ -37,9 +37,9 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		tomcat.enableNaming();
 
 		StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
-//		tomcat.addServlet(ctx, "jersey", new JerseyServlet());
+		// tomcat.addServlet(ctx, "jersey", new JerseyServlet());
 
-//		ctx.addServletMapping("/U", "jersey");
+		// ctx.addServletMapping("/U", "jersey");
 
 		// declare an alternate location for your "WEB-INF/classes" dir:
 		File additionWebInfClasses = new File("target/test-classes");
@@ -47,19 +47,10 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		resources.setExtraResourcePaths("/WEB-INF/classes=" + additionWebInfClasses);
 		ctx.setResources(resources);
 
-		// configureTransactions(ctx);
-		// txManager.setProperty("factor, value);
-		// <Resource name="TransactionManager"
-		// auth="Container"
-		// type="com.atomikos.icatch.jta.UserTransactionManager"
-		// factory="org.apache.naming.factory.BeanFactory" />
-
-		//
-		//
-		// Tomcat tomcat = new Tomcat();
-		// tomcat.setPort(9000);
-		// tomcat.setBaseDir(".");
-		// tomcat.enableNaming();
+		configureTransactions(ctx);
+		
+		// doesn't work
+		configureCDI(ctx);
 
 		// Context ctx = tomcat.addWebapp("/", new File(".").getAbsolutePath());
 		// ((StandardJarScanner) ctx.getJarScanner()).setScanAllFiles(true);
@@ -97,8 +88,17 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		txManager.setType(UserTransactionManager.class.getName());
 		txManager.setName("TransactionManager");
 		txManager.setProperty("factory", BeanFactory.class.getName());
+		ctx.getNamingResources().addResource(txManager);
 	}
 
+	private void configureCDI(StandardContext ctx) {
+		ContextResource beanManager = new ContextResource();
+		beanManager.setAuth("Container");
+		beanManager.setType(BeanManager.class.getName());
+		beanManager.setName("BeanManager");
+		beanManager.setProperty("factory", ManagerObjectFactory.class.getName());
+		ctx.getNamingResources().addResource(beanManager);
+	}
 	// private File deployment() {
 	// WebArchive war = ShrinkWrap.create(WebArchive.class);
 	// // ShrinkWrapUtils.addDirectory(war, "src/test/webapp");

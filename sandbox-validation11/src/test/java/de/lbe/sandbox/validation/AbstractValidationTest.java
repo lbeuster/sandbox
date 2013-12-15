@@ -11,12 +11,12 @@ import javax.validation.Validator;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.not;
 
+import org.hibernate.validator.internal.cdi.InjectingConstraintValidatorFactory;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Before;
 
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
-import de.asideas.lib.commons.cdi.validation.CdiAwareConstraintValidatorFactory;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**
@@ -27,6 +27,7 @@ public abstract class AbstractValidationTest extends AbstractJUnit4ArquillianTes
 	@Inject
 	BeanManager beanManager;
 
+	@Inject
 	protected Validator validator;
 
 	/**
@@ -43,8 +44,8 @@ public abstract class AbstractValidationTest extends AbstractJUnit4ArquillianTes
      */
 	@Before
 	public void initValidator() {
-		this.validator =
-			Validation.byDefaultProvider().configure().constraintValidatorFactory(new CdiAwareConstraintValidatorFactory(beanManager)).buildValidatorFactory().getValidator();
+//		this.validator =
+//			Validation.byDefaultProvider().configure().constraintValidatorFactory(new InjectingConstraintValidatorFactory(beanManager)).buildValidatorFactory().getValidator();
 	}
 
 	/**

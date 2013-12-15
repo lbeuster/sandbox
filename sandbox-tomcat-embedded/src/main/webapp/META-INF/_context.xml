@@ -9,4 +9,3 @@
       factory="org.jboss.weld.resources.ManagerObjectFactory"/>
 
 </Context>
-

@@ -36,8 +36,8 @@ public class TransactionServicesImpl implements TransactionServices {
 
 	@Override
 	public UserTransaction getUserTransaction() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println(getClass().getSimpleName() + ".getUserTransaction()");
+		throw new UnsupportedOperationException();
 	}
 
 }
