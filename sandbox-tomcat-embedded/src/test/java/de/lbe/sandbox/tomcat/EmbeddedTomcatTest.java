@@ -6,9 +6,6 @@ import java.util.Set;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.CDI;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.servlet.ServletContext;
 
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.core.StandardContext;
@@ -16,7 +13,6 @@ import org.apache.catalina.deploy.ApplicationListener;
 import org.apache.catalina.deploy.ContextResource;
 import org.apache.catalina.deploy.ContextTransaction;
 import org.apache.catalina.startup.Tomcat;
-import org.apache.naming.ContextAccessController;
 import org.apache.naming.factory.BeanFactory;
 import org.apache.naming.resources.VirtualDirContext;
 import org.jboss.weld.resources.ManagerObjectFactory;
@@ -28,7 +24,6 @@ import com.atomikos.icatch.jta.UserTransactionManager;
 import de.asideas.lib.commons.cdi.BeanManagerUtils;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 import de.lbe.sandbox.tomcat.testapp.TestService;
-import de.lbe.sandbox.tomcat.testapp.TestServlet;
 import de.lbe.sandbox.tomcat.weld.WeldListener;
 
 /**
@@ -51,10 +46,6 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		ApplicationListener appListener = new ApplicationListener(WeldListener.class.getName(), false);
 		ctx.addApplicationListener(appListener);
 
-		// ctx.addServletMapping("/U", "jersey");
-		ServletContext servletContext = ctx.getServletContext();
-		// servletContext.addListener(WeldListener.class);
-
 		// declare an alternate location for your "WEB-INF/classes" dir:
 		File additionWebInfClasses = new File("target/test-classes");
 		VirtualDirContext resources = new VirtualDirContext();
@@ -63,7 +54,7 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 
 		configureTransactions(ctx);
 
-		// doesn't work
+		// doesn't work because binds to java:comp/env/BeanManager
 		configureCDI(ctx);
 
 		// String namingContextName = ctx.getNamingContextListener().getName();
@@ -75,25 +66,11 @@ public class EmbeddedTomcatTest extends AbstractJUnit4Test {
 		// def.setFilterClass(Listener.class.getName());
 		// ctx.addFilterDef(def);
 
-		Wrapper wrapper = tomcat.addServlet("/", "test", new TestServlet() {
-			@Override
-			public void init() {
-				super.init();
-				String name = ctx.getNamingContextListener().getName();
-				ContextAccessController.setWritable(name, ctx);
-				try {
-					new InitialContext().bind("java:comp/BeanManager", CDI.current().getBeanManager());
-				} catch (NamingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				ContextAccessController.setReadOnly(name);
-			}
-
-		});
+		Wrapper wrapper = Tomcat.addServlet(ctx, "test", new BindBeanManagerServlet(ctx));
 		wrapper.setLoadOnStartup(1);
+
 		tomcat.start();
-		ctx.addServletMapping("/U", "test");
+		// ctx.addServletMapping("/U", "test");
 		if (!ctx.getState().isAvailable()) {
 			return;
 		}

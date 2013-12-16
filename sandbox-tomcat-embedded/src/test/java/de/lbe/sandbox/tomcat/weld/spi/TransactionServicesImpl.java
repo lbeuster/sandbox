@@ -1,6 +1,11 @@
 package de.lbe.sandbox.tomcat.weld.spi;
 
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
 import javax.transaction.Synchronization;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
 import org.jboss.weld.transaction.spi.TransactionServices;
@@ -37,7 +42,45 @@ public class TransactionServicesImpl implements TransactionServices {
 	@Override
 	public UserTransaction getUserTransaction() {
 		System.out.println(getClass().getSimpleName() + ".getUserTransaction()");
-		throw new UnsupportedOperationException();
+		return new UserTransaction() {
+
+			@Override
+			public void setTransactionTimeout(int seconds) throws SystemException {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void setRollbackOnly() throws IllegalStateException, SystemException {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void rollback() throws IllegalStateException, SecurityException, SystemException {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public int getStatus() throws SystemException {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public void commit() throws RollbackException, HeuristicMixedException, HeuristicRollbackException, SecurityException, IllegalStateException, SystemException {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void begin() throws NotSupportedException, SystemException {
+				// TODO Auto-generated method stub
+
+			}
+		};
+		// throw new UnsupportedOperationException();
 	}
 
 }
