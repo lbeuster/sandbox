@@ -1,10 +1,10 @@
 package de.lbe.sandbox.tomcat.testapp;
 
-import org.glassfish.jersey.server.ResourceConfig;
+import com.sun.jersey.api.core.PackagesResourceConfig;
 
-public class MyRestApplication extends ResourceConfig  {
+public class MyRestApplication extends PackagesResourceConfig {
 
 	public MyRestApplication() {
-		packages(getClass().getPackage().getName());
+		super(MyRestApplication.class.getPackage().getName());
 	}
 }

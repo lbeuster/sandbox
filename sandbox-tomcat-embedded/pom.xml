@@ -40,14 +40,14 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>jee7-bom</artifactId>
+				<artifactId>jee6-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>jersey2-bom</artifactId>
+				<artifactId>jersey1-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -65,19 +65,34 @@
 
 	<dependencies>
 
+		<!-- Validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
 		<!-- Jersey -->
 		<dependency>
-			<groupId>org.glassfish.jersey.ext</groupId>
-			<artifactId>jersey-bean-validation</artifactId>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet-core</artifactId>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
-			<artifactId>jersey-gf-cdi</artifactId>
-		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.glassfish.jersey.ext</groupId> -->
+		<!-- <artifactId>jersey-bean-validation</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.glassfish.jersey.containers</groupId> -->
+		<!-- <artifactId>jersey-container-servlet-core</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.glassfish.jersey.containers.glassfish</groupId> -->
+		<!-- <artifactId>jersey-gf-cdi</artifactId> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
