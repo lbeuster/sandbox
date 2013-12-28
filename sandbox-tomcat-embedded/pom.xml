@@ -114,6 +114,10 @@
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>

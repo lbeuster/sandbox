@@ -72,6 +72,11 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.lib.commons</groupId>
+				<artifactId>asideas-commons-validation</artifactId>
+				<version>${asideas-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.lib.commons</groupId>
 				<artifactId>asideas-commons-dbunit</artifactId>
 				<version>${asideas-commons.version}</version>
 			</dependency>
