@@ -6,13 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 
-import com.sun.jersey.spi.container.servlet.ServletContainer;
+import org.glassfish.jersey.servlet.ServletContainer;
 
 /**
  * @author lars.beuster
  */
-@WebServlet(urlPatterns = "/*", loadOnStartup = 1, initParams = { @WebInitParam(name = "javax.ws.rs.Application", value = "de.lbe.sandbox.tomcat.testapp.MyRestApplication") })
-public class JerseyServlet extends ServletContainer {
+@WebServlet(urlPatterns = "/*", loadOnStartup = 1, initParams = { @WebInitParam(name = "javax.ws.rs.Application", value = "de.lbe.sandbox.tomcat.testapp.Jersey2Application") })
+public class Jersey2Servlet extends ServletContainer {
 
 	@Inject
 	BeanManager beanManager;

@@ -4,7 +4,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.inject.Inject;
 import javax.transaction.UserTransaction;
+import javax.validation.Valid;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
@@ -23,6 +25,9 @@ public class RestResource {
 	@Inject
 	UserTransaction tx;
 
+	@Inject
+	TestService service;
+
 	@GET
 	@Produces("text/plain")
 	public String service() throws Exception {
@@ -36,5 +41,14 @@ public class RestResource {
 			tx.commit();
 		}
 
+	}
+
+	@POST
+	@Produces("application/json")
+	public TestBean validate(@Valid TestBean testBean) {
+		return testBean;
+
+		// TestService1 service = BeanManagerUtils.getContextualReference(CDI.current().getBeanManager(), TestService1.class);
+		// return service.service(testBean);
 	}
 }

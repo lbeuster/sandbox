@@ -5,17 +5,9 @@ import javax.validation.Valid;
 /**
  * @author lars.beuster
  */
-public class TestService {
-
-	// @Inject
-	// Event<TestEvent> eventPublisher;
-	//
-	// public void service() {
-	// eventPublisher.fire(new TestEvent());
-	// }
+public class TestService1 {
 
 	public TestBean service(@Valid TestBean testBean) {
 		return testBean;
-
 	}
 }

@@ -40,14 +40,7 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>jee6-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>jersey1-bom</artifactId>
+				<artifactId>jee7-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -55,6 +48,13 @@
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
 				<artifactId>weld2-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>jersey2-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -70,29 +70,43 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
-
-		<!-- Jersey -->
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-servlet</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-cdi</artifactId>
 		</dependency>
 
+		<!-- Jersey 1 -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-servlet</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-json</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-client</artifactId> -->
+		<!-- </dependency> -->
+
+		<!-- Jersey 2 -->
+		<!-- do not use Jersey-BeanValidation since this is done by Weld2 -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.glassfish.jersey.ext</groupId> -->
 		<!-- <artifactId>jersey-bean-validation</artifactId> -->
 		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.glassfish.jersey.containers</groupId> -->
-		<!-- <artifactId>jersey-container-servlet-core</artifactId> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.glassfish.jersey.containers.glassfish</groupId> -->
-		<!-- <artifactId>jersey-gf-cdi</artifactId> -->
-		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
+			<artifactId>jersey-gf-cdi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
