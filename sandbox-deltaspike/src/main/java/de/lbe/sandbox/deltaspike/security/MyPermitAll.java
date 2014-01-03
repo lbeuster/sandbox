@@ -8,9 +8,13 @@ import java.lang.annotation.Target;
 
 import org.apache.deltaspike.security.api.authorization.SecurityBindingType;
 
+/**
+ * @author lbeuster
+ */
 @Retention(value = RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Documented
 @SecurityBindingType
-public @interface CustomSecurityBinding {
+public @interface MyPermitAll {
+	// no impl
 }
