@@ -17,6 +17,7 @@ import de.asideas.lib.commons.lang.Assert;
  */
 @Path("/rest")
 @ApplicationScoped
+@SetResponseHeader
 public class RestResource {
 
 	@Inject

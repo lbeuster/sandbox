@@ -65,6 +65,12 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>javax.transaction-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 		<!-- Validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -73,6 +79,11 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator-cdi</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-servlet-module-impl</artifactId>
 		</dependency>
 
 		<!-- Jersey 1 -->
