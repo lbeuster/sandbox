@@ -24,10 +24,10 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-liquibase</module>
 		<module>sandbox-flyway</module>
 		<module>sandbox-aws</module>
 		<module>sandbox-deltaspike</module>
-		<module>sandbox-snakeyaml</module>
 		<module>sandbox-metrics</module>
 		<module>sandbox-jee6-webapp</module>
 		<module>sandbox-mongodb</module>
