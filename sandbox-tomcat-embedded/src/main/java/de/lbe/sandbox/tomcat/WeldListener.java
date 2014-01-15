@@ -1,4 +1,4 @@
-package de.lbe.sandbox.tomcat.weld;
+package de.lbe.sandbox.tomcat;
 
 import javax.servlet.ServletContext;
 

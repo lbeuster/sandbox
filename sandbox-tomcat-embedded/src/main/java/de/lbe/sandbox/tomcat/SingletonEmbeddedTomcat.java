@@ -1,11 +1,14 @@
 package de.lbe.sandbox.tomcat;
 
+import javax.enterprise.inject.Vetoed;
+
 import de.asideas.lib.commons.lang.ExceptionUtils;
 import de.asideas.lib.commons.lang.reflect.ReflectionUtils;
 
 /**
  * @author lbeuster
  */
+@Vetoed
 public class SingletonEmbeddedTomcat {
 
 	/**

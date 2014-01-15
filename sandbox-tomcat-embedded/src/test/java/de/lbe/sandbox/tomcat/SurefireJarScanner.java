@@ -19,13 +19,16 @@ import de.asideas.lib.commons.lang.StringUtils;
 import de.asideas.lib.commons.util.CollectionUtils;
 
 /**
- * We have the problem that the maven-surefire-plugin creates a classpath with one JarFile in it that references all other classpath elements via the
- * MANIFEST.MF. But the original scanner cannot handle this classloader.
+ * <p>
+ * We have the problem that the maven-surefire-plugin creates a classpath with one JarFile in it that references all other classpath elements via the MANIFEST.MF. But the original
+ * scanner cannot handle this classloader.
  * <p/>
- * We can test if we still need this call by uncommenting its use in the jetty-maven-module and executing the tests. If all works fine we can remove
- * it. Perhaps it could be sufficient to execute the tests in the tomcat-maven-module but I haven't tried that.
+ * <p>
+ * We can test if we still need this call by uncommenting its use in the jetty-maven-module and executing the tests. If all works fine we can remove it. Perhaps it could be
+ * sufficient to execute the tests in the tomcat-maven-module but I haven't tried that.
+ * </p>
  * 
- * @author Lars Beuster
+ * @author lbeuster
  */
 public class SurefireJarScanner extends StandardJarScanner {
 

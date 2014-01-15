@@ -9,8 +9,12 @@
 		</layout>
 	</appender>
 
+	<logger name="ma.glasnost.orika">
+		<level value="debug"></level>
+	</logger>
+
 	<root>
-		<level value="warn" />
+		<level value="debug" />
 		<appender-ref ref="STDOUT" />
 	</root>
 

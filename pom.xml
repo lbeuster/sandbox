@@ -24,8 +24,8 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-flyway</module>
 		<module>sandbox-aws</module>
-		<module>sandbox-validation11</module>
 		<module>sandbox-deltaspike</module>
 		<module>sandbox-snakeyaml</module>
 		<module>sandbox-metrics</module>
@@ -73,6 +73,11 @@
 			<dependency>
 				<groupId>de.asideas.lib.commons</groupId>
 				<artifactId>asideas-commons-validation</artifactId>
+				<version>${asideas-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.lib.commons</groupId>
+				<artifactId>asideas-commons-metrics</artifactId>
 				<version>${asideas-commons.version}</version>
 			</dependency>
 			<dependency>

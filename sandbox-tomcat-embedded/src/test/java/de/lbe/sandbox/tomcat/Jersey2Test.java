@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.asideas.lib.commons.lang.ClassLoaderUtils;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 import de.lbe.sandbox.tomcat.testapp.TestBean;
 
@@ -37,6 +38,7 @@ public class Jersey2Test extends AbstractJUnit4Test {
 
 	@Test
 	public void testGET() throws Exception {
+		System.out.println(ClassLoaderUtils.getClasspathOfResource("javax/servlet/jsp/resources/jsp_2_1.xsd"));
 		String s = restClient.target(tomcat.getWebappContextURL()).path("/rest").request().get(String.class);
 		System.out.println(s);
 	}

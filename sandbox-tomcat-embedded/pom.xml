@@ -125,6 +125,10 @@
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-metrics</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-validation</artifactId>
 		</dependency>
 		<dependency>

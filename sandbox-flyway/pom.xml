@@ -8,7 +8,11 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>sandbox-validation</artifactId>
+	<artifactId>sandbox-flyway</artifactId>
+
+	<properties>
+		<flyway.version>2.3.1</flyway.version>
+	</properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -22,21 +26,7 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>tests-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>jee7-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>weld2-bom</artifactId>
+				<artifactId>sql-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -47,35 +37,25 @@
 
 	<dependencies>
 
+		<!-- Flyway -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator-cdi</artifactId>
+			<groupId>com.googlecode.flyway</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
 		</dependency>
-
 		<dependency>
-			<groupId>org.jboss.weld</groupId>
-			<artifactId>weld-core</artifactId>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>javax.el</groupId> -->
-<!-- 			<artifactId>javax.el-api</artifactId> -->
-<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-cdi</artifactId>
-			<scope>test</scope>
+			<artifactId>asideas-commons-core</artifactId>
 		</dependency>
 
-		<!-- Test -->
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-arquillian</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.arquillian.container</groupId>
-			<artifactId>arquillian-weld-se-embedded-1.1</artifactId>
+			<artifactId>asideas-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 

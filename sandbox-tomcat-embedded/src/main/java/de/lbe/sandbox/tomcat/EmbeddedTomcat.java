@@ -14,6 +14,7 @@ import org.apache.catalina.deploy.ContextTransaction;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.naming.factory.BeanFactory;
 import org.apache.naming.resources.VirtualDirContext;
+import org.apache.tomcat.util.scan.StandardJarScanner;
 import org.jboss.weld.resources.ManagerObjectFactory;
 
 import com.atomikos.icatch.jta.UserTransactionFactory;
@@ -21,7 +22,6 @@ import com.atomikos.icatch.jta.UserTransactionManager;
 
 import de.asideas.lib.commons.lang.StringUtils;
 import de.asideas.lib.commons.lang.XRunnable;
-import de.lbe.sandbox.tomcat.weld.WeldListener;
 
 /**
  * @author lars.beuster
@@ -158,6 +158,15 @@ public class EmbeddedTomcat {
 			resources.setExtraResourcePaths("/WEB-INF/classes=" + additionWebInfClasses);
 			context.setResources(resources);
 		}
+
+		((StandardJarScanner) context.getJarScanner()).setScanAllDirectories(true);
+
+		// // create a fix for maven-surefire-execution
+		// if (this.useSurefireJarScanner) {
+		// context.setJarScanner(new SurefireJarScanner());
+		// }
+		// ((StandardJarScanner) context.getJarScanner()).setScanAllDirectories(true);
+
 		return context;
 	}
 
