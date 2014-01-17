@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-springcloud</module>
 		<module>sandbox-liquibase</module>
 		<module>sandbox-flyway</module>
 		<module>sandbox-aws</module>

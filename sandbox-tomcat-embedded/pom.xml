@@ -68,7 +68,6 @@
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>javax.transaction-api</artifactId>
-			<version>1.2</version>
 		</dependency>
 
 		<!-- Validation -->
@@ -113,6 +112,10 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
 			<artifactId>jersey-gf-cdi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.jaxrs</groupId>

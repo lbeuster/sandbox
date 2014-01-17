@@ -1,7 +1,5 @@
 package de.lbe.sandbox.liquibase;
 
-import java.sql.SQLException;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.sql.DataSource;
@@ -53,7 +51,7 @@ public class LiquibaseTest extends AbstractJUnit4ArquillianTest {
 		@Produces
 		@LiquibaseType
 		@ApplicationScoped
-		public DataSource createDataSource() throws SQLException {
+		public DataSource createDataSource() {
 			MysqlDataSource dataSource = new MysqlDataSource();
 			dataSource.setUrl(DATABASE_URL);
 			dataSource.setUser("root");
