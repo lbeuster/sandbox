@@ -20,9 +20,9 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.asideas.maven.boms</groupId>
+			<groupId>de.lbe.maven.boms</groupId>
 			<artifactId>kafka08-bom</artifactId>
-			<version>${asideas-maven-boms.version}</version>
+			<version>${lbe-maven-boms.version}</version>
 			<type>pom</type>
 		</dependency>
 
