@@ -1,0 +1,160 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.lbe.sandbox</groupId>
+		<artifactId>sandbox</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sandbox-tomcat-weld-jersey1</artifactId>
+	<packaging>war</packaging>
+
+	<properties>
+		<atomikos.version>3.9.1</atomikos.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>commons-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>tests-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>tomcat7-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>jee7-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>weld2-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.maven.boms</groupId>
+				<artifactId>jersey1-bom</artifactId>
+				<version>${asideas-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>javax.transaction-api</artifactId>
+		</dependency>
+
+		<!-- Validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-cdi</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-servlet-module-impl</artifactId>
+		</dependency>
+
+		<!-- Jersey 1 -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-cdi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-metrics</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Tomcat -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+		</dependency>
+
+		<!-- Weld -->
+		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.core</groupId>
+			<artifactId>deltaspike-core-api</artifactId>
+		</dependency>
+
+		<!-- JSP-compiler -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-logging-log4j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+	</dependencies>
+
+</project>

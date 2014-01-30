@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-tomcat-weld-jersey1</module>
 		<module>sandbox-springcloud</module>
 		<module>sandbox-liquibase</module>
 		<module>sandbox-flyway</module>
@@ -46,7 +47,6 @@
 		<module>sandbox-jboss7-managed-arquillian</module>
 		<module>sandbox-openejb-embedded</module>
 		<module>sandbox-openejb-arquillian</module>
-		<module>sandbox-tomcat-embedded</module>
 		<module>sandbox-tomee-embedded</module>
 		<module>sandbox-tomee-arquillian</module>
 		<module>sandbox-tomee-jersey-arquillian</module>
