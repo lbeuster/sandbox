@@ -7,7 +7,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>sandbox-tomcat-embedded</artifactId>
+	<artifactId>sandbox-tomcat-weld-jersey2</artifactId>
 	<packaging>war</packaging>
 
 	<properties>
@@ -85,20 +85,6 @@
 			<artifactId>deltaspike-servlet-module-impl</artifactId>
 		</dependency>
 
-		<!-- Jersey 1 -->
-		<!-- <dependency> -->
-		<!-- <groupId>com.sun.jersey</groupId> -->
-		<!-- <artifactId>jersey-servlet</artifactId> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>com.sun.jersey</groupId> -->
-		<!-- <artifactId>jersey-json</artifactId> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>com.sun.jersey</groupId> -->
-		<!-- <artifactId>jersey-client</artifactId> -->
-		<!-- </dependency> -->
-
 		<!-- Jersey 2 -->
 		<!-- do not use Jersey-BeanValidation since this is done by Weld2 -->
 		<!-- <dependency> -->
@@ -161,8 +147,6 @@
 			<artifactId>deltaspike-core-api</artifactId>
 		</dependency>
 
-
-
 		<!-- Atomikos -->
 		<dependency>
 			<groupId>com.atomikos</groupId>
@@ -173,11 +157,6 @@
 			<groupId>com.atomikos</groupId>
 			<artifactId>transactions-jta</artifactId>
 			<version>${atomikos.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.spec.javax.transaction</groupId>
-			<artifactId>jboss-transaction-api_1.1_spec</artifactId>
-			<version>1.0.1.Final</version>
 		</dependency>
 
 		<!-- JSP-compiler -->
