@@ -35,9 +35,9 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>tomee15-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
