@@ -7,8 +7,6 @@ import org.jboss.weld.environment.servlet.Listener;
 import org.jboss.weld.environment.servlet.deployment.ServletDeployment;
 import org.jboss.weld.transaction.spi.TransactionServices;
 
-import de.lbe.sandbox.tomcat.weld.spi.TransactionServicesImpl;
-
 /**
  * Meant as an embedded tomcat for integration tests.
  * 

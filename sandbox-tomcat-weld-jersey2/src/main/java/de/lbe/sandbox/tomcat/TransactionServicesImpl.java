@@ -1,4 +1,4 @@
-package de.lbe.sandbox.tomcat.weld.spi;
+package de.lbe.sandbox.tomcat;
 
 import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;

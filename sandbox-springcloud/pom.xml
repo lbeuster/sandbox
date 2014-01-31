@@ -8,7 +8,6 @@
 	</parent>
 
 	<artifactId>sandbox-springcloud</artifactId>
-	<packaging>war</packaging>
 
 	<properties>
 		<spring-cloud.version>0.9.4</spring-cloud.version>

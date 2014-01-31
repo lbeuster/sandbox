@@ -8,7 +8,6 @@
 	</parent>
 
 	<artifactId>sandbox-tomcat-weld-jersey1</artifactId>
-	<packaging>war</packaging>
 
 	<properties>
 		<atomikos.version>3.9.1</atomikos.version>
