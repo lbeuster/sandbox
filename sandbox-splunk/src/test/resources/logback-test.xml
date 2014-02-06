@@ -1,0 +1,27 @@
+<configuration debug="true">
+
+	<conversionRule conversionWord="splunkException" converterClass="de.asideas.lib.commons.util.logging.logback.SplunkRootCauseFirstThrowableConverter" />
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<encoder>
+			<pattern>%date{ISO8601} level=%level thread=%thread %m%n{}%splunkException</pattern>
+		</encoder>
+	</appender>
+
+	<!--Send log events to a Splunk Raw TCP server socket -->
+	<appender name="splunk" class="de.asideas.lib.commons.util.logging.logback.AsyncSplunkTcpAppender">
+		<!-- <appender name="splunk" class="com.splunk.logging.TcpAppender"> -->
+		<remoteHost>logging-splunk1.s.asideas.de</remoteHost>
+		<port>9995</port>
+		<queueSize>1000</queueSize>
+		<layout>
+			<pattern>%date{ISO8601} HALLO3 level=%level thread=%thread %m%n{}%splunkException</pattern>
+		</layout>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="splunk" />
+	</root>
+
+</configuration>
