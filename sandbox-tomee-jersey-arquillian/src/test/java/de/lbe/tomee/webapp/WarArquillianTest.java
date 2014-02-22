@@ -1,19 +1,20 @@
-package de.lbe.tomee;
+package de.lbe.tomee.webapp;
 
 import javax.enterprise.inject.spi.BeanManager;
 import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
-import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 
 /**
  * @author lars.beuster
  */
-public class BeanArchiveArquillianTest extends AbstractJUnit4ArquillianTest {
+public class WarArquillianTest extends AbstractJUnit4ArquillianTest {
 
 	@Inject
 	private BeanManager beanManager;
@@ -25,8 +26,8 @@ public class BeanArchiveArquillianTest extends AbstractJUnit4ArquillianTest {
 	 * 
 	 */
 	@Deployment
-	public static JavaArchive deployment() {
-		JavaArchive archive = ShrinkWrapUtils.prepareCdiJar(TestService.class);
+	public static WebArchive deployment() {
+		WebArchive archive = ShrinkWrap.create(WebArchive.class).addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 		return archive;
 	}
 
@@ -37,10 +38,10 @@ public class BeanArchiveArquillianTest extends AbstractJUnit4ArquillianTest {
 	 * TomEE doesn't deploy Jars as BeanArchives (by default?).
 	 */
 	@Test
-	public void testTomEEDoesntRecognizeBeanArchives() throws Exception {
-		// System.out.println(ClassLoaderUtils.toString(getClass().getClassLoader()));
-		assertNull(this.beanManager);
-		assertNull(this.testService);
+	public void testTomEERecognizeWarAsBeanArchive() throws Exception {
+		// System.out.println(ClassLoaderUtils.toString(Thread.currentThread().getContextClassLoader()));
+		assertNotNull(this.beanManager);
+		assertNotNull(this.testService);
 	}
 
 	/**

@@ -2,6 +2,7 @@ package de.lbe.tomee.webapp.rest;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -35,7 +36,7 @@ public class HelloWorldResource {
 	@POST
 	@Path("/post")
 	@Produces({ "application/json" })
-	public JsonHello putHello(JsonHello hello) {
+	public JsonHello putHello(@Valid JsonHello hello) {
 		return hello;
 	}
 
