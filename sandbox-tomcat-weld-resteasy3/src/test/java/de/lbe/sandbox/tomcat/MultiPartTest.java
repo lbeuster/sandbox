@@ -27,7 +27,7 @@ public class MultiPartTest extends AbstractRestTest {
 		String fileName = "test.txt";
 		InputStream in = new ByteArrayInputStream(content.getBytes());
 
-		MediaType mediaType = MediaType.APPLICATION_OCTET_STREAM_TYPE;
+		MediaType mediaType = MediaType.TEXT_PLAIN_TYPE;
 		String formDataKey = "file";
 
 		MultipartFormDataOutput multipart = new MultipartFormDataOutput();
@@ -41,18 +41,6 @@ public class MultiPartTest extends AbstractRestTest {
 
 		assertEquals(fileName, uploadedFile.getFileName());
 		assertEquals(content, uploadedFile.getContent());
-
-		// FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
-		// final FormDataContentDisposition dispo = FormDataContentDisposition.name("file").fileName(fileName).size(contentLength).build();
-		//
-		// FormDataBodyPart bodyPart = new FormDataBodyPart(dispo, new ReaderInputStream(new StringReader(content)), MediaType.APPLICATION_OCTET_STREAM_TYPE);
-		// formDataMultiPart.bodyPart(bodyPart);
-		//
-		// // execute
-		// UploadedFile file =
-		// this.restClient.target("/rest").path("multipart").path("upload").request().post(Entity.entity(formDataMultiPart, MediaType.MULTIPART_FORM_DATA))
-		// .readEntity(UploadedFile.class);
-		// assertEquals(content, file.getContent());
-		// assertEquals(contentLength, file.getContentLength());
+		assertEquals(mediaType.toString(), uploadedFile.getContentType());
 	}
 }

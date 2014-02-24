@@ -7,6 +7,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.IOUtils;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
@@ -28,6 +29,7 @@ public class MultiPartResource {
 
 		InputPart inputPart = MultiPartUtils.extractFileInputPart(input);
 		ContentDisposition contentDisposition = MultiPartUtils.parseContentDispositionFromMultiPart(inputPart);
+		MediaType contentType = inputPart.getMediaType();
 
 		// Handle the body of that part with an InputStream
 		InputStream istream = inputPart.getBody(InputStream.class, null);
@@ -36,6 +38,7 @@ public class MultiPartResource {
 
 		file.setContent(content);
 		file.setFileName(contentDisposition.getFileName());
+		file.setContentType(contentType.getType() + "/" + contentType.getSubtype());
 
 		return file;
 	}
