@@ -5,6 +5,7 @@ public class UploadedFile {
 	private String contentType;
 	private long contentLength;
 	private String content;
+	private String fileName;
 
 	public String getContentType() {
 		return contentType;
@@ -28,5 +29,13 @@ public class UploadedFile {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }

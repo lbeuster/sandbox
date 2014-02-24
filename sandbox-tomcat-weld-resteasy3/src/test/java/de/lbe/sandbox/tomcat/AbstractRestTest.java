@@ -13,7 +13,7 @@ import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
  */
 public abstract class AbstractRestTest extends AbstractJUnit4Test {
 
-	protected Client restClient;
+	private Client restClient;
 
 	protected TestTomcat tomcat;
 
@@ -24,6 +24,6 @@ public abstract class AbstractRestTest extends AbstractJUnit4Test {
 	}
 
 	protected WebTarget prepareClient() {
-		return this.restClient.target(tomcat.getWebappContextURL()).path("/rest");
+		return this.restClient.target(tomcat.getWebappContextURL());
 	}
 }

@@ -6,7 +6,7 @@ package de.lbe.sandbox.tomcat;
 public class TestTomcat extends EmbeddedTomcat {
 
 	private TestTomcat() {
-		setWebappDir("src/main/webapp");
+		// setWebappDir("src/main/webapp");
 		setExtraClassesDir("target/test-classes");
 	}
 

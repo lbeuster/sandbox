@@ -80,7 +80,11 @@
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-test</artifactId>
+			<artifactId>asideas-commons-resteasy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-test-rest</artifactId>
 			<scope>test</scope>
 		</dependency>
 

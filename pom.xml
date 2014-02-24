@@ -61,43 +61,10 @@
 
 			<dependency>
 				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-arquillian</artifactId>
+				<artifactId>asideas-commons-bom</artifactId>
 				<version>${asideas-commons.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-cdi</artifactId>
-				<version>${asideas-commons.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-core</artifactId>
-				<version>${asideas-commons.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-validation</artifactId>
-				<version>${asideas-commons.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-metrics</artifactId>
-				<version>${asideas-commons.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-dbunit</artifactId>
-				<version>${asideas-commons.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-test</artifactId>
-				<version>${asideas-commons.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-test-rest</artifactId>
-				<version>${asideas-commons.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 
 			<dependency>

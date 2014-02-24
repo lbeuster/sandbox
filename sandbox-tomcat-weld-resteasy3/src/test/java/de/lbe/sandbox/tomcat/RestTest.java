@@ -28,7 +28,7 @@ public class RestTest extends AbstractRestTest {
 	 */
 	@Test
 	public void testInjection() throws Exception {
-		TestBean bean = prepareClient().path("testInjection").request().get(TestBean.class);
+		TestBean bean = prepareClient().path("rest/testInjection").request().get(TestBean.class);
 		assertTrue(bean.isCdiActive());
 	}
 
@@ -39,7 +39,8 @@ public class RestTest extends AbstractRestTest {
 	public void testPOST() throws Exception {
 		TestBean bean = new TestBean();
 		bean.setName("hallo");
-		TestBean entity = prepareClient().request().accept(MediaType.APPLICATION_JSON).post(Entity.entity(bean, MediaType.APPLICATION_JSON_TYPE)).readEntity(TestBean.class);
+		TestBean entity =
+			prepareClient().path("rest").request().accept(MediaType.APPLICATION_JSON).post(Entity.entity(bean, MediaType.APPLICATION_JSON_TYPE)).readEntity(TestBean.class);
 		System.out.println(entity);
 		assertEquals(1, entity.getValidationCount());
 	}
