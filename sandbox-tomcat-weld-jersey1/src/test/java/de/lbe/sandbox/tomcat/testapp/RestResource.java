@@ -8,6 +8,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 
 import de.asideas.lib.commons.lang.Assert;
 
@@ -25,6 +27,9 @@ public class RestResource {
 	@Inject
 	TestService service;
 
+	@Context
+	private UriInfo uriInfo;
+
 	@GET
 	@Produces("text/plain")
 	public String service() throws Exception {
@@ -36,5 +41,34 @@ public class RestResource {
 	@Produces("application/json")
 	public TestBean validate(@Valid TestBean testBean) {
 		return testBean;
+	}
+
+	@GET
+	@Produces("application/json")
+	@Path("/testInjection")
+	public TestBean testInjection() {
+		TestBean bean = new TestBean();
+		bean.setCdiActive(this.beanManager != null);
+		service.service(null);
+		return bean;
+	}
+
+	@GET
+	@Produces("application/json")
+	@Path("/testContextInjection")
+	public TestBean testContextInjection() {
+		TestBean bean = new TestBean();
+		bean.setContextInjectionActive(this.uriInfo != null);
+		service.service(null);
+		return bean;
+	}
+
+	@GET
+	@Produces("application/json")
+	@Path("/testContextInjectionInCdiBean")
+	public TestBean testContextInjectionInCdiBean() {
+		TestBean bean = new TestBean();
+		bean.setContextInjectionActive(this.service.getUriInfo() != null);
+		return bean;
 	}
 }
