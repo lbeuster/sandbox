@@ -7,7 +7,6 @@ import com.restfb.FacebookClient;
 import com.restfb.exception.FacebookOAuthException;
 import com.restfb.types.User;
 
-import de.asideas.lib.commons.lang.ObjectUtils;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 
 /**
@@ -25,7 +24,9 @@ public class FacebookTest extends AbstractJUnit4Test {
 	public void testMe() {
 		FacebookClient facebookClient = new DefaultFacebookClient(ACCESS_TOKEN);
 		User user = facebookClient.fetchObject("me", User.class);
-		System.out.println(ObjectUtils.dump(user));
+
+		// to token has access to the email of the user
+		assertNotNull(user.getEmail());
 	}
 
 	/**
