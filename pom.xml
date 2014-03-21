@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-facebook</module>
 		<module>sandbox-splunk</module>
 		<module>sandbox-spring-boot</module>
 		<module>sandbox-tomcat-weld-resteasy3</module>
