@@ -1,4 +1,4 @@
-package de.lbe.orika;
+package de.lbe.sandbox.orika;
 
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
