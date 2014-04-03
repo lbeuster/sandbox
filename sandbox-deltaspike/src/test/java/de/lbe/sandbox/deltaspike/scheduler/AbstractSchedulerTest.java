@@ -20,7 +20,6 @@ public abstract class AbstractSchedulerTest extends AbstractJUnit4ArquillianTest
 		WebArchive war = ShrinkWrapUtils.prepareCdiWar();
 		MavenResolverUtils.addRuntimeDependenciesAsArchiveWithGroupIdPrefix(war, "org.apache.deltaspike.");
 		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(war, CdiAwareQuartzJob.class, true);
-		ShrinkWrapUtils.exportToFile(war, "/tmp/test.war", true);
 
 		return war;
 	}
