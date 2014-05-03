@@ -1,6 +1,5 @@
-package de.lbe.sandbox.deltaspike.security;
+package de.lbe.sandbox.deltaspike.core;
 
-import org.apache.deltaspike.security.impl.extension.SecurityInterceptor;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 
@@ -11,20 +10,16 @@ import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
 /**
  * @author lars.beuster
  */
-public abstract class AbstractSecurityTest extends AbstractJUnit4ArquillianTest {
+public abstract class AbstractCoreTest extends AbstractJUnit4ArquillianTest {
 
 	/**
 	 * 
 	 */
 	@Deployment
 	public static WebArchive deployment() {
-		WebArchive war = ShrinkWrapUtils.createWar();
-
-		// activate security
-		ShrinkWrapUtils.setBeansXmlWithInterceptors(war, SecurityInterceptor.class);
-
+		WebArchive war = ShrinkWrapUtils.prepareCdiWar();
 		MavenResolverUtils.addRuntimeDependenciesAsArchiveWithGroupIdPrefix(war, "org.apache.deltaspike.");
-		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(war, DenyAllAuthorizer.class);
+		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(war, AbstractCoreTest.class);
 		return war;
 	}
 }
