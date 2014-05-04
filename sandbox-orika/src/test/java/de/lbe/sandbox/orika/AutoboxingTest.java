@@ -46,8 +46,8 @@ public class AutoboxingTest extends AbstractOrikaTest {
 	}
 
 	/**
-    *
-    */
+     *
+     */
 	@Test
 	public void testPrimitiveTargetSetterIsNotCalledIfSourcePropertyIsNull() throws Exception {
 
@@ -60,7 +60,7 @@ public class AutoboxingTest extends AbstractOrikaTest {
 		// map
 		strictMapperFactory().getMapperFacade(TestBeanWithNonPrimitiveProperty.class, TestBeanWithPrimitiveProperty.class, false).map(source, target);
 
-		// intValue was copied
+		// intValue was not copied
 		assertEquals(1234, target.getIntValue());
 	}
 
