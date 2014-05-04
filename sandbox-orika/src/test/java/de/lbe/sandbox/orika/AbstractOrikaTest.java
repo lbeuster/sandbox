@@ -29,15 +29,8 @@ public class AbstractOrikaTest extends AbstractJUnit4Test {
 	/**
 	 * 
 	 */
-	MapperFactory mapperFactory(boolean useTargetPropertiesAsSource) {
-		ClassMapBuilderFactory factory = new StrictUniDirectionalClassMapBuilder.Factory().useTargetPropertiesAsSource(useTargetPropertiesAsSource);
+	MapperFactory strictMapperFactory() {
+		ClassMapBuilderFactory factory = new StrictUniDirectionalClassMapBuilder.Factory();
 		return new DefaultMapperFactory.Builder().classMapBuilderFactory(factory).build();
-	}
-
-	/**
-	 * 
-	 */
-	MapperFactory defaultMapperFactory() {
-		return mapperFactory(false);
 	}
 }

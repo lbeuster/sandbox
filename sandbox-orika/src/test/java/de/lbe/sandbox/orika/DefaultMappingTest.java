@@ -20,7 +20,7 @@ public class DefaultMappingTest extends AbstractOrikaTest {
 		TestBean targetBean = new TestBean();
 
 		// copy
-		defaultMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(sourceBean, targetBean);
+		strictMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(sourceBean, targetBean);
 
 		// the target bean has now the property of the source bean
 		assertEquals(sourceBean.getName1(), targetBean.getName1());
@@ -40,7 +40,7 @@ public class DefaultMappingTest extends AbstractOrikaTest {
 		target.setName1("name.1");
 
 		// copy
-		defaultMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(source, target);
+		strictMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(source, target);
 
 		// the target bean has now the property of the source bean
 		assertNull(target.getName1());

@@ -19,7 +19,7 @@ public class TargetBeanWithoutGetterTest extends AbstractOrikaTest {
 		source.setName("NAME1");
 
 		// copy
-		defaultMapperFactory().getMapperFacade(SourceTestBean.class, TargetTestBean.class, false).map(source, target);
+		strictMapperFactory().getMapperFacade(SourceTestBean.class, TargetTestBean.class, false).map(source, target);
 
 		// test
 		assertEquals(source.getName(), target.name);

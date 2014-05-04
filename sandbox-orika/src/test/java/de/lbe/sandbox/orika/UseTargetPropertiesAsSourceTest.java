@@ -10,38 +10,6 @@ import org.junit.Test;
 public class UseTargetPropertiesAsSourceTest extends AbstractOrikaTest {
 
 	/**
-	 * 
-	 */
-	@Test(expected = UnknownPropertyException.class)
-	public void testSourceHasMorePropertiesAsTargetFailure() {
-
-		// prepare
-		TestBeanWithAdditionalProperties source = new TestBeanWithAdditionalProperties();
-		TestBean target = new TestBean();
-
-		// copy
-		defaultMapperFactory().getMapperFacade(TestBeanWithAdditionalProperties.class, TestBean.class, false).map(source, target);
-	}
-
-	/**
-	 * 
-	 */
-	@Test
-	public void testSourceHasMorePropertiesAsTargetSuccess() {
-
-		// prepare
-		TestBeanWithAdditionalProperties source = new TestBeanWithAdditionalProperties();
-		source.setName1("name.1");
-		TestBean target = new TestBean();
-
-		// copy
-		mapperFactory(true).getMapperFacade(TestBeanWithAdditionalProperties.class, TestBean.class, false).map(source, target);
-
-		// assert
-		assertEquals(source.getName1(), target.getName1());
-	}
-
-	/**
      *
      */
 	@Test
@@ -54,11 +22,11 @@ public class UseTargetPropertiesAsSourceTest extends AbstractOrikaTest {
 		target.setName1("target.name1");
 
 		// the target bean has an additional property - but we ignore it
-		MapperFactory mapperFactory = mapperFactory(true);
-		mapperFactory.classMap(TestBean.class, TestBeanWithAdditionalProperties.class).field("name1", "name2").exclude("name1").byDefault().register();
+		MapperFactory mapperFactory = strictMapperFactory();
+		mapperFactory.classMap(TestBeanWithAdditionalProperties.class, TestBean.class).field("name2", "name1").exclude("name1").byDefault().register();
 
 		// map
-		mapperFactory.getMapperFacade(TestBean.class, TestBeanWithAdditionalProperties.class, false).map(source, target);
+		mapperFactory.getMapperFacade(TestBeanWithAdditionalProperties.class, TestBean.class, false).mapReverse(source, target);
 
 		// name1 -> name2
 		assertEquals(source.getName1(), target.getName2());
@@ -78,16 +46,15 @@ public class UseTargetPropertiesAsSourceTest extends AbstractOrikaTest {
 		target.setName2("target.name2");
 
 		// the target bean has an additional property - but we ignore it
-		MapperFactory mapperFactory = mapperFactory(true);
-		mapperFactory.classMap(TestBean.class, TestBeanWithAdditionalProperties.class).exclude("name2").byDefault().register();
+		MapperFactory mapperFactory = strictMapperFactory();
+		mapperFactory.classMap(TestBeanWithAdditionalProperties.class, TestBean.class).exclude("name2").byDefault().register();
 
 		// map
-		mapperFactory.getMapperFacade(TestBean.class, TestBeanWithAdditionalProperties.class, false).map(source, target);
+		mapperFactory.getMapperFacade(TestBeanWithAdditionalProperties.class, TestBean.class, false).mapReverse(source, target);
 
 		// assert
 		assertEquals(source.getName1(), target.getName1());
 		assertEquals("target.name2", target.getName2());
-		// copier.addIgnorableProperty("targetProperty");
 	}
 
 	/**
