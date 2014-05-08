@@ -25,6 +25,7 @@
 		<module>sandbox-facebook</module>
 		<module>sandbox-splunk</module>
 		<module>sandbox-spring-boot</module>
+		<module>sandbox-tomcat-embedded</module>
 		<module>sandbox-tomcat-weld-resteasy3</module>
 		<module>sandbox-tomcat-weld-jersey2</module>
 		<module>sandbox-tomcat-weld-jersey1</module>
