@@ -13,7 +13,9 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Valve;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.core.StandardHost;
+import org.apache.catalina.realm.UserDatabaseRealm;
 import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.users.MemoryUserDatabase;
 import org.apache.commons.io.FileUtils;
 import org.apache.naming.resources.VirtualDirContext;
 import org.apache.tomcat.JarScanner;
@@ -52,6 +54,11 @@ public class EmbeddedTomcat {
 
 	private String webappDir;
 
+	/**
+	 * 
+	 */
+	private String userDatabaseRealmFileName = "META-INF/tomcat/tomcat-users.xml";
+
 	private String extraClassesDir;
 
 	/**
@@ -70,8 +77,6 @@ public class EmbeddedTomcat {
 
 	private final List<Runnable> afterStopRunnables = new ArrayList<>();
 
-	private static final String AUTH_ROLE = "developer";
-
 	private static final String WEBXML_LOCATION = "src/test/resources/web.xml";
 
 	/**
@@ -87,11 +92,14 @@ public class EmbeddedTomcat {
 			this.webappContext = initContext(this.tomcat);
 
 			// Hack for CEL-662, adding a user manually
-			this.tomcat.addUser(AUTH_ROLE, "ideas987");
-			this.tomcat.addRole(AUTH_ROLE, AUTH_ROLE);
+			// this.tomcat.addUser(AUTH_ROLE, "ideas987");
+			// this.tomcat.addRole(AUTH_ROLE, AUTH_ROLE);
 
 			// start tomcat
 			this.tomcat.start();
+
+			// must be called after tomcat has been started
+			initSecurityRealm();
 		} catch (RuntimeException ex) {
 			throw ex;
 		} catch (Exception ex) {
@@ -177,6 +185,33 @@ public class EmbeddedTomcat {
 		if (this.catalinaBase == null) {
 			this.catalinaBase = tmpDir("catalina.base").getAbsolutePath();
 		}
+	}
+
+	/**
+	 * 
+	 */
+	protected void initSecurityRealm() throws Exception {
+
+		// we only init if the file exits
+		URL url = Thread.currentThread().getContextClassLoader().getResource(this.userDatabaseRealmFileName);
+		if (url == null) {
+			return;
+		}
+
+		// open the tomcat-users.xml
+		String fileName = URLUtils.toFile(url).getAbsolutePath();
+		MemoryUserDatabase users = new MemoryUserDatabase();
+		users.setPathname(fileName);
+		users.open();
+
+		// put the tomcat-users.xml into JNDI
+		final String jndiResourceName = "userDatabaseRealm";
+		this.tomcat.getServer().getGlobalNamingContext().bind(jndiResourceName, users);
+
+		// init tomcat with the tomcat-users.xml
+		UserDatabaseRealm realm = new UserDatabaseRealm();
+		realm.setResourceName(jndiResourceName);
+		this.tomcat.getEngine().setRealm(realm);
 	}
 
 	/**
@@ -360,5 +395,9 @@ public class EmbeddedTomcat {
 
 	public static boolean isShutdownInProgress() {
 		return shutdownInProgress;
+	}
+
+	public void setUserDatabaseRealmFileName(String userDatabaseRealmFileName) {
+		this.userDatabaseRealmFileName = userDatabaseRealmFileName;
 	}
 }
