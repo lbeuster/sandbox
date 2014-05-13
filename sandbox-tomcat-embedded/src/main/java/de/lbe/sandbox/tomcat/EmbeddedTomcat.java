@@ -114,7 +114,7 @@ public class EmbeddedTomcat {
 
 		// add a JVM-shutdown-hook only if we could start Tomcat (makes no sense to try to stop it if the start failed)
 		if (this.autoStopAtJVMShutdown) {
-			Runnable runnable = new XRunnable<Void>(true) {
+			Runnable runnable = new XRunnable<Void>() {
 
 				@Override
 				protected void runImpl() throws Exception {
@@ -122,7 +122,7 @@ public class EmbeddedTomcat {
 						stop();
 					}
 				}
-			};
+			}.swallowExceptions(true);
 			Runtime.getRuntime().addShutdownHook(new Thread(runnable));
 		}
 
