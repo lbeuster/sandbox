@@ -2,12 +2,14 @@ package de.lbe.sandbox.mongodb.morphia;
 
 import java.util.Collection;
 
+import org.junit.Test;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 import org.mongodb.morphia.Morphia;
 
 import com.mongodb.MongoClient;
 
+import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 import de.asideas.lib.commons.util.CollectionUtils;
 
 /**
@@ -17,11 +19,15 @@ import de.asideas.lib.commons.util.CollectionUtils;
  * 
  * @author lars.beuster
  */
-public class MorphiaMain {
+public class MorphiaTest extends AbstractJUnit4Test {
 
 	private static final String TESTDB = "morphiadb";
 
-	public static void main(String[] args) throws Exception {
+	/**
+	 * 
+	 */
+	@Test
+	public void test() throws Exception {
 
 		MongoClient mongoClient = new MongoClient("localhost", 27017);
 
@@ -60,14 +66,9 @@ public class MorphiaMain {
 		System.out.println(boss.getUnderlings());
 
 		/*
-		 * Key<Employee> scottsKey = ds.save(new Employee("Scott", "Hernandez", ds.getKey(boss), 150**1000));
-		 * 
-		 * //add Scott as an employee of his manager UpdateResults<Employee> res = ds.update( boss,
-		 * ds.createUpdateOperations(Employee.class).add("underlings", scottsKey) );
-		 * 
-		 * // get Scott's boss; the same as the one above. Employee scottsBoss = ds.find(Employee.class).filter("underlings", scottsKey).get();
-		 * 
-		 * for (Employee e : ds.find(Employee.class, "manager", boss)) print(e);
+		 * Key<Employee> scottsKey = ds.save(new Employee("Scott", "Hernandez", ds.getKey(boss), 150**1000)); //add Scott as an employee of his manager UpdateResults<Employee> res
+		 * = ds.update( boss, ds.createUpdateOperations(Employee.class).add("underlings", scottsKey) ); // get Scott's boss; the same as the one above. Employee scottsBoss =
+		 * ds.find(Employee.class).filter("underlings", scottsKey).get(); for (Employee e : ds.find(Employee.class, "manager", boss)) print(e);
 		 */
 	}
 }

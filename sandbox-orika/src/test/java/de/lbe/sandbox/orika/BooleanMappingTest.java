@@ -20,7 +20,7 @@ public class BooleanMappingTest extends AbstractOrikaTest {
 		target.setBooleanProperty(null);
 
 		// map
-		defaultMapperFactory().getMapperFacade(SourceBeanWithBigBooleanProperty.class, TargetBeanWithBigBooleanProperty.class, false).map(source, target);
+		strictMapperFactory().getMapperFacade(SourceBeanWithBigBooleanProperty.class, TargetBeanWithBigBooleanProperty.class, false).map(source, target);
 
 		// test
 		assertNotNull(target.booleanProperty);

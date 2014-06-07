@@ -23,7 +23,7 @@ public class MapPropertyNamesTest extends AbstractOrikaTest {
 		target.setName1("target.name.1");
 
 		// prepare mapper
-		MapperFactory mapperFactory = defaultMapperFactory();
+		MapperFactory mapperFactory = strictMapperFactory();
 		// mapperFactory = new DefaultMapperFactory.Builder().build();
 
 		mapperFactory.classMap(SourceBean.class, TargetBean.class).field("name1", "name2").byDefault().register();
@@ -43,7 +43,7 @@ public class MapPropertyNamesTest extends AbstractOrikaTest {
 	public void testMapToInvalidPropertyName() throws Exception {
 
 		// prepare mapper
-		MapperFactory mapperFactory = defaultMapperFactory();
+		MapperFactory mapperFactory = strictMapperFactory();
 		mapperFactory.classMap(SourceBean.class, TargetBean.class).field("name1", "invalid-name");
 	}
 

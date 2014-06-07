@@ -1,5 +1,7 @@
 package de.lbe.sandbox.orika;
 
+import ma.glasnost.orika.MapperFactory;
+
 import org.junit.Test;
 
 /**
@@ -20,7 +22,7 @@ public class DefaultMappingTest extends AbstractOrikaTest {
 		TestBean targetBean = new TestBean();
 
 		// copy
-		defaultMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(sourceBean, targetBean);
+		strictMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(sourceBean, targetBean);
 
 		// the target bean has now the property of the source bean
 		assertEquals(sourceBean.getName1(), targetBean.getName1());
@@ -40,10 +42,36 @@ public class DefaultMappingTest extends AbstractOrikaTest {
 		target.setName1("name.1");
 
 		// copy
-		defaultMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(source, target);
+		strictMapperFactory().getMapperFacade(TestBean.class, TestBean.class, false).map(source, target);
 
 		// the target bean has now the property of the source bean
 		assertNull(target.getName1());
+	}
+
+	/**
+     *
+     */
+	@Test
+	public void testIgnoreNullSourceValues() {
+
+		// prepare
+		TestBean source = new TestBean();
+		source.setName1(null);
+		source.setName2(null);
+		TestBean target = new TestBean();
+		target.setName1("name1");
+		target.setName2("name2");
+
+		// prepare - the mapNull has to be before the mapping
+		MapperFactory mapperFactory = strictMapperFactory();
+		mapperFactory.classMap(TestBean.class, TestBean.class).field("name1", "name1").mapNulls(false).field("name2", "name2").byDefault().register();
+
+		// map
+		mapperFactory.getMapperFacade(TestBean.class, TestBean.class, false).map(source, target);
+
+		// assert
+		assertNull("name1", target.getName1());
+		assertEquals("name2", target.getName2());
 	}
 
 	/**

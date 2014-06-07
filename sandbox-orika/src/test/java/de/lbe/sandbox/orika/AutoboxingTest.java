@@ -19,7 +19,7 @@ public class AutoboxingTest extends AbstractOrikaTest {
 		TestBeanWithNonPrimitiveProperty target = new TestBeanWithNonPrimitiveProperty();
 
 		// map
-		defaultMapperFactory().getMapperFacade(TestBeanWithPrimitiveProperty.class, TestBeanWithNonPrimitiveProperty.class, false).map(source, target);
+		strictMapperFactory().getMapperFacade(TestBeanWithPrimitiveProperty.class, TestBeanWithNonPrimitiveProperty.class, false).map(source, target);
 
 		// intValue was copied
 		assertNotNull(target.getIntValue());
@@ -39,15 +39,15 @@ public class AutoboxingTest extends AbstractOrikaTest {
 		TestBeanWithPrimitiveProperty target = new TestBeanWithPrimitiveProperty();
 
 		// map
-		defaultMapperFactory().getMapperFacade(TestBeanWithNonPrimitiveProperty.class, TestBeanWithPrimitiveProperty.class, false).map(source, target);
+		strictMapperFactory().getMapperFacade(TestBeanWithNonPrimitiveProperty.class, TestBeanWithPrimitiveProperty.class, false).map(source, target);
 
 		// intValue was copied
 		assertEquals(source.getIntValue().intValue(), target.getIntValue());
 	}
 
 	/**
-    *
-    */
+     *
+     */
 	@Test
 	public void testPrimitiveTargetSetterIsNotCalledIfSourcePropertyIsNull() throws Exception {
 
@@ -58,9 +58,9 @@ public class AutoboxingTest extends AbstractOrikaTest {
 		target.setIntValue(1234);
 
 		// map
-		defaultMapperFactory().getMapperFacade(TestBeanWithNonPrimitiveProperty.class, TestBeanWithPrimitiveProperty.class, false).map(source, target);
+		strictMapperFactory().getMapperFacade(TestBeanWithNonPrimitiveProperty.class, TestBeanWithPrimitiveProperty.class, false).map(source, target);
 
-		// intValue was copied
+		// intValue was not copied
 		assertEquals(1234, target.getIntValue());
 	}
 

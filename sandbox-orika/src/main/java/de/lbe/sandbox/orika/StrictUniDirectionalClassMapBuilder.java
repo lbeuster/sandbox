@@ -1,12 +1,10 @@
 package de.lbe.sandbox.orika;
 
-import java.util.Set;
-
 import ma.glasnost.orika.DefaultFieldMapper;
 import ma.glasnost.orika.MapperFactory;
-import ma.glasnost.orika.MappingException;
 import ma.glasnost.orika.metadata.ClassMapBuilder;
 import ma.glasnost.orika.metadata.ClassMapBuilderFactory;
+import ma.glasnost.orika.metadata.MappingDirection;
 import ma.glasnost.orika.metadata.Property;
 import ma.glasnost.orika.metadata.Type;
 import ma.glasnost.orika.property.PropertyResolverStrategy;
@@ -16,45 +14,30 @@ import ma.glasnost.orika.property.PropertyResolverStrategy;
  */
 public class StrictUniDirectionalClassMapBuilder<A, B> extends ClassMapBuilder<A, B> {
 
-	private final boolean useTargetPropertiesAsSource;
-
-	/**
-	 * <p>
-	 * This is a hack. The default behavior of the ClassMapBuilder is if a property doesn't exist on both sides it is simply ignored. So there's no need to exclude a property that
-	 * is only on one side - and if we do it anyway an exception is thrown.
-	 * </p>
-	 * <p>
-	 * But we want to be strict. If a property exists only on the source side we throw an exception. That's why we have to exclude the property. But this fails because of the
-	 * default impl. That's why we have this hack.
-	 * </p>
-	 */
-	private boolean inExclude = false;
-
 	/**
 	 * 
 	 */
 	protected StrictUniDirectionalClassMapBuilder(Type<A> aType, Type<B> bType, MapperFactory mapperFactory, PropertyResolverStrategy propertyResolver,
-		DefaultFieldMapper[] defaults, boolean useTargetPropertiesAsSource) {
+		DefaultFieldMapper[] defaults) {
 		super(aType, bType, mapperFactory, propertyResolver, defaults);
-		this.useTargetPropertiesAsSource = useTargetPropertiesAsSource;
 	}
 
 	/**
 	 * 
 	 */
 	@Override
-	public StrictUniDirectionalClassMapBuilder<A, B> byDefault(DefaultFieldMapper... withDefaults) {
+	public StrictUniDirectionalClassMapBuilder<A, B> byDefault(MappingDirection direction, DefaultFieldMapper... withDefaults) {
 
-		for (final String propertyName : getSourceProperties()) {
+		for (final String propertyName : getPropertiesForTypeA()) {
 
 			// already mapped?
-			if (isSourcePropertyAlreadyMapped(propertyName)) {
+			if (isATypePropertyAlreadyMapped(propertyName)) {
 				continue;
 			}
 
 			// unknown property?
-			if (!getTargetProperties().contains(propertyName)) {
-				throw new UnknownPropertyException(getTargetType() + " doesn't contain property '" + propertyName + "'");
+			if (!getPropertiesForTypeB().contains(propertyName)) {
+				throw new UnknownPropertyException(getBType() + " doesn't contain property '" + propertyName + "'");
 			}
 
 			// ignore getClass() mapping
@@ -73,50 +56,19 @@ public class StrictUniDirectionalClassMapBuilder<A, B> extends ClassMapBuilder<A
 	 */
 	@Override
 	public ClassMapBuilder<A, B> exclude(String fieldName) {
-		inExclude = true;
-		try {
-			return super.exclude(fieldName);
-		} finally {
-			inExclude = false;
+
+		// the property has to exist on the source side
+		if (!getPropertyResolver().existsProperty(getAType(), fieldName)) {
+			throw new UnknownPropertyException(fieldName);
 		}
+
+		// it original impl only does something if the property belongs to A and B - for us it's enough to have it in A
+		Property aProperty = resolveProperty(getAType(), fieldName);
+		return fieldMap(aProperty, aProperty, false).exclude().add();
 	}
 
-	/**
-	 * 
-	 */
-	@Override
-	protected Property resolveProperty(java.lang.reflect.Type type, String expr) {
-		try {
-			return super.resolveProperty(type, expr);
-		} catch (MappingException ex) {
-			if (inExclude) {
-				// the default impl calls resolveProperty() 2 times - for the source and for the target. The property has to exist at least on one of both. So it's not valid if the
-				// property doesn't exist on both sides.
-				inExclude = false;
-				return new Property.Builder().expression(expr).name(expr).getter("<doesn_t-matter>").build();
-			}
-			throw ex;
-		}
-	}
-
-	private Type<?> getTargetType() {
-		return this.useTargetPropertiesAsSource ? getAType() : getBType();
-	}
-
-	private Set<String> getSourceProperties() {
-		return this.useTargetPropertiesAsSource ? getPropertiesForTypeB() : getPropertiesForTypeA();
-	}
-
-	private Set<String> getAlreadyMappedSourceProperties() {
-		return this.useTargetPropertiesAsSource ? getMappedPropertiesForTypeB() : getMappedPropertiesForTypeA();
-	}
-
-	private boolean isSourcePropertyAlreadyMapped(String propertyName) {
-		return getAlreadyMappedSourceProperties().contains(propertyName);
-	}
-
-	private Set<String> getTargetProperties() {
-		return this.useTargetPropertiesAsSource ? getPropertiesForTypeA() : getPropertiesForTypeB();
+	private boolean isATypePropertyAlreadyMapped(String propertyName) {
+		return getMappedPropertiesForTypeA().contains(propertyName);
 	}
 
 	/**
@@ -124,17 +76,10 @@ public class StrictUniDirectionalClassMapBuilder<A, B> extends ClassMapBuilder<A
 	 */
 	public static class Factory extends ClassMapBuilderFactory {
 
-		private boolean useTargetPropertiesAsSource = false;
-
 		@Override
 		protected <A, B> ClassMapBuilder<A, B> newClassMapBuilder(Type<A> aType, Type<B> bType, MapperFactory mapperFactory, PropertyResolverStrategy propertyResolver,
 			DefaultFieldMapper[] defaults) {
-			return new StrictUniDirectionalClassMapBuilder<>(aType, bType, mapperFactory, propertyResolver, defaults, this.useTargetPropertiesAsSource);
-		}
-
-		public Factory useTargetPropertiesAsSource(boolean useTargetPropertiesAsSource) {
-			this.useTargetPropertiesAsSource = useTargetPropertiesAsSource;
-			return this;
+			return new StrictUniDirectionalClassMapBuilder<>(aType, bType, mapperFactory, propertyResolver, defaults);
 		}
 	}
 }
