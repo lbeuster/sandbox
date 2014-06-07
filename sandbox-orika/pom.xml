@@ -11,7 +11,7 @@
 	<artifactId>sandbox-orika</artifactId>
 
 	<properties>
-		<orika.version>1.4.2</orika.version>
+		<orika.version>1.4.3</orika.version>
 	</properties>
 
 	<dependencies>
