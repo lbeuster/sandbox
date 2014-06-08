@@ -1,6 +1,5 @@
 package de.lbe.sandbox.shiro;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,13 +8,17 @@ import java.util.Map;
  */
 public class UserRepository {
 
-	private static final Map<String, User> USERS = new HashMap<String, User>();
+	private static final Map<String, User> users = new HashMap<>();
 
 	static {
-		USERS.put("lars", new User("lars", Arrays.asList(User.ROLE_ADMIN)));
+		add(User.ADMIN);
 	}
 
-	public User getUserByDisplayName(String displayName) {
-		return this.USERS.get(displayName);
+	public static void add(User user) {
+		users.put(user.getDisplayName(), user);
+	}
+
+	public User findByDisplayName(String displayName) {
+		return users.get(displayName);
 	}
 }
