@@ -5,11 +5,11 @@ import org.apache.deltaspike.security.api.authorization.Secures;
 /**
  * @author lbeuster
  */
-public class DenyAllAuthorizer {
+public class MyPermitAllAuthorizer {
 
 	@Secures
-	@MyDenyAll
-	public boolean denyAll() {
-		throw new AccessDeniedException("denyAll");
+	@MyPermitAll
+	public boolean permitAll() {
+		return true;
 	}
 }

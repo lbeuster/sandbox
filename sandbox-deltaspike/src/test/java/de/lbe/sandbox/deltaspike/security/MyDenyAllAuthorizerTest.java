@@ -10,7 +10,7 @@ import de.lbe.sandbox.deltaspike.security.MyDenyAll;
 /**
  * @author lars.beuster
  */
-public class DenyAllAuthorizerTest extends AbstractSecurityTest {
+public class MyDenyAllAuthorizerTest extends AbstractSecurityTest {
 
 	@Inject
 	private DenyAllService service;

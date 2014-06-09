@@ -9,7 +9,7 @@ import de.lbe.sandbox.deltaspike.security.MyPermitAll;
 /**
  * @author lars.beuster
  */
-public class PermitAllAuthorizerTest extends AbstractSecurityTest {
+public class MyPermitAllAuthorizerTest extends AbstractSecurityTest {
 
 	@Inject
 	private PermitAllService service;

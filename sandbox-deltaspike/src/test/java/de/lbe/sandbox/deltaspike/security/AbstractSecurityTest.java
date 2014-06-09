@@ -24,7 +24,7 @@ public abstract class AbstractSecurityTest extends AbstractJUnit4ArquillianTest 
 		ShrinkWrapUtils.setBeansXmlWithInterceptors(war, SecurityInterceptor.class);
 
 		MavenResolverUtils.addRuntimeDependenciesAsArchiveWithGroupIdPrefix(war, "org.apache.deltaspike.");
-		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(war, DenyAllAuthorizer.class);
+		ShrinkWrapUtils.addFilesFromSameClasspathAndPackage(war, MyDenyAllAuthorizer.class);
 		return war;
 	}
 }
