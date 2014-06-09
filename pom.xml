@@ -22,6 +22,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-spring-security</module>
 		<module>sandbox-shiro</module>
 		<module>sandbox-facebook</module>
 		<module>sandbox-splunk</module>
