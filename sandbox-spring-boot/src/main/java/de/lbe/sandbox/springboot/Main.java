@@ -1,6 +1,7 @@
 package de.lbe.sandbox.springboot;
 
 import de.asideas.lib.commons.lang.ClassLoaderUtils;
+import de.asideas.lib.commons.tomcat.embedded.EmbeddedTomcat;
 import de.asideas.lib.commons.util.logging.slf4j.SLF4JUtils;
 
 /**
@@ -15,7 +16,7 @@ public class Main {
 	public void start(boolean await) {
 		System.out.println(ClassLoaderUtils.toString(Thread.currentThread().getContextClassLoader()));
 		SLF4JUtils.installJulToSlf4jBridge();
-		EmbeddedTomcat tomcat = new EmbeddedTomcat();
+		EmbeddedTomcat tomcat = new EmbeddedJEETomcat();
 		// tomcat.setWebappDir("src/main/webapp");
 		tomcat.setPort(1234);
 		tomcat.start();
