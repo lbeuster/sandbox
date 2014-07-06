@@ -1,6 +1,8 @@
 package de.lbe.sandbox.resteasy.spring;
 
+import javax.annotation.Priority;
 import javax.servlet.ServletContext;
+import javax.servlet.annotation.WebListener;
 
 import org.jboss.resteasy.plugins.spring.SpringContextLoaderSupport;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
@@ -8,6 +10,10 @@ import org.springframework.web.context.ConfigurableWebApplicationContext;
 public class Spring4ContextLoaderListener extends org.jboss.resteasy.plugins.spring.SpringContextLoaderListener {
 
 	private SpringContextLoaderSupport springContextLoaderSupport = new SpringContextLoaderSupport();
+
+	{
+		System.out.println(getClass().getName() + ".<init>");
+	}
 
 	// @Override
 	// public void contextInitialized(ServletContextEvent event) {

@@ -8,7 +8,8 @@ import de.asideas.lib.commons.tomcat.embedded.EmbeddedTomcat;
 public class TestTomcat extends EmbeddedTomcat {
 
 	private TestTomcat() {
-		setWebappDir("src/main/webapp");
-		// setExtraClassesDir("target/test-classes");
+		addServletListener(ResteasyBootstrapListener.class);
+		addServletListener(Spring4ContextLoaderListener.class);
+		addContextParam("contextConfigLocation", "classpath:context-sandbox.xml");
 	}
 }
