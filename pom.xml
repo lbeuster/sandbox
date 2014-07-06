@@ -22,6 +22,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-resteasy3-spring</module>
 		<module>sandbox-picketlink-deltaspike</module>
 		<module>sandbox-spring-security</module>
 		<module>sandbox-shiro</module>
