@@ -11,6 +11,8 @@ import org.apache.deltaspike.security.api.authorization.SecurityViolation;
  */
 public class HasPermissionAccessDecisionVoter implements AccessDecisionVoter {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public Set<SecurityViolation> checkPermission(AccessDecisionVoterContext context) {
 		HasPermission annotation = context.getMetaDataFor(HasPermission.class.getName(), HasPermission.class);

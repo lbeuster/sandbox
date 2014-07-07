@@ -2,6 +2,7 @@ package de.lbe.sandbox.deltaspike.scheduler;
 
 import javax.inject.Inject;
 
+import org.apache.deltaspike.scheduler.api.Scheduled;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -9,7 +10,7 @@ import org.quartz.JobExecutionException;
 /**
  * @author lbeuster
  */
-// @Scheduled(cronExpression = "* * * * * ?")
+@Scheduled(cronExpression = "* * * * * ?")
 public class ConstructorInjectionQuartzJob implements Job {
 
 	private final ScheduledService service;
@@ -21,6 +22,7 @@ public class ConstructorInjectionQuartzJob implements Job {
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
+		System.out.println("CDI-aware");
 		service.service();
 	}
 }

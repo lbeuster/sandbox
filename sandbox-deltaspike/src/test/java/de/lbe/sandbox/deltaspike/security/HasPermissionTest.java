@@ -16,7 +16,7 @@ public class HasPermissionTest extends AbstractSecurityTest {
 	 * 
 	 */
 	@Test
-	public void testPermitAll() {
+	public void testHasPermission() {
 		service.execute();
 	}
 

@@ -1,5 +1,6 @@
 package de.lbe.sandbox.deltaspike.core;
 
+import javax.enterprise.inject.UnsatisfiedResolutionException;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.inject.Inject;
 
@@ -18,7 +19,7 @@ public class ExcludeTest extends AbstractCoreTest {
 	/**
 	 * 
 	 */
-	@Test
+	@Test(expected = UnsatisfiedResolutionException.class)
 	public void testLars() {
 		// System.getProperties().list(System.out);
 		ExcludedBean bean = BeanManagerUtils.getContextualReference(this.beanManager, ExcludedBean.class);
