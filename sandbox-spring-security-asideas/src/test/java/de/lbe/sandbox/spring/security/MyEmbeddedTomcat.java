@@ -20,7 +20,8 @@ public class MyEmbeddedTomcat extends EmbeddedTomcat {
 		super.initContext();
 		addServletListener(ResteasyBootstrap.class);
 		addServletListener(Spring4ContextLoaderListener.class);
-		addContextParam("contextConfigLocation", "classpath:context.xml");
+		addContextParam("contextClass", MyApplicationContext.class.getName());
+		// addContextParam("contextConfigLocation", "classpath:context.xml");
 		addFilter(DelegatingFilterProxy.class, "springSecurityFilterChain", "/*");
 	}
 }

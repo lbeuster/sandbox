@@ -1,6 +1,7 @@
 package de.lbe.sandbox.spring.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,6 +17,7 @@ import de.lbe.sandbox.spring.security.security.XAuthTokenAuthenticationProvider;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 @Configuration
+@ComponentScan("de.lbe.sandbox")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	public static final String ANONYMOUS_USERNAME = "__anonymous__";
