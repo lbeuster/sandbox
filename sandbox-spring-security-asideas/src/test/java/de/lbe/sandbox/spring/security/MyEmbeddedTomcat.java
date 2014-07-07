@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 
 import org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap;
-import org.jboss.resteasy.plugins.spring.SpringContextLoaderListener;
 
 import de.asideas.lib.commons.tomcat.embedded.EmbeddedTomcat;
 
@@ -19,7 +18,7 @@ public class MyEmbeddedTomcat extends EmbeddedTomcat {
 	protected void initContext() throws ServletException, IOException {
 		super.initContext();
 		addServletListener(ResteasyBootstrap.class);
-		addServletListener(SpringContextLoaderListener.class);
+		addServletListener(Spring4ContextLoaderListener.class);
 		addContextParam("contextConfigLocation", "classpath:context.xml");
 	}
 }
