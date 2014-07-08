@@ -1,8 +1,6 @@
 package de.lbe.sandbox.resteasy.spring;
 
-import javax.annotation.Priority;
 import javax.servlet.ServletContext;
-import javax.servlet.annotation.WebListener;
 
 import org.jboss.resteasy.plugins.spring.SpringContextLoaderSupport;
 import org.springframework.web.context.ConfigurableWebApplicationContext;

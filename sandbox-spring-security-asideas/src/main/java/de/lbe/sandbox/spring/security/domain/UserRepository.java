@@ -14,7 +14,7 @@ public class UserRepository {
 
 	public UserDetails getUserByName(String username) {
 		if ("admin".equals(username) || "test".equals(username)) {
-			List<GrantedAuthority> authorities = new ArrayList();
+			List<GrantedAuthority> authorities = new ArrayList<>();
 			authorities.add(new SimpleGrantedAuthority("ROLE_" + username + "-role"));
 			authorities.add(new SimpleGrantedAuthority(username));
 			return new User(username, username, authorities);

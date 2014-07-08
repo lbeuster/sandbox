@@ -82,7 +82,7 @@ public class MainResource {
 	}
 
 	private Map<String, Boolean> createRoleMap(UserDetails userDetails) {
-		Map<String, Boolean> roles = new HashMap<String, Boolean>();
+		Map<String, Boolean> roles = new HashMap<>();
 		for (GrantedAuthority authority : userDetails.getAuthorities()) {
 			roles.put(authority.getAuthority(), Boolean.TRUE);
 		}

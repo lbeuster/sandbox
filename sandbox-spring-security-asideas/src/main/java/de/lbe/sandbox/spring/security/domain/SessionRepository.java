@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SessionRepository {
 
-	private static final Map<String, String> validSessionIds = new HashMap<String, String>();
+	private static final Map<String, String> validSessionIds = new HashMap<>();
 
 	public String createSessionId(String user) {
 		String sessionId = UUID.randomUUID().toString();
