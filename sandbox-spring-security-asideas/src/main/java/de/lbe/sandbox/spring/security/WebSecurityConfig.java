@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(authFilter, AnonymousAuthenticationFilter.class);
 		http.csrf().disable();
-		http.anonymous().authorities(ANONYMOUS_USERNAME).principal(ANONYMOUS_USERNAME);
+		http.anonymous().disable();// authorities(ANONYMOUS_USERNAME).principal(ANONYMOUS_USERNAME);
 
 		//
 		// <security:http realm="Protected API" use-expressions="true" auto-config="false" entry-point-ref="unauthorizedEntryPoint"

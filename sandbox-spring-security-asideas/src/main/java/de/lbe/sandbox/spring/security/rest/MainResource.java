@@ -1,5 +1,6 @@
 package de.lbe.sandbox.spring.security.rest;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,11 +51,12 @@ public class MainResource {
 	@Path("me")
 	public UserTransfer getUser() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (!authentication.isAuthenticated()) {
+		if (authentication != null && !authentication.isAuthenticated()) {
 			authentication = this.authProvider.authenticate(authentication);
 		}
-
-		return new UserTransfer(authentication.getName(), authentication.getAuthorities());
+		String username = authentication != null ? authentication.getName() : null;
+		Collection<? extends GrantedAuthority> authorities = authentication != null ? authentication.getAuthorities() : null;
+		return new UserTransfer(username, authorities);
 	}
 
 	/**

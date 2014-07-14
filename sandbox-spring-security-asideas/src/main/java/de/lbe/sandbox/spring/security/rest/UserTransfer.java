@@ -32,8 +32,10 @@ public class UserTransfer {
 
 	private List<String> toAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		List<String> auths = new ArrayList<>();
-		for (GrantedAuthority authority : authorities) {
-			auths.add(authority.getAuthority());
+		if (authorities != null) {
+			for (GrantedAuthority authority : authorities) {
+				auths.add(authority.getAuthority());
+			}
 		}
 		return auths;
 	}
