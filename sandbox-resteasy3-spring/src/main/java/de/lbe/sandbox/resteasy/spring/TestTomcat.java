@@ -15,7 +15,12 @@ public class TestTomcat extends EmbeddedTomcat {
 	protected void initContext() throws ServletException, IOException {
 		super.initContext();
 		addServletListener(ResteasyBootstrapListener.class);
+
+		// configure Spring
+		// addServletListener(ContextLoaderListener.class);
 		addServletListener(Spring4ContextLoaderListener.class);
-		addContextParam("contextConfigLocation", "classpath:context-sandbox.xml");
+		addContextParam("contextClass", MySpringApplicationContext.class.getName());
+
+		// addContextParam("contextConfigLocation", "classpath:context-sandbox.xml");
 	}
 }

@@ -11,8 +11,7 @@ public class RestTest extends AbstractRestTest {
 	 * 
 	 */
 	@Test
-	public void testGET() throws Exception {
-		String response = client.path("lars/rest").get().assertIsStatusOk().getEntityAsString();
-		System.out.println(response);
+	public void testMethodValidation() throws Exception {
+		client.path("api/test/methodValidation").get().assertIsStatusBadRequest();
 	}
 }
