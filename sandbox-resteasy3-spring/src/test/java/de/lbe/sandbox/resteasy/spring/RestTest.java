@@ -14,4 +14,12 @@ public class RestTest extends AbstractRestTest {
 	public void testMethodValidation() throws Exception {
 		client.path("api/test/methodValidation").get().assertIsStatusBadRequest();
 	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testMetrics() throws Exception {
+		client.path("api/test/metrics").get().assertIsStatusOk();
+	}
 }
