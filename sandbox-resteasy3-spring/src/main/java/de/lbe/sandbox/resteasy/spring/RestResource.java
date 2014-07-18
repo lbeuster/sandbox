@@ -1,5 +1,8 @@
 package de.lbe.sandbox.resteasy.spring;
 
+import java.beans.Introspector;
+import java.util.SortedSet;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
@@ -16,7 +19,10 @@ import org.springframework.validation.annotation.Validated;
 
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
-import com.codahale.metrics.annotation.Timed;
+import com.codahale.metrics.health.HealthCheckRegistry;
+
+import de.asideas.lib.commons.metrics.spring.Timed;
+import de.lbe.sandbox.resteasy.spring.metrics.TestHealthCheck;
 
 /**
  * @author lars.beuster
@@ -24,6 +30,7 @@ import com.codahale.metrics.annotation.Timed;
 @Path("/test")
 @Component
 @Validated
+@Timed
 public class RestResource {
 
 	@Context
@@ -34,6 +41,9 @@ public class RestResource {
 
 	@Inject
 	private MetricRegistry metricRegistry;
+
+	@Inject
+	private HealthCheckRegistry healthCheckRegistry;
 
 	@Autowired
 	private TestService service;
@@ -58,7 +68,6 @@ public class RestResource {
 	@GET
 	@Produces("text/plain")
 	@Path("metrics")
-	@Timed
 	public String testMetrics() {
 		String name = RestResource.class.getName() + ".testMetrics";
 		Timer timer = metricRegistry.getTimers().get(name);
@@ -66,5 +75,17 @@ public class RestResource {
 			throw new IllegalArgumentException("timer not found in " + metricRegistry.getTimers().keySet());
 		}
 		return timer.toString();
+	}
+
+	@GET
+	@Produces("text/plain")
+	@Path("healthcheck")
+	public String testHealthCheck() {
+		String name = Introspector.decapitalize(TestHealthCheck.class.getSimpleName());
+		SortedSet<String> names = healthCheckRegistry.getNames();
+		if (!names.contains(name)) {
+			throw new IllegalArgumentException("healthCheck not found in " + names);
+		}
+		return name;
 	}
 }

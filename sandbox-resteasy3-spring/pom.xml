@@ -76,9 +76,11 @@
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 		</dependency>
+
+		<!-- metrics -->
 		<dependency>
-			<groupId>com.ryantenney.metrics</groupId>
-			<artifactId>metrics-spring</artifactId>
+			<groupId>com.codahale.metrics</groupId>
+			<artifactId>metrics-servlets</artifactId>
 		</dependency>
 
 		<!-- Validation -->
@@ -90,6 +92,10 @@
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-tomcat-embedded</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-metrics-spring</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>

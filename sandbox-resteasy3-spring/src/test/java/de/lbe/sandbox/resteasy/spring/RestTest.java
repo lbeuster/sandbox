@@ -22,4 +22,12 @@ public class RestTest extends AbstractRestTest {
 	public void testMetrics() throws Exception {
 		client.path("api/test/metrics").get().assertIsStatusOk();
 	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testHealthCheck() throws Exception {
+		client.path("api/test/healthcheck").get().assertIsStatusOk();
+	}
 }

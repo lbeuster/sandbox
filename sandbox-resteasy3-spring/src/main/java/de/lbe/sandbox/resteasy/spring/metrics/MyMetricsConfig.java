@@ -1,16 +1,19 @@
-package de.lbe.sandbox.resteasy.spring;
+package de.lbe.sandbox.resteasy.spring.metrics;
 
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 import com.codahale.metrics.ConsoleReporter;
 import com.codahale.metrics.MetricRegistry;
-import com.ryantenney.metrics.spring.config.annotation.EnableMetrics;
 import com.ryantenney.metrics.spring.config.annotation.MetricsConfigurerAdapter;
 
+import de.asideas.lib.commons.metrics.spring.config.SpringMetricsProducer;
+
 @Configuration
-@EnableMetrics
+// @EnableMetrics
+@Import(SpringMetricsProducer.class)
 public class MyMetricsConfig extends MetricsConfigurerAdapter {
 
 	@Override
