@@ -14,23 +14,18 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
-import de.asideas.lib.commons.metrics.spring.Timed;
 import de.lbe.sandbox.resteasy.spring.metrics.TestHealthCheck;
 
 /**
  * @author lars.beuster
  */
 @Path("/test")
-@Component
-@Validated
-@Timed
+@RestResourcePrototype
 public class RestResource {
 
 	@Context
