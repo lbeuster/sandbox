@@ -19,6 +19,16 @@ public class RestTest extends AbstractRestTest {
 	 * 
 	 */
 	@Test
+	public void testMethodValidationWithValid() throws Exception {
+		TestPojo pojo = new TestPojo();
+		pojo.setMessage(null);
+		client.path("api/test/pojoMethodValidation").postJSON(pojo).assertIsStatusBadRequest();
+	}
+
+	/**
+	 * 
+	 */
+	@Test
 	public void testMetrics() throws Exception {
 		client.path("api/test/metrics").get().assertIsStatusOk();
 	}
