@@ -1,0 +1,2 @@
+META-INF must not be empty - otherwise Tomcat (JarScanner) doesn't recognize Servlet 3.0 objects in this classpath element. Resteasy doesn't work too because it doesn't get all
+classes provided by Tomcat.
