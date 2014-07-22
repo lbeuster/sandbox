@@ -23,6 +23,7 @@ import com.codahale.metrics.Timer;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
 import de.lbe.sandbox.resteasy.spring.metrics.TestHealthCheck;
+import de.lbe.sandbox.resteasy.spring.validation.ValidInjectionPoint;
 
 /**
  * @author lars.beuster
@@ -60,6 +61,13 @@ public class RestResource {
 	@Produces("text/plain")
 	@Path("methodValidation")
 	public String testMethodValidation(@NotNull @QueryParam("param") String param) {
+		return param;
+	}
+
+	@GET
+	@Produces("text/plain")
+	@Path("injectionAwareValidation")
+	public String testInjectionAwareValidator(@ValidInjectionPoint @QueryParam("param") String param) {
 		return param;
 	}
 

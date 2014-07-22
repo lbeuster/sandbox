@@ -11,6 +11,14 @@ public class RestTest extends AbstractRestTest {
 	 * 
 	 */
 	@Test
+	public void testInectionAwareValidator() throws Exception {
+		client.path("api/test/injectionAwareValidation").query("param", "value").get().assertIsStatusOk();
+	}
+
+	/**
+	 * 
+	 */
+	@Test
 	public void testMethodValidation() throws Exception {
 		client.path("api/test/methodValidation").get().assertIsStatusBadRequest();
 	}

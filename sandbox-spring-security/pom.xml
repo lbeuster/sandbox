@@ -56,12 +56,16 @@
 
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-core</artifactId>
+			<artifactId>asideas-commons-spring</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
