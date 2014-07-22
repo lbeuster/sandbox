@@ -19,4 +19,5 @@ import de.asideas.lib.commons.metrics.spring.Timed;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE })
 public @interface RestResourcePrototype {
+	// only the annotations
 }

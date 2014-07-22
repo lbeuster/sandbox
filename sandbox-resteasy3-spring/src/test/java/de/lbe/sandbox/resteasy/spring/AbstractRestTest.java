@@ -5,6 +5,7 @@ import org.junit.Before;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
 import de.asideas.lib.commons.test.restclient.RestClient;
 import de.asideas.lib.commons.tomcat.embedded.test.SingletonEmbeddedTestTomcat;
+import de.lbe.sandbox.resteasy.spring.boot.TestTomcat;
 
 /**
  * @author lars.beuster
