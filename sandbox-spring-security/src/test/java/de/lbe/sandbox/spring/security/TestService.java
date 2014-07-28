@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 // @PreAuthorize("hasRole('ROLE_USERd')")
+// @PreAuthorize("denyAll")
 public class TestService {
 
 	// @Secured("ROLE_USER")
