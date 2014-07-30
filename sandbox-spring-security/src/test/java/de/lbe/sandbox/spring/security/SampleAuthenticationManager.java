@@ -17,9 +17,10 @@ public class SampleAuthenticationManager implements AuthenticationManager {
 	static final List<GrantedAuthority> AUTHORITIES = new ArrayList<GrantedAuthority>();
 
 	static {
-		AUTHORITIES.add(new GrantedAuthorityImpl("ROLE_USER"));
+		AUTHORITIES.add(new GrantedAuthorityImpl("TestAuthority"));
 	}
 
+	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 		if (auth.getName().equals(auth.getCredentials())) {
 			return new UsernamePasswordAuthenticationToken(auth.getName(), auth.getCredentials(), AUTHORITIES);

@@ -60,6 +60,10 @@
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-spring-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-spring</artifactId>
 		</dependency>
 		<dependency>

@@ -22,6 +22,7 @@ import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import com.codahale.metrics.health.HealthCheckRegistry;
 
+import de.asideas.lib.commons.metrics.spring.Timed;
 import de.lbe.sandbox.resteasy.spring.metrics.TestHealthCheck;
 import de.lbe.sandbox.resteasy.spring.validation.ValidInjectionPoint;
 
@@ -29,7 +30,8 @@ import de.lbe.sandbox.resteasy.spring.validation.ValidInjectionPoint;
  * @author lars.beuster
  */
 @Path("/test")
-@RestResourcePrototype
+@RestResourceStereotype
+@Timed
 public class RestResource {
 
 	@Context

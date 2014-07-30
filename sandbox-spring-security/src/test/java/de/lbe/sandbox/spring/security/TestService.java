@@ -1,7 +1,8 @@
 package de.lbe.sandbox.spring.security;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
+
+import de.asideas.lib.commons.spring.security.HasAuthority;
 
 @Component
 // @PreAuthorize("hasRole('ROLE_USERd')")
@@ -9,8 +10,14 @@ import org.springframework.stereotype.Component;
 public class TestService {
 
 	// @Secured("ROLE_USER")
-	@PreAuthorize("hasRole('ROLE_USER')")
-	public void test() {
+	// @PreAuthorize("hasRole('ROLE_USER')")
+	@HasAuthority("TestAuthority")
+	public void accessPermitted() {
+		System.out.println("test");
+	}
+
+	@HasAuthority("InvalidTestAuthority")
+	public void accessDenied() {
 		System.out.println("test");
 	}
 }
