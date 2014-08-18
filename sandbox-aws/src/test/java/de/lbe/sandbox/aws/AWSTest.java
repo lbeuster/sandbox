@@ -13,7 +13,6 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.PutObjectResult;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.util.StringInputStream;
 
@@ -25,8 +24,6 @@ import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
  * @author lbeuster
  */
 public class AWSTest extends AbstractJUnit4Test {
-
-	private static final String BUCKET_NAME = "celepedia-dev";
 
 	private AmazonS3Client client;
 
@@ -72,38 +69,65 @@ public class AWSTest extends AbstractJUnit4Test {
 	 * 
 	 */
 	@Test
-	public void testReadAccess() throws Exception {
-
-		// URL url = new URL("http://celepedia-dev.s3.amazonaws.com");
-		// System.out.println(IOUtils.toString(url));
-
-		String key = "test";
-
-		S3Object object = this.client.getObject(BUCKET_NAME, key);
+	public void testReadAccessOnStaging() throws Exception {
+		String key = "53d263c5e4b0febc9a4053d0";
+		S3Object object = this.client.getObject("staging.s3.celepedia.de", key);
+		assertNotNull(object);
 	}
 
 	/**
 	 * 
 	 */
 	@Test
-	public void testSomething() throws Exception {
+	public void testReadAccessOnEmbedded() throws Exception {
+		String key = "larstest";
+		S3Object object = this.client.getObject("embedded.s3.celepedia.de", key);
+		assertNotNull(object);
+	}
 
-		// URL url = new URL("http://celepedia-dev.s3.amazonaws.com");
-		// System.out.println(IOUtils.toString(url));
+	/**
+	 * 
+	 */
+	@Test
+	public void testReadAccessOnProduction() throws Exception {
+		String key = "53f21f6de4b0f60a2bf0e271";
+		S3Object object = this.client.getObject("production.s3.celepedia.de", key);
+		assertNotNull(object);
+	}
 
-		String key = "lars/lars-test";
-		String content = "HALLO";
-
+	/**
+	 * 
+	 */
+	@Test
+	public void testWriteAccessOnStaging() throws Exception {
+		String key = "larstest";
 		ObjectMetadata metadata = new ObjectMetadata();
+		String content = "LARSTEST";
 		metadata.setContentLength(content.length());
-		PutObjectResult putObject = client.putObject(new PutObjectRequest(BUCKET_NAME, key, new StringInputStream(content), metadata));
+		client.putObject(new PutObjectRequest("staging.s3.celepedia.de", key, new StringInputStream(content), metadata));
+	}
 
-		// try {
-		// S3Object object = client.getObject(BUCKET_NAME, key + "56");
-		// S3ObjectInputStream objectContent = object.getObjectContent();
-		// System.out.println("CONTenT: " + IOUtils.toString(objectContent));
-		// } catch (Exception ex) {
-		// ex.printStackTrace();
-		// }
+	/**
+	 * 
+	 */
+	@Test
+	public void testWriteAccessOnEmbedded() throws Exception {
+		String key = "larstest";
+		ObjectMetadata metadata = new ObjectMetadata();
+		String content = "LARSTEST";
+		metadata.setContentLength(content.length());
+		client.putObject(new PutObjectRequest("embedded.s3.celepedia.de", key, new StringInputStream(content), metadata));
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testWriteAccessOnProduction() throws Exception {
+		String key = "larstest";
+		ObjectMetadata metadata = new ObjectMetadata();
+		String content = "LARSTEST";
+		metadata.setContentLength(content.length());
+		client.putObject(new PutObjectRequest("production.s3.celepedia.de", key, new StringInputStream(content), metadata));
 	}
 }
