@@ -14,6 +14,7 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
+import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.util.StringInputStream;
 
 import de.asideas.lib.commons.io.IOUtils;
@@ -65,6 +66,20 @@ public class AWSTest extends AbstractJUnit4Test {
 	public void tearDown() {
 		// optional operation
 		this.client.shutdown();
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testReadAccess() throws Exception {
+
+		// URL url = new URL("http://celepedia-dev.s3.amazonaws.com");
+		// System.out.println(IOUtils.toString(url));
+
+		String key = "test";
+
+		S3Object object = this.client.getObject(BUCKET_NAME, key);
 	}
 
 	/**
