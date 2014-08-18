@@ -80,7 +80,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	 */
 	@Test
 	public void testReadAccessOnEmbedded() throws Exception {
-		String key = "larstest";
+		String key = "53f224e4e4b087e131d1a861";
 		S3Object object = this.client.getObject("embedded.s3.celepedia.de", key);
 		assertNotNull(object);
 	}
