@@ -40,6 +40,7 @@
 		<module>sandbox-aws</module>
 		<module>sandbox-deltaspike</module>
 		<module>sandbox-metrics</module>
+		<module>sandbox-metrics-datadog</module>
 		<module>sandbox-jee6-webapp</module>
 		<module>sandbox-mongodb</module>
 		<module>sandbox-zookeeper</module>

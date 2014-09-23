@@ -9,11 +9,11 @@ import com.codahale.metrics.ConsoleReporter;
 import com.codahale.metrics.MetricRegistry;
 import com.ryantenney.metrics.spring.config.annotation.MetricsConfigurerAdapter;
 
-import de.asideas.lib.commons.metrics.spring.config.SpringMetricsProducer;
+import de.asideas.lib.commons.metrics.spring.config.MetricsConfiguration;
 
 @Configuration
 // @EnableMetrics
-@Import(SpringMetricsProducer.class)
+@Import(MetricsConfiguration.class)
 public class MyMetricsConfig extends MetricsConfigurerAdapter {
 
 	@Override

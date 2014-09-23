@@ -1,5 +1,6 @@
 package de.lbe.sandbox.tomcat;
 
+import javax.enterprise.inject.Vetoed;
 import javax.enterprise.inject.spi.CDI;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -23,6 +24,7 @@ import de.asideas.lib.commons.lang.Assert;
  * 
  * @author lbeuster
  */
+@Vetoed
 public class BindBeanManagerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
