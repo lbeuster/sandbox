@@ -1,27 +1,22 @@
 package de.lbe.sandbox.springboot;
 
-import de.asideas.lib.commons.lang.ClassLoaderUtils;
-import de.asideas.lib.commons.tomcat.embedded.EmbeddedTomcat;
-import de.asideas.lib.commons.util.logging.slf4j.SLF4JUtils;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * @author lars.beuster
+ * @author lbeuster
  */
+@EnableAutoConfiguration
+@ComponentScan
+@Configuration
 public class Main {
 
-	public static void main(String[] args) {
-		new Main().start(true);
-	}
-
-	public void start(boolean await) {
-		System.out.println(ClassLoaderUtils.toString(Thread.currentThread().getContextClassLoader()));
-		SLF4JUtils.installJulToSlf4jBridge();
-		EmbeddedTomcat tomcat = new EmbeddedJEETomcat();
-		// tomcat.setWebappDir("src/main/webapp");
-		tomcat.setPort(1234);
-		tomcat.start();
-		if (await) {
-			tomcat.await();
-		}
+	public static void main(String[] args) throws Exception {
+		SpringApplication app = new SpringApplication(Main.class);
+		app.setShowBanner(false);
+		app.setWebEnvironment(true);
+		app.run(args);
 	}
 }

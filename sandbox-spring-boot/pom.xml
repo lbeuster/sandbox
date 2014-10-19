@@ -11,26 +11,15 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<spring-boot.version>1.1.3.RELEASE</spring-boot.version>
+		<spring-boot.version>1.1.6.RELEASE</spring-boot.version>
 	</properties>
 
 	<build>
 
 		<finalName>sandbox-executable</finalName>
 
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>${spring-boot.version}</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
 		<plugins>
 			<plugin>
-				<!-- doesn't work because of Weld-URLScanner.scanResources(): handles URLs manually -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
@@ -78,7 +67,7 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.maven.boms</groupId>
-				<artifactId>weld2-bom</artifactId>
+				<artifactId>spring-bom</artifactId>
 				<version>${asideas-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -90,13 +79,22 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-cdi</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-tomcat-embedded</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.asideas.lib.commons</groupId> -->
+<!-- 			<artifactId>asideas-commons-tomcat-embedded</artifactId> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jul-to-slf4j</artifactId>
@@ -109,28 +107,17 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.taglibs</groupId>
-			<artifactId>taglibs-standard-impl</artifactId>
-			<scope>runtime</scope>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-tomcat-embedded</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>de.asideas.lib.commons</groupId>
+			<artifactId>asideas-commons-spring-boot</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>de.asideas.lib.commons</groupId>
 			<artifactId>asideas-commons-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld</groupId>
-			<artifactId>weld-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-
 		</dependency>
 
 		<!-- <dependency> -->
