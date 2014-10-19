@@ -21,9 +21,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>hibernate4-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -61,8 +61,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-dbunit</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-dbunit</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

@@ -31,9 +31,9 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>arquillian-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -46,9 +46,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>weld2-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -74,10 +74,10 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>javax.persistence</groupId> -->
+		<!-- <artifactId>persistence-api</artifactId> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>javax.ejb</groupId>
 			<artifactId>javax.ejb-api</artifactId>
@@ -88,12 +88,12 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-cdi</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-cdi</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-arquillian</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -104,7 +104,7 @@
 
 		<dependency>
 			<groupId>org.jboss.weld</groupId>
-			<artifactId>weld-core</artifactId>
+			<artifactId>weld-core-impl</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.deltaspike.modules</groupId>

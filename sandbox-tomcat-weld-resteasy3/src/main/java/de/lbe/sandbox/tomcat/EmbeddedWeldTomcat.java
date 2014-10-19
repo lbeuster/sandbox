@@ -9,6 +9,8 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 
+import de.asideas.lib.commons.tomcat.embedded.EmbeddedTomcat;
+
 /**
  * <p>
  * Why do we need this class? Jersey 2 (CdiComponentProvider from org.glassfish.jersey.containers.glassfish:jersey-gf-cdi:2.4.1) looks up BeanManager from JNDI (standard conform).

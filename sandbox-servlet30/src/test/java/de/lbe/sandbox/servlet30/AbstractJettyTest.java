@@ -3,9 +3,9 @@ package de.lbe.sandbox.servlet30;
 import org.junit.After;
 import org.junit.Before;
 
-import de.asideas.lib.commons.jetty.test.EmbeddedTestJetty;
-import de.asideas.lib.commons.net.httpclient.DefaultHttpClient;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
+import de.lbe.lib.commons.old.httpclient.DefaultHttpClient;
+import de.lbe.lib.commons.old.jetty.test.EmbeddedTestJetty;
 
 /**
  * Provides a Jetty start up for testing against Jetty throughout several test classes.

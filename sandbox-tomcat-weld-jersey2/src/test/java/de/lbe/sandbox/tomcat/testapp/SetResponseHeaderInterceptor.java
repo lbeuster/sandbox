@@ -7,7 +7,7 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.deltaspike.servlet.api.Web;
+import org.apache.deltaspike.core.api.common.DeltaSpike;
 
 /**
  * @author lbeuster
@@ -22,7 +22,7 @@ public class SetResponseHeaderInterceptor {
 	 * I found no other possibility to set a response header (other than ResponseBuilder).
 	 */
 	@Inject
-	@Web
+	@DeltaSpike
 	private HttpServletResponse response;
 
 	@Inject

@@ -3,9 +3,9 @@ package de.lbe.sandbox.servlet30;
 import org.junit.After;
 import org.junit.Before;
 
-import de.asideas.lib.commons.catalina.test.EmbeddedTestTomcat;
-import de.asideas.lib.commons.net.httpclient.DefaultHttpClient;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.lib.commons.tomcat.embedded.EmbeddedTomcat;
+import de.lbe.lib.commons.old.httpclient.DefaultHttpClient;
 
 /**
  * Provides a Jetty start up for testing against Jetty throughout several test classes.
@@ -14,7 +14,7 @@ import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
  */
 public class AbstractTomcatTest extends AbstractJUnit4Test {
 
-	private EmbeddedTestTomcat tomcat;
+	private EmbeddedTomcat tomcat;
 
 	protected DefaultHttpClient httpClient;
 
@@ -23,8 +23,8 @@ public class AbstractTomcatTest extends AbstractJUnit4Test {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		this.tomcat = new EmbeddedTestTomcat();
-		this.tomcat.setHttpConnectorPort(1234);
+		this.tomcat = new EmbeddedTomcat();
+		this.tomcat.setPort(1234);
 		this.tomcat.start();
 
 		this.httpClient = new DefaultHttpClient(this.tomcat.getWebappContextURL());

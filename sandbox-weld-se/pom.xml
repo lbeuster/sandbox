@@ -27,8 +27,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-cdi</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-cdi</artifactId>
 		</dependency>
 
 		<dependency>

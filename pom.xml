@@ -30,7 +30,6 @@
 		<module>sandbox-facebook</module>
 		<module>sandbox-splunk</module>
 		<module>sandbox-spring-boot</module>
-		<module>sandbox-tomcat-embedded</module>
 		<module>sandbox-tomcat-weld-resteasy3</module>
 		<module>sandbox-tomcat-weld-jersey2</module>
 		<module>sandbox-tomcat-weld-jersey1</module>
@@ -74,18 +73,28 @@
 			</dependency>
 
 			<dependency>
-				<groupId>com.zanox.lib.commons</groupId>
-				<artifactId>zx-commons-httpclient</artifactId>
+				<groupId>de.lbe.lib.commons.old</groupId>
+				<artifactId>old-commons-arquillian</artifactId>
 				<version>${lbe-commons.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.zanox.lib.commons</groupId>
-				<artifactId>zx-commons-jetty</artifactId>
+				<groupId>de.lbe.lib.commons.old</groupId>
+				<artifactId>old-commons-httpclient</artifactId>
 				<version>${lbe-commons.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.zanox.lib.commons</groupId>
-				<artifactId>zx-commons-tomcat</artifactId>
+				<groupId>de.lbe.lib.commons.old</groupId>
+				<artifactId>old-commons-jetty</artifactId>
+				<version>${lbe-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.lbe.lib.commons.old</groupId>
+				<artifactId>old-commons-cdi</artifactId>
+				<version>${lbe-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.lbe.lib.commons.old</groupId>
+				<artifactId>old-commons-dbunit</artifactId>
 				<version>${lbe-commons.version}</version>
 			</dependency>
 

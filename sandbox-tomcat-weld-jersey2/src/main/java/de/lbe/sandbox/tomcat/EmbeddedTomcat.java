@@ -16,6 +16,7 @@ import org.apache.naming.factory.BeanFactory;
 import org.apache.naming.resources.VirtualDirContext;
 import org.apache.tomcat.util.scan.StandardJarScanner;
 import org.jboss.weld.resources.ManagerObjectFactory;
+import org.jboss.weld.servlet.WeldListener;
 
 import com.atomikos.icatch.jta.UserTransactionFactory;
 import com.atomikos.icatch.jta.UserTransactionManager;
@@ -86,7 +87,7 @@ public class EmbeddedTomcat {
 
 		// add a JVM-shutdown-hook
 		if (this.autoStopAtJVMShutdown) {
-			Runnable runnable = new XRunnable<Void>(true) {
+			Runnable runnable = new XRunnable<Void>() {
 
 				@Override
 				protected void runImpl() throws Exception {

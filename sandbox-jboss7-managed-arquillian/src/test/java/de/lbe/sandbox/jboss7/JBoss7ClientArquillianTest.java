@@ -15,8 +15,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.asideas.lib.commons.net.httpclient.DefaultHttpClient;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.lbe.lib.commons.old.httpclient.DefaultHttpClient;
 
 /**
  * @author lars.beuster

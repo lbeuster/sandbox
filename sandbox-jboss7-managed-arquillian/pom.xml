@@ -28,13 +28,13 @@
 
 		<!-- Test -->
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-arquillian</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.zanox.lib.commons</groupId>
-			<artifactId>zx-commons-httpclient</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-httpclient</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

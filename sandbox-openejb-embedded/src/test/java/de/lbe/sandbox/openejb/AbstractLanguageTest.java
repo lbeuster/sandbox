@@ -6,9 +6,9 @@ import javax.sql.DataSource;
 import org.junit.Before;
 import org.junit.Rule;
 
-import de.asideas.lib.commons.dbunit.DBUnit;
-import de.asideas.lib.commons.dbunit.DataSourceDBUnit;
 import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
+import de.lbe.lib.commons.old.dbunit.DBUnit;
+import de.lbe.lib.commons.old.dbunit.DataSourceDBUnit;
 
 /**
  *

@@ -36,9 +36,9 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>jersey1-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -51,9 +51,9 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.lbe.maven.boms</groupId>
 				<artifactId>arquillian-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -68,8 +68,8 @@
 			<artifactId>asideas-commons-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-arquillian</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 

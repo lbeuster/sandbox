@@ -35,14 +35,14 @@
 			<artifactId>jboss-as-embedded</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-cdi</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-cdi</artifactId>
 		</dependency>
 
 		<!-- Test -->
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-arquillian</artifactId>
+			<groupId>de.lbe.lib.commons.old</groupId>
+			<artifactId>old-commons-arquillian</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

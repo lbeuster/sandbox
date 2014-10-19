@@ -1,5 +1,7 @@
 package de.lbe.sandbox.tomcat;
 
+import java.net.URISyntaxException;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -23,7 +25,7 @@ public abstract class AbstractRestTest extends AbstractJUnit4Test {
 		this.restClient = ClientBuilder.newClient();
 	}
 
-	protected WebTarget prepareClient() {
-		return this.restClient.target(tomcat.getWebappContextURL());
+	protected WebTarget prepareClient() throws URISyntaxException {
+		return this.restClient.target(tomcat.getWebappContextURL().toURI());
 	}
 }

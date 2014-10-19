@@ -7,9 +7,9 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 
 import de.asideas.lib.commons.arquillian.AbstractJUnit4ArquillianTest;
-import de.asideas.lib.commons.net.httpclient.DefaultHttpClient;
-import de.asideas.lib.commons.net.httpclient.HttpClientUtils;
 import de.asideas.lib.commons.shrinkwrap.ShrinkWrapUtils;
+import de.lbe.lib.commons.old.httpclient.DefaultHttpClient;
+import de.lbe.lib.commons.old.httpclient.HttpClientUtils;
 
 /**
  * @author lars.beuster

@@ -2,10 +2,7 @@ package de.lbe.weld;
 
 import javax.enterprise.inject.spi.Bean;
 
-import org.jboss.weld.bootstrap.BeanDeployer;
-import org.jboss.weld.ejb.EjbDescriptors;
 import org.jboss.weld.manager.BeanManagerImpl;
-import org.jboss.weld.resources.ClassTransformer;
 
 import de.asideas.lib.commons.cdi.BeanManagerUtils;
 import de.asideas.lib.commons.lang.Assert;
@@ -28,29 +25,6 @@ public class WeldBeanManagerUtils extends BeanManagerUtils {
 		// add
 		beanManager.addBean(bean);
 
-		// the bean list is cached - invalidate
-		beanManager.getBeanResolver().clear();
-	}
-
-	/**
-	 *
-	 */
-	public static <T> void addBeanClass(BeanManagerImpl beanManager, Class<T> beanClass) {
-
-		// check the params
-		Assert.isNotNull(beanManager, "beanManager");
-		Assert.isNotNull(beanClass, "beanClass");
-
-		// prepare
-		ClassTransformer classTransformer = beanManager.getServices().get(ClassTransformer.class);
-		Assert.isNotNullState(classTransformer, "classTransformer is null");
-
-		// load the metadata
-		BeanDeployer beanDeployer = new BeanDeployer(beanManager, EjbDescriptors.EMPTY, beanManager.getServices());
-		beanDeployer.addClass(beanClass.getName());
-		beanDeployer.createBeans();
-		beanDeployer.deploy();
-		
 		// the bean list is cached - invalidate
 		beanManager.getBeanResolver().clear();
 	}
