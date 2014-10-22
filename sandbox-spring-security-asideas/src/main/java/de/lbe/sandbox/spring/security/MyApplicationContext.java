@@ -5,6 +5,6 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 public class MyApplicationContext extends AnnotationConfigWebApplicationContext {
 
 	public MyApplicationContext() {
-		register(WebSecurityConfig.class);
+		register(ApplicationConfiguration.class);
 	}
 }

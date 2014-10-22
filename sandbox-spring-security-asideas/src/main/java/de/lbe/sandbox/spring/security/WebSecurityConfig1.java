@@ -1,12 +1,9 @@
 package de.lbe.sandbox.spring.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
@@ -14,11 +11,8 @@ import org.springframework.security.web.authentication.AnonymousAuthenticationFi
 import de.lbe.sandbox.spring.security.security.AuthenticationTokenProcessingFilter;
 import de.lbe.sandbox.spring.security.security.XAuthTokenAuthenticationProvider;
 
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 @Configuration
-@ComponentScan("de.lbe.sandbox")
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig1 extends WebSecurityConfigurerAdapter {
 
 	public static final String ANONYMOUS_USERNAME = "__anonymous__";
 
@@ -28,8 +22,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private AuthenticationTokenProcessingFilter authFilter;
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		// @Autowired
+		// public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		// auth.userDetailsService(this.userDetailsService);
 		auth.authenticationProvider(authenticationProvider);
 
@@ -56,12 +52,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println("hallo");
 		// http.a
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(authFilter, AnonymousAuthenticationFilter.class);
 		http.csrf().disable();
-		http.anonymous().disable();// authorities(ANONYMOUS_USERNAME).principal(ANONYMOUS_USERNAME);
+		http.anonymous().authorities(ANONYMOUS_USERNAME).principal(ANONYMOUS_USERNAME);
+		http.antMatcher("/rest/main/**");
 
 		//
 		// <security:http realm="Protected API" use-expressions="true" auto-config="false" entry-point-ref="unauthorizedEntryPoint"

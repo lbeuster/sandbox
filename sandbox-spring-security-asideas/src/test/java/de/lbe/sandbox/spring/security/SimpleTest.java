@@ -3,25 +3,12 @@ package de.lbe.sandbox.spring.security;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
-import de.asideas.lib.commons.test.restclient.RestClient;
-import de.asideas.lib.commons.tomcat.embedded.test.SingletonEmbeddedTestTomcat;
 import de.lbe.sandbox.spring.security.rest.TokenTransfer;
 import de.lbe.sandbox.spring.security.rest.UserTransfer;
 
-public class SimpleTest extends AbstractJUnit4Test {
-
-	private RestClient client;
-
-	@Before
-	public void setUpTomcat() throws Exception {
-		MyEmbeddedTomcat tomcat = SingletonEmbeddedTestTomcat.ensureIsBooted(MyEmbeddedTomcat.class);
-		this.client = RestClient.create(tomcat.getWebappContextURL());
-
-	}
+public class SimpleTest extends AbstractTest {
 
 	/**
 	 * 
@@ -57,7 +44,7 @@ public class SimpleTest extends AbstractJUnit4Test {
 	@Test
 	public void testAnonymousUser() {
 		UserTransfer entity = this.client.path("/rest/main/me").get().assertIsStatusOk().getEntity(UserTransfer.class);
-		assertEquals(WebSecurityConfig.ANONYMOUS_USERNAME, entity.getName());
+		assertEquals(WebSecurityConfig1.ANONYMOUS_USERNAME, entity.getName());
 	}
 
 	/**
@@ -66,7 +53,7 @@ public class SimpleTest extends AbstractJUnit4Test {
 	@Test
 	public void testMeWithInvalidAuthToken() {
 		UserTransfer entity = this.client.path("/rest/main/me").header("X-Auth-Token", "invalid-token").get().assertIsStatusOk().getEntity(UserTransfer.class);
-		assertEquals(WebSecurityConfig.ANONYMOUS_USERNAME, entity.getName());
+		assertEquals("invalid-token", entity.getName());
 	}
 
 	/**
