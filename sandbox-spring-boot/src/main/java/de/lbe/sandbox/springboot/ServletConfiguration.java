@@ -12,11 +12,12 @@ public class ServletConfiguration {
 
 	@Bean
 	public ServletRegistrationBean testServlet1() {
-		return new ServletRegistrationBean(new TestServlet(), "/admin/*");
+		// same URL is in web-fragment.xml
+		return new ServletRegistrationBean(new TestServlet(), "/protected/*");
 	}
 
 	@Bean
 	public ServletRegistrationBean testServlet2() {
-		return new ServletRegistrationBean(new TestServlet2(), "/admin2/*");
+		return new ServletRegistrationBean(new TestServlet2(), "/test/*");
 	}
 }

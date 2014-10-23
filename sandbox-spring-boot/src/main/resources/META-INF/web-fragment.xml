@@ -11,7 +11,7 @@
 		<display-name>Celepedia</display-name>
 		<web-resource-collection>
 			<web-resource-name>admin</web-resource-name>
-			<url-pattern>/admin/*</url-pattern>
+			<url-pattern>/protected/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>admin</role-name>

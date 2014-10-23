@@ -13,44 +13,44 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>tests-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>tomcat7-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>jee7-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>spring-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>resteasy3-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -90,28 +90,28 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-tomcat-embedded</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-tomcat-embedded</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-metrics-spring</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-metrics-spring</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-validation</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-validation</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-resteasy</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-resteasy</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-spring</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-spring</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-test-rest</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-test-rest</artifactId>
 			<scope>test</scope>
 		</dependency>
 

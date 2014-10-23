@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.LoggerFactory;
+
 /**
  * @author lbeuster
  */
@@ -17,6 +19,6 @@ public class TestServlet2 extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println(request.getRequestURL());
+		LoggerFactory.getLogger(getClass()).info("Incoming request: {}", request.getRequestURL());
 	}
 }

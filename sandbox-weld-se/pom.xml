@@ -37,8 +37,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-test</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 

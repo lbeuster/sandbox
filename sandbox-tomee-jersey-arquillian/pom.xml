@@ -44,9 +44,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -64,8 +64,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-core</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>de.lbe.lib.commons.old</groupId>

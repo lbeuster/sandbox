@@ -37,7 +37,8 @@ public class WebSecurityConfig2 extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
+		http.authorizeRequests().antMatchers("/rest/basic/**").authenticated();
+		http.httpBasic();
 		// // http.antMatcher("/rest/basic/**")
 		// http.httpBasic();
 	}

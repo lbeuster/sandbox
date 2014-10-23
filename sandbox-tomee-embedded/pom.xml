@@ -28,9 +28,9 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

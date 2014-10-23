@@ -13,16 +13,16 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>tests-bom</artifactId>
-				<version>${asideas-maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -59,12 +59,12 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-test</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-test</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-metrics-spring</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-metrics-spring</artifactId>
 		</dependency>
 
 	</dependencies>

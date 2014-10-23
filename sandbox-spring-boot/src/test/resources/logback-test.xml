@@ -2,9 +2,11 @@
 
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%-5level %-5relative %date{ISO8601} [%-10thread] %class.%method\(%line\) - %msg%n</pattern>
+			<pattern>%-5level %-5relative %date{ISO8601} [%-10thread] %class.%method\(%line\) - %msg :: %mdc%n</pattern>
 		</encoder>
 	</appender>
+	
+	<logger name="de.asideas.lib.commons.test.restclient" level="DEBUG"/>
 
 	<root level="info">
 		<appender-ref ref="CONSOLE" />

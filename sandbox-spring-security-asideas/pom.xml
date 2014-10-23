@@ -7,7 +7,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>sandbox-spring-security-asideas</artifactId>
+	<artifactId>sandbox-spring-security-room49</artifactId>
 
 	<properties>
 		<spring.security.version>3.2.4.RELEASE</spring.security.version>
@@ -18,25 +18,25 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.asideas.lib.commons</groupId>
-				<artifactId>asideas-commons-bom</artifactId>
-				<version>1.2-SNAPSHOT</version>
+				<groupId>de.room49.lib.commons</groupId>
+				<artifactId>room49-commons-bom</artifactId>
+				<version>${room49-commons.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>resteasy3-bom</artifactId>
-				<version>${maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 
 			<dependency>
-				<groupId>de.asideas.maven.boms</groupId>
+				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>spring-bom</artifactId>
-				<version>${maven-boms.version}</version>
+				<version>${room49-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -47,17 +47,17 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-tomcat-embedded</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-tomcat-embedded</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-test</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.asideas.lib.commons</groupId>
-			<artifactId>asideas-commons-test-rest</artifactId>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-test-rest</artifactId>
 			<scope>test</scope>
 		</dependency>
 
