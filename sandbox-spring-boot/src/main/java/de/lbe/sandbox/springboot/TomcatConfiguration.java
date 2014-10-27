@@ -14,7 +14,6 @@ public class TomcatConfiguration {
 	@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		EmbeddedTomcatFactory factory = new EmbeddedTomcatFactory();
-		factory.setPort(9000);
 		// factory.setSessionTimeout(1, TimeUnit.MINUTES);
 		factory.addContextValves(new DefaultAccessLogValve().logRequestEntry(true).mdcInitializer(new EmbeddedTomcatMDCInitializer(factory)));
 		return factory;

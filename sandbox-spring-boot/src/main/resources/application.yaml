@@ -1,0 +1,13 @@
+my:
+  override: application.properties
+  def: application.properties
+  features:
+    feature1: FEATURE1
+
+---
+
+spring:
+    profiles: test
+
+my:
+  override: application-test.properties

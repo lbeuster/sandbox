@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServletConfiguration {
 
-	@Bean
-	public ServletRegistrationBean testServlet1() {
-		// same URL is in web-fragment.xml
-		return new ServletRegistrationBean(new TestServlet(), "/protected/*");
-	}
+	// @Bean
+	// public ServletRegistrationBean testServlet1() {
+	// // same URL is in web-fragment.xml
+	// return new ServletRegistrationBean(new TestServlet(), "/protected/*");
+	// }
 
 	@Bean
 	public ServletRegistrationBean testServlet2() {

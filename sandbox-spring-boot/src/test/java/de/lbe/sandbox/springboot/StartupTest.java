@@ -14,7 +14,7 @@ public class StartupTest extends AbstractSpringBootTest {
 
 	@Test
 	public void testUserRealm() throws Exception {
-		this.restClient.path("/protected").get().assertIsStatusForbidden();
+		this.restClient.path("/protected").get().assertIsStatusUnauthorized();
 	}
 
 	@Test

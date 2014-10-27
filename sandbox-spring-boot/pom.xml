@@ -87,24 +87,22 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>de.room49.lib.commons</groupId> -->
-<!-- 			<artifactId>room49-commons-tomcat-embedded</artifactId> -->
-<!-- 		</dependency> -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jul-to-slf4j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>de.room49.lib.commons</groupId> -->
+		<!-- <artifactId>room49-commons-tomcat-embedded</artifactId> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>de.room49.lib.commons</groupId>
@@ -128,11 +126,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.boot</groupId> -->
-		<!-- <artifactId>spring-boot-loader</artifactId> -->
-		<!-- <version>${spring-boot.version}</version> -->
-		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 

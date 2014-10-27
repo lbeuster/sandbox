@@ -1,10 +1,11 @@
 package de.lbe.sandbox.springboot;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+
+import de.asideas.lib.commons.spring.boot.SpringApplication;
 
 /**
  * @author lbeuster

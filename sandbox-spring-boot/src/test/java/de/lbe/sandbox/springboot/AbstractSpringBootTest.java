@@ -1,32 +1,33 @@
 package de.lbe.sandbox.springboot;
 
-import java.net.URI;
+import javax.inject.Inject;
 
 import org.junit.After;
 import org.junit.Before;
-import org.springframework.boot.context.embedded.AbstractConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.web.WebAppConfiguration;
 
-import de.asideas.lib.commons.spring.boot.tomcat.EmbeddedServletContainerFactories;
-import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.lib.commons.spring.boot.test.AbstractSpringBootIT;
+import de.asideas.lib.commons.spring.boot.test.EmbeddedTestServletContainer;
 import de.asideas.lib.commons.test.restclient.RestClient;
 
 /**
  * @author lbeuster
  */
-public abstract class AbstractSpringBootTest extends AbstractJUnit4Test {
-
-	private ConfigurableApplicationContext applicationContext;
+@SpringApplicationConfiguration(classes = AbstractSpringBootTest.TestConfiguration.class)
+@WebAppConfiguration
+public abstract class AbstractSpringBootTest extends AbstractSpringBootIT {
 
 	protected RestClient restClient;
 
+	@Inject
+	private EmbeddedTestServletContainer container;
+
 	@Before
 	public void setUp() throws Exception {
-		this.applicationContext = Main.main();
-		EmbeddedServletContainerFactory factory = this.applicationContext.getBean(EmbeddedServletContainerFactory.class);
-		URI webappContextURL = EmbeddedServletContainerFactories.getWebappContextURL((AbstractConfigurableEmbeddedServletContainer) factory);
-		this.restClient = RestClient.create(webappContextURL);
+		this.restClient = RestClient.create(container.getWebappContextURL());
 
 	}
 
@@ -35,8 +36,14 @@ public abstract class AbstractSpringBootTest extends AbstractJUnit4Test {
 		if (this.restClient != null) {
 			this.restClient.close();
 		}
-		if (this.applicationContext != null) {
-			this.applicationContext.close();
-		}
+	}
+
+	/**
+	 *
+	 */
+	@Configuration
+	@Import({ Main.class, EmbeddedTestServletContainer.class })
+	public static class TestConfiguration {
+		// no impl - just the annotations
 	}
 }
