@@ -9,7 +9,7 @@ public class BasicAuthTest extends AbstractTest {
 	 */
 	@Test
 	public void testLogin() {
-		this.client.path("/rest/basic").basicAuth(WebSecurityConfig2.USERNAME, WebSecurityConfig2.PASSWORD).get().assertIsStatusOk();
+		this.restClient.path("/rest/basic").basicAuth(WebSecurityConfig2.USERNAME, WebSecurityConfig2.PASSWORD).get().assertIsStatusOk();
 	}
 
 	/**
@@ -17,6 +17,6 @@ public class BasicAuthTest extends AbstractTest {
 	 */
 	@Test
 	public void testLoginDenied() {
-		this.client.path("/rest/basic").get().assertIsStatusUnauthorized();
+		this.restClient.path("/rest/basic").get().assertIsStatusUnauthorized();
 	}
 }
