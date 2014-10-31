@@ -3,10 +3,8 @@ package de.lbe.sandbox.spring.security;
 import javax.inject.Inject;
 
 import org.junit.Before;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -50,9 +48,7 @@ public abstract class AbstractTest extends AbstractSpringBootIT {
 	 *
 	 */
 	@Configuration
-	@ComponentScan
-	@EnableAutoConfiguration
-	@Import(EmbeddedTestServletContainer.class)
+	@Import({ EmbeddedTestServletContainer.class, ApplicationConfiguration.class })
 	static class TestConfiguration {
 	}
 }

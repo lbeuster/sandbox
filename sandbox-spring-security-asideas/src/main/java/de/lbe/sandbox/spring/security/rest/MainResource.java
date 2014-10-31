@@ -43,7 +43,7 @@ public class MainResource {
 
 	/**
 	 * Retrieves the currently logged in user.
-	 * 
+	 *
 	 * @return A transfer containing the username and the roles.
 	 */
 	@GET
@@ -61,7 +61,7 @@ public class MainResource {
 
 	/**
 	 * Authenticates a user and creates an authentication token.
-	 * 
+	 *
 	 * @param username The name of the user.
 	 * @param password The password of the user.
 	 * @return A transfer containing the authentication token.
@@ -113,6 +113,7 @@ public class MainResource {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String service1(@PathParam("param") String param) {
+		System.out.println(SecurityContextHolder.getContext().getAuthentication());
 		return this.testService.service1(param);
 	}
 

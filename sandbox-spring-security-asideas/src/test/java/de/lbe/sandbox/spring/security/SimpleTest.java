@@ -51,7 +51,7 @@ public class SimpleTest extends AbstractTest {
 	@Test
 	public void testAnonymousUser() {
 		UserTransfer entity = this.restClient.path("/rest/main/me").get().assertIsStatusOk().getEntity(UserTransfer.class);
-		assertEquals(WebSecurityConfig1.ANONYMOUS_USERNAME, entity.getName());
+		assertEquals(WebSecurityConfigurer.ANONYMOUS_USERNAME, entity.getName());
 	}
 
 	/**

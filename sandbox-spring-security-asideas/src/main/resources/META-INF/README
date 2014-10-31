@@ -1,1 +1,1 @@
-we need the META-INF to let Tomcat scan this directory in the IDE
+We need the META-INF directory to let Tomcat detect the Hello-test-resources (servlet 3.0).

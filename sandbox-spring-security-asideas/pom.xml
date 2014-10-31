@@ -72,6 +72,15 @@
 		</dependency>
 		<dependency>
 			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-resteasy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.room49.lib.commons</groupId>
+			<artifactId>room49-commons-tomcat-embedded</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.room49.lib.commons</groupId>
 			<artifactId>room49-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
