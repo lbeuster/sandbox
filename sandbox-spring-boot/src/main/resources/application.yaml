@@ -1,3 +1,15 @@
+management.context-path: /manage
+management.security.enabled: true
+
+jolokia.config.mimeType: application/json
+
+endpoint.jolokia.sensitive: true
+
+security.user.name: lars
+security.user.password: beuster
+security.basic.enabled: true
+
+server.port: 8080
 my:
   override: application.properties
   def: application.properties
