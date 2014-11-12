@@ -11,10 +11,10 @@ import org.junit.Test;
 /**
  * @author lbeuster
  */
-public class SimpleTest extends AbstractTest {
+public class AutoTest extends AbstractTest {
 
 	@Inject
-	private UserRepository userRepository;
+	private AutoUserRepository userRepository;
 
 	/**
 	 *
@@ -39,7 +39,7 @@ public class SimpleTest extends AbstractTest {
 		assertThat(users, hasSize(1));
 
 		// delete
-		userRepository.remove(user);
+		userRepository.delete(user);
 
 		users = userRepository.findAll();
 		assertThat(users, hasSize(0));

@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRepository {
+public class ManualUserRepository {
 
 	@Inject
 	private MongoOperations mongoOperations;

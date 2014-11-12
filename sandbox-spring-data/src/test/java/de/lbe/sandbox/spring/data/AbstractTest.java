@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.mongodb.Mongo;
@@ -21,11 +22,13 @@ public abstract class AbstractTest extends AbstractJUnitSpringIT {
 
 	@Configuration
 	@ComponentScan
+	@EnableMongoRepositories
 	static class TestConfiguration {
 
 		@Bean(initMethod = "start", destroyMethod = "stop")
 		EmbeddedMongo embeddedMongo() {
 			EmbeddedMongo mongo = new EmbeddedMongo();
+			mongo.setPort(7031);
 			return mongo;
 		}
 	}

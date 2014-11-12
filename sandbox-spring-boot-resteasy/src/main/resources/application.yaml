@@ -1,0 +1,6 @@
+management.context-path: /admin
+management.security.enabled: false
+
+security.user.name: admin
+security.user.password: admin
+security.basic.path: /admin/**
