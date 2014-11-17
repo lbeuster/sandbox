@@ -19,6 +19,9 @@
 
 		<room49-maven-boms.version>1.4-SNAPSHOT</room49-maven-boms.version>
 		<room49-commons.version>1.4-SNAPSHOT</room49-commons.version>
+
+		<ipool-maven-boms.version>1.0-SNAPSHOT</ipool-maven-boms.version>
+		<ipool-commons.version>1.0-SNAPSHOT</ipool-commons.version>
 	</properties>
 
 	<modules>
@@ -71,6 +74,13 @@
 				<groupId>de.room49.lib.commons</groupId>
 				<artifactId>room49-commons-bom</artifactId>
 				<version>${room49-commons.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.asideas.ipool.commons</groupId>
+				<artifactId>ipool-commons-bom</artifactId>
+				<version>${ipool-commons.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

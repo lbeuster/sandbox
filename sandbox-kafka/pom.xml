@@ -11,21 +11,60 @@
 	<artifactId>sandbox-kafka</artifactId>
 
 	<properties>
-		<kafka.version>0.8.0-beta1</kafka.version>
-		<scala.version>2.9.2</scala.version>
-		<zookeeper.version>3.3.4</zookeeper.version>
-		<yammer-metrics.version>2.2.0</yammer-metrics.version>
+		<!-- <kafka.version>0.8.0-beta1</kafka.version> -->
+		<!-- <scala.version>2.9.2</scala.version> -->
+		<!-- <zookeeper.version>3.3.4</zookeeper.version> -->
+		<!-- <yammer-metrics.version>2.2.0</yammer-metrics.version> -->
 	</properties>
 
-	<dependencies>
+	<dependencyManagement>
+		<dependencies>
 
+			<dependency>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
+				<artifactId>kafka08-bom</artifactId>
+				<version>${ipool-maven-boms.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
 		<dependency>
-			<groupId>de.lbe.maven.boms</groupId>
-			<artifactId>kafka08-bom</artifactId>
-			<version>${lbe-maven-boms.version}</version>
-			<type>pom</type>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-kafka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.10</artifactId>
+			<classifier>test</classifier>
+			<scope>test</scope>
 		</dependency>
 
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.zookeeper</groupId> -->
+		<!-- <artifactId>zookeeper</artifactId> -->
+		<!-- <version>3.4.6</version> -->
+		<!-- </dependency> -->
+
 	</dependencies>
+
 
 </project>

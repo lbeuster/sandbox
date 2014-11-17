@@ -11,14 +11,13 @@ import kafka.serializer.StringEncoder;
 
 /**
  * https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+Producer+Example https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example
- * 
- * (1) Start zookeper (2) Start kafka (3) create queue: bin/kafka-create-topic.sh --topic TestProducer --replica 1 --zookeeper localhost:2181
- * --partition 5
+ *
+ * (1) Start zookeper (2) Start kafka (3) create queue: bin/kafka-create-topic.sh --topic TestProducer --replica 1 --zookeeper localhost:2181 --partition 5
  */
 public class Main {
 
 	/**
-	 * 
+	 *
 	 */
 	public static final void main(String[] args) throws Throwable {
 		Producer<String, String> producer = null;
@@ -33,7 +32,7 @@ public class Main {
 
 			// consumer
 			consumer = createConsumer();
-			consumerStarter = new TestConsumerStarter(consumer);
+			consumerStarter = new TestConsumerStarter(consumer, 5);
 
 			// start: our topic has 5 partitions - so we need at max 5 consumers
 			producerThread.start();
@@ -78,7 +77,7 @@ public class Main {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public static ConsumerConnector createConsumer() {
 
