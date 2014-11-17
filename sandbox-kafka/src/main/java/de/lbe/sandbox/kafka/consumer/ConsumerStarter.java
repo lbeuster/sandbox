@@ -40,7 +40,7 @@ public class ConsumerStarter {
 
 		// now create an object to consume the messages
 		for (final KafkaStream<byte[], byte[]> stream : streams) {
-			executor.submit(new Consumer(stream, this.messageHandler));
+			executor.submit(new MyConsumer(stream, this.messageHandler));
 		}
 	}
 }

@@ -7,13 +7,13 @@ import kafka.message.MessageAndMetadata;
 /**
  * @author lbeuster
  */
-public class Consumer implements Runnable {
+public class MyConsumer implements Runnable {
 
 	private final KafkaStream<byte[], byte[]> stream;
 
 	private final MessageHandler messageHandler;
 
-	public Consumer(KafkaStream<byte[], byte[]> stream, MessageHandler messageHandler) {
+	public MyConsumer(KafkaStream<byte[], byte[]> stream, MessageHandler messageHandler) {
 		this.stream = stream;
 		this.messageHandler = messageHandler;
 	}
