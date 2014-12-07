@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import de.asideas.lib.commons.spring.boot.test.AbstractSpringBootIT;
-import de.asideas.lib.commons.spring.boot.test.EmbeddedTestServletContainer;
+import de.asideas.ipool.commons.lib.spring.boot.test.AbstractSpringBootIT;
+import de.asideas.ipool.commons.lib.spring.boot.test.EmbeddedTestServletContainer;
 
 /**
  * @author lbeuster

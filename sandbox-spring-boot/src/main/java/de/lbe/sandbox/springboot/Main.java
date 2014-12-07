@@ -4,8 +4,10 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
-import de.asideas.lib.commons.spring.boot.SpringApplication;
+import de.asideas.ipool.commons.lib.spring.boot.SpringApplication;
+import de.asideas.ipool.commons.lib.spring.boot.actuate.ExtendedActuatorAutoConfiguration;
 
 /**
  * @author lbeuster
@@ -13,6 +15,7 @@ import de.asideas.lib.commons.spring.boot.SpringApplication;
 @EnableAutoConfiguration
 @ComponentScan
 @Configuration
+@Import(ExtendedActuatorAutoConfiguration.class)
 public class Main {
 
 	public static ConfigurableApplicationContext main() throws Exception {

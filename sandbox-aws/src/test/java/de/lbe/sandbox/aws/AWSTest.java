@@ -2,6 +2,7 @@ package de.lbe.sandbox.aws;
 
 import java.io.File;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -16,19 +17,18 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.util.StringInputStream;
 
-import de.asideas.lib.commons.io.IOUtils;
-import de.asideas.lib.commons.net.NetUtils;
-import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.ipool.commons.lib.net.NetUtils;
+import de.asideas.ipool.commons.lib.test.junit.AbstractJUnitTest;
 
 /**
  * @author lbeuster
  */
-public class AWSTest extends AbstractJUnit4Test {
+public class AWSTest extends AbstractJUnitTest {
 
 	private AmazonS3Client client;
 
 	/**
-	 * 
+	 *
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -57,7 +57,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@After
 	public void tearDown() {
@@ -66,7 +66,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testReadAccessOnStaging() throws Exception {
@@ -76,7 +76,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testReadAccessOnEmbedded() throws Exception {
@@ -86,7 +86,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testReadAccessOnProduction() throws Exception {
@@ -96,7 +96,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testWriteAccessOnStaging() throws Exception {
@@ -108,7 +108,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testWriteAccessOnEmbedded() throws Exception {
@@ -120,7 +120,7 @@ public class AWSTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testWriteAccessOnProduction() throws Exception {

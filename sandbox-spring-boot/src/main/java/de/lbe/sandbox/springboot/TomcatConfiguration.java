@@ -4,9 +4,9 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import de.asideas.lib.commons.spring.boot.tomcat.EmbeddedTomcatFactory;
-import de.asideas.lib.commons.spring.boot.tomcat.EmbeddedTomcatMDCInitializer;
-import de.asideas.lib.commons.tomcat.embedded.DefaultAccessLogValve;
+import de.asideas.ipool.commons.lib.spring.boot.tomcat.EmbeddedTomcatFactory;
+import de.asideas.ipool.commons.lib.spring.boot.tomcat.EmbeddedTomcatMDCInitializer;
+import de.asideas.ipool.commons.lib.tomcat.embedded.DefaultAccessLogValve;
 
 @Configuration
 public class TomcatConfiguration {

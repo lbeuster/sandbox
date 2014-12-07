@@ -1,0 +1,3 @@
+zkServer start
+bin/storm nimbus
+bin/storm ui

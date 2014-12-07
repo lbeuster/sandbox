@@ -4,17 +4,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Test;
 
-import de.asideas.lib.commons.test.util.TestUtils;
+import de.asideas.ipool.commons.lib.test.util.TestUtils;
 
 /**
  * Provides a Jetty start up for testing against Jetty throughout several test classes.
- * 
+ *
  * @author lars.beuster
  */
 public class ResourceFromClasspathTomcatTest extends AbstractTomcatTest {
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testWebInfClasses() throws Exception {
@@ -22,7 +22,7 @@ public class ResourceFromClasspathTomcatTest extends AbstractTomcatTest {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testJar() throws Exception {

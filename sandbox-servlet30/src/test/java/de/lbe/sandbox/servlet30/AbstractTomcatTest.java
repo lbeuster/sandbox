@@ -3,23 +3,23 @@ package de.lbe.sandbox.servlet30;
 import org.junit.After;
 import org.junit.Before;
 
-import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.ipool.commons.lib.test.junit.AbstractJUnitTest;
 import de.asideas.lib.commons.tomcat.embedded.EmbeddedTomcat;
 import de.lbe.lib.commons.old.httpclient.DefaultHttpClient;
 
 /**
  * Provides a Jetty start up for testing against Jetty throughout several test classes.
- * 
+ *
  * @author lars.beuster
  */
-public class AbstractTomcatTest extends AbstractJUnit4Test {
+public class AbstractTomcatTest extends AbstractJUnitTest {
 
 	private EmbeddedTomcat tomcat;
 
 	protected DefaultHttpClient httpClient;
 
 	/**
-	 * 
+	 *
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -31,7 +31,7 @@ public class AbstractTomcatTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@After
 	public void tearDown() throws Exception {

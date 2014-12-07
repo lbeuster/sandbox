@@ -13,16 +13,16 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>tests-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -59,12 +59,12 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
-			<artifactId>room49-commons-test</artifactId>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-test</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
-			<artifactId>room49-commons-metrics-spring</artifactId>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-metrics-spring</artifactId>
 		</dependency>
 
 	</dependencies>

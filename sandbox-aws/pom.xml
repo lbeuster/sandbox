@@ -13,23 +13,23 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>tests-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>integration-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -40,16 +40,16 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
-			<artifactId>room49-commons-core</artifactId>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk</artifactId>
+			<artifactId>aws-java-sdk-s3</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
-			<artifactId>room49-commons-test</artifactId>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 

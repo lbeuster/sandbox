@@ -17,18 +17,18 @@
 		<lbe-maven-boms.version>1.1-SNAPSHOT</lbe-maven-boms.version>
 		<lbe-commons.version>1.0-SNAPSHOT</lbe-commons.version>
 
-		<room49-maven-boms.version>1.4-SNAPSHOT</room49-maven-boms.version>
-		<room49-commons.version>1.4-SNAPSHOT</room49-commons.version>
+		<celepedia.version>2.0-SNAPSHOT</celepedia.version>
 
-		<ipool-maven-boms.version>1.0-SNAPSHOT</ipool-maven-boms.version>
+		<ipool-maven-boms.version>1.1-SNAPSHOT</ipool-maven-boms.version>
 		<ipool-commons.version>1.0-SNAPSHOT</ipool-commons.version>
 	</properties>
 
 	<modules>
+		<module>sandbox-storm</module>
 		<module>sandbox-spring-boot-jersey2</module>
 		<module>sandbox-spring-boot-resteasy</module>
 		<module>sandbox-spring-data</module>
-		<module>sandbox-spring-security-room49</module>
+		<module>sandbox-spring-security-celepedia</module>
 		<module>sandbox-resteasy3-spring</module>
 		<module>sandbox-picketlink-deltaspike</module>
 		<module>sandbox-spring-security</module>
@@ -71,16 +71,17 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.room49.lib.commons</groupId>
-				<artifactId>room49-commons-bom</artifactId>
-				<version>${room49-commons.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
 				<groupId>de.asideas.ipool.commons</groupId>
 				<artifactId>ipool-commons-bom</artifactId>
 				<version>${ipool-commons.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>de.lbe.celepedia.lib.commons</groupId>
+				<artifactId>room49-commons-bom</artifactId>
+				<version>${celepedia.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -98,6 +99,11 @@
 			<dependency>
 				<groupId>de.lbe.lib.commons.old</groupId>
 				<artifactId>old-commons-jetty</artifactId>
+				<version>${lbe-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.lbe.lib.commons.old</groupId>
+				<artifactId>old-commons-resteasy</artifactId>
 				<version>${lbe-commons.version}</version>
 			</dependency>
 			<dependency>

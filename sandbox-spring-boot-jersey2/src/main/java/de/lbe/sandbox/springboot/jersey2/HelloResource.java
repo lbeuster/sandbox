@@ -18,4 +18,11 @@ public class HelloResource {
 	public String test() {
 		return "HALLO";
 	}
+
+	@GET
+	@Produces("text/plain")
+	@Path("/exception")
+	public String exceptionMapper() {
+		throw new IllegalArgumentException("EXCEPTION");
+	}
 }

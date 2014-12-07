@@ -13,16 +13,16 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>tests-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -34,8 +34,8 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
-				<artifactId>jee6-bom</artifactId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
+				<artifactId>jee7-bom</artifactId>
 				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>

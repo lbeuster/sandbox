@@ -34,44 +34,44 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>commons-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>tests-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>tomcat7-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>jee7-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.asideas.ipool.maven.boms</groupId>
 				<artifactId>spring-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
+				<groupId>de.lbe.celepedia.maven.boms</groupId>
 				<artifactId>resteasy3-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
+				<version>${celepedia.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -112,19 +112,19 @@
 		<!-- </dependency> -->
 
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
+			<groupId>de.lbe.celepedia.lib.commons</groupId>
 			<artifactId>room49-commons-tomcat-embedded</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
+			<groupId>de.lbe.celepedia.lib.commons</groupId>
 			<artifactId>room49-commons-spring-boot</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
+			<groupId>de.lbe.celepedia.lib.commons</groupId>
 			<artifactId>room49-commons-resteasy</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
+			<groupId>de.lbe.celepedia.lib.commons</groupId>
 			<artifactId>room49-commons-spring-security</artifactId>
 		</dependency>
 		<dependency>
@@ -132,7 +132,7 @@
 			<artifactId>spring-security-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
+			<groupId>de.lbe.celepedia.lib.commons</groupId>
 			<artifactId>room49-commons-test-rest</artifactId>
 			<scope>test</scope>
 		</dependency>

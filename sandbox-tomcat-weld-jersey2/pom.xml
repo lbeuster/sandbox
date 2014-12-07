@@ -32,22 +32,8 @@
 			</dependency>
 			<dependency>
 				<groupId>de.room49.maven.boms</groupId>
-				<artifactId>tomcat7-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
 				<artifactId>jee7-bom</artifactId>
 				<version>${room49-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.lbe.maven.boms</groupId>
-				<artifactId>weld2-bom</artifactId>
-				<version>${lbe-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -64,26 +50,6 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>javax.transaction-api</artifactId>
-		</dependency>
-
-		<!-- Validation -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator-cdi</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-servlet-module-impl</artifactId>
-		</dependency>
-
 		<!-- Jersey 2 -->
 		<!-- do not use Jersey-BeanValidation since this is done by Weld2 -->
 		<!-- <dependency> -->
@@ -95,16 +61,24 @@
 			<artifactId>jersey-container-servlet-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
-			<artifactId>jersey-gf-cdi</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-multipart</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.jaxrs</groupId>
 			<artifactId>jackson-jaxrs-json-provider</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.connectors</groupId>
+			<artifactId>jersey-apache-connector</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.security</groupId>
+			<artifactId>oauth1-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 
 		<dependency>
@@ -119,51 +93,6 @@
 			<groupId>de.room49.lib.commons</groupId>
 			<artifactId>room49-commons-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- Tomcat -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-		</dependency>
-
-		<!-- Weld -->
-		<dependency>
-			<groupId>org.jboss.weld</groupId>
-			<artifactId>weld-core-impl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.deltaspike.core</groupId>
-			<artifactId>deltaspike-core-api</artifactId>
-		</dependency>
-
-		<!-- Atomikos -->
-		<dependency>
-			<groupId>com.atomikos</groupId>
-			<artifactId>transactions-jdbc</artifactId>
-			<version>${atomikos.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.atomikos</groupId>
-			<artifactId>transactions-jta</artifactId>
-			<version>${atomikos.version}</version>
-		</dependency>
-
-		<!-- JSP-compiler -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-logging-log4j</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 
 	</dependencies>
