@@ -28,8 +28,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
-			<artifactId>room49-commons-test</artifactId>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 

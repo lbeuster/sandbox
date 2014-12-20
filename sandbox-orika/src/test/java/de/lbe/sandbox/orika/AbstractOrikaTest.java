@@ -6,15 +6,15 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.impl.generator.EclipseJdtCompilerStrategy;
 import ma.glasnost.orika.metadata.ClassMapBuilderFactory;
 
-import de.asideas.lib.commons.test.junit.AbstractJUnit4Test;
+import de.asideas.ipool.commons.lib.test.junit.AbstractJUnitTest;
 
 /**
  * @author lbeuster
  */
-public class AbstractOrikaTest extends AbstractJUnit4Test {
+public class AbstractOrikaTest extends AbstractJUnitTest {
 
 	/**
-	 * 
+	 *
 	 */
 	static {
 		System.setProperty(OrikaSystemProperties.WRITE_SOURCE_FILES, "true");
@@ -27,7 +27,7 @@ public class AbstractOrikaTest extends AbstractJUnit4Test {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	MapperFactory strictMapperFactory() {
 		ClassMapBuilderFactory factory = new StrictUniDirectionalClassMapBuilder.Factory();
