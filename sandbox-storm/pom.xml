@@ -24,7 +24,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass />
+							<mainClass>de.lbe.sandbox.storm.WordCountTopologyMain</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -71,7 +71,7 @@
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.ipool.commons</groupId>
-			<artifactId>ipool-commons-core</artifactId>
+			<artifactId>ipool-commons-storm-spring</artifactId>
 		</dependency>
 
 	</dependencies>

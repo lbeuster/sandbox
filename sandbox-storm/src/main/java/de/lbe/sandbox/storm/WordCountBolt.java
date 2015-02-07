@@ -10,7 +10,7 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 
-public class WordCount extends BaseBasicBolt {
+public class WordCountBolt extends BaseBasicBolt {
 	Map<String, Integer> counts = new HashMap<String, Integer>();
 
 	@Override

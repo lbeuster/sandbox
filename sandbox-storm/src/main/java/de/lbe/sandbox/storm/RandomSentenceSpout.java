@@ -23,28 +23,33 @@ import java.util.Random;
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
 
-import de.asideas.ipool.commons.lib.lang.ClassLoaders;
+import de.asideas.ipool.commons.lib.storm.AbstractSpringAwareRichSpout;
+import de.asideas.ipool.commons.lib.util.MoreMaps;
 
-public class RandomSentenceSpout extends BaseRichSpout {
+public class RandomSentenceSpout extends AbstractSpringAwareRichSpout {
 	SpoutOutputCollector _collector;
 	Random _rand;
 
 	@Override
-	public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
+	public void open(Map stormConf, TopologyContext context, SpoutOutputCollector collector) {
+		super.open(stormConf, context, collector);
 		_collector = collector;
 		_rand = new Random();
+		System.out.println("------------------------------------------------------");
+		System.out.println(getClass());
+		System.out.println(MoreMaps.toString(stormConf, "{\n\t", "\n\t", "\n}"));
+		System.out.println("------------------------------------------------------");
 	}
 
 	@Override
 	public void nextTuple() {
 		System.out.println("------------------------------------------------------");
 		System.out.println("next sentence");
-		System.out.println(ClassLoaders.toString(getClass().getClassLoader()));
+		// System.out.println(ClassLoaders.toString(getClass().getClassLoader()));
 		System.out.println("------------------------------------------------------");
 		String[] sentences = new String[] { "one two" };
 		String sentence = sentences[_rand.nextInt(sentences.length)];

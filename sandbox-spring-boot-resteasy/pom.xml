@@ -49,7 +49,7 @@
 			</dependency>
 			<dependency>
 				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>tomcat7-bom</artifactId>
+				<artifactId>tomcat8-bom</artifactId>
 				<version>${ipool-maven-boms.version}</version>
 				<type>pom</type>
 				<scope>import</scope>

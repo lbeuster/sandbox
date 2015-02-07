@@ -1,0 +1,2 @@
+spring.main.sources: de.lbe.sandbox.storm.spring.TestConfiguration
+spring.main.showBanner: true

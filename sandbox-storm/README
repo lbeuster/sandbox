@@ -1,3 +1,10 @@
 zkServer start
-bin/storm nimbus
-bin/storm ui
+
+export STORM_VERSION=0.9.2-incubating
+
+/usr/local/Cellar/storm/$STORM_VERSION/libexec/bin/storm nimbus
+/usr/local/Cellar/storm/$STORM_VERSION/libexec/bin/storm ui
+/usr/local/Cellar/storm/$STORM_VERSION/libexec/bin/storm supervisor
+
+/usr/local/Cellar/storm/$STORM_VERSION/libexec/bin/storm jar target/sandbox-storm-1.0-SNAPSHOT-jar-with-dependencies.jar de.lbe.sandbox.storm.WordCountTopologyMain larstest
+/usr/local/Cellar/storm/$STORM_VERSION/libexec/bin/storm kill larstest
