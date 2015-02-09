@@ -13,4 +13,6 @@ public interface AutoUserRepository extends Repository<User, String> {
 	public User findByUsername(String username);
 
 	public List<User> findAll();
+
+	public void deleteAll();
 }

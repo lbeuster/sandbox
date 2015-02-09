@@ -30,9 +30,7 @@ public class ManualTest extends AbstractTest {
 
 		String username = "myusername";
 
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword("mypassword");
+		User user = new User(getTestMethodName(), username, "mypassword");
 
 		// save
 		userRepository.save(user);
@@ -59,9 +57,7 @@ public class ManualTest extends AbstractTest {
 
 		String username = "myusername";
 
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword("mypassword");
+		User user = new User(getTestMethodName(), username, "mypassword");
 
 		// save
 		userRepository.save(user);

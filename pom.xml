@@ -27,7 +27,7 @@
 		<module>sandbox-storm</module>
 		<module>sandbox-spring-boot-jersey2</module>
 		<module>sandbox-spring-boot-resteasy</module>
-		<module>sandbox-spring-data</module>
+		<module>sandbox-spring-boot-data-mongodb</module>
 		<module>sandbox-spring-security-celepedia</module>
 		<module>sandbox-resteasy3-spring</module>
 		<module>sandbox-picketlink-deltaspike</module>

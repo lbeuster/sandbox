@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -19,14 +20,20 @@ public class AutoTest extends AbstractTest {
 	/**
 	 *
 	 */
+	@Before
+	public void setUp() {
+		userRepository.deleteAll();
+	}
+
+	/**
+	 *
+	 */
 	@Test
 	public void testUserLifecycle() {
 
 		String username = "myusername";
 
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword("mypassword");
+		User user = new User(getTestMethodName(), username, "mypassword");
 
 		// save
 		userRepository.save(user);
@@ -36,7 +43,7 @@ public class AutoTest extends AbstractTest {
 		assertNotNull(savedUser);
 
 		List<User> users = userRepository.findAll();
-		assertThat(users, hasSize(1));
+		assertThat("users=" + users, users, hasSize(1));
 
 		// delete
 		userRepository.delete(user);
