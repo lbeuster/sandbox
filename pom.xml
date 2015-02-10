@@ -25,6 +25,7 @@
 
 	<modules>
 		<module>sandbox-storm</module>
+		<module>sandbox-spring-boot-jersey1</module>
 		<module>sandbox-spring-boot-jersey2</module>
 		<module>sandbox-spring-boot-resteasy</module>
 		<module>sandbox-spring-boot-data-mongodb</module>

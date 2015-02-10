@@ -1,0 +1,22 @@
+# this file is automatically loaded and added to the global application properties because there is
+# an explicit @PropertySource for this file
+
+# only necessary in ITs but doesn't hurt in production
+spring.main.showBanner: false
+
+management:
+    context-path: /admin
+    security.enabled: false
+
+security:
+    user.name: admin
+    user.password: ipool2015
+    basic.path: /admin/**
+
+endpoints:
+    health.sensitive: true
+    jolokia.path: /jmx
+    jolokia.sensitive: true
+
+jolokia.config.mimeType: application/json
+
