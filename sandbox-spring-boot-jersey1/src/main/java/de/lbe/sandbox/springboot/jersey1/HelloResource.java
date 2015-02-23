@@ -2,6 +2,7 @@ package de.lbe.sandbox.springboot.jersey1;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import org.springframework.stereotype.Component;
@@ -24,5 +25,12 @@ public class HelloResource {
 	@Path("/exception")
 	public String exceptionMapper() {
 		throw new IllegalArgumentException("EXCEPTION");
+	}
+
+	@GET
+	@Produces("text/plain")
+	@Path("/intParam/{intParam}")
+	public String intParam(@PathParam("intParam") IntegerParam param) {
+		return String.valueOf(param.get());
 	}
 }

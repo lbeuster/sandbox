@@ -20,8 +20,8 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.client.filter.LoggingFilter;
 
+import de.asideas.ipool.commons.lib.spring.boot.context.embedded.EmbeddedServletContainerSupport;
 import de.asideas.ipool.commons.lib.spring.boot.test.AbstractSpringBootIT;
-import de.asideas.ipool.commons.lib.spring.boot.test.EmbeddedTestServletContainer;
 
 /**
  * @author lbeuster
@@ -35,7 +35,7 @@ public abstract class AbstractSpringBootJersey1Test extends AbstractSpringBootIT
 	private Client restClient;
 
 	@Inject
-	private EmbeddedTestServletContainer container;
+	private EmbeddedServletContainerSupport container;
 
 	private URI webappContextURL;
 
@@ -70,7 +70,7 @@ public abstract class AbstractSpringBootJersey1Test extends AbstractSpringBootIT
 	@Configuration
 	@EnableAutoConfiguration
 	@ComponentScan
-	@Import({ EmbeddedTestServletContainer.class })
+	@Import({ EmbeddedServletContainerSupport.class })
 	public static class TestConfiguration {
 		// no impl - just the annotations
 	}

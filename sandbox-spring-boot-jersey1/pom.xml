@@ -119,6 +119,10 @@
 
 		<dependency>
 			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-jaxrs</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.asideas.ipool.commons</groupId>
 			<artifactId>ipool-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
