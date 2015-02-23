@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>de.asideas.ipool.maven.boms</groupId>
 		<artifactId>parent-bom</artifactId>
-		<version>1.2-SNAPSHOT</version>
+		<version>1.3-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -19,7 +19,7 @@
 
 		<celepedia.version>2.0-SNAPSHOT</celepedia.version>
 
-		<ipool-maven-boms.version>1.2-SNAPSHOT</ipool-maven-boms.version>
+		<ipool-maven-boms.version>1.3-SNAPSHOT</ipool-maven-boms.version>
 		<ipool-commons.version>1.1-SNAPSHOT</ipool-commons.version>
 	</properties>
 
