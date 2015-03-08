@@ -4,14 +4,12 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.test.context.ActiveProfiles;
 
 import de.lbe.sandbox.springboot.conf.MyConfig;
 
 /**
  * @author lbeuster
  */
-@ActiveProfiles("test")
 public class PropertiesTest extends AbstractSpringBootTest {
 
 	@Value("${my.override}")

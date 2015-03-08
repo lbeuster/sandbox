@@ -100,11 +100,6 @@
 			<artifactId>jolokia-core</artifactId>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>de.room49.lib.commons</groupId> -->
-		<!-- <artifactId>room49-commons-tomcat-embedded</artifactId> -->
-		<!-- </dependency> -->
-
 		<dependency>
 			<groupId>de.asideas.ipool.commons</groupId>
 			<artifactId>ipool-commons-tomcat8-embedded</artifactId>
@@ -121,15 +116,10 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>de.lbe.celepedia.lib.commons</groupId>
-			<artifactId>room49-commons-test-rest</artifactId>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>de.asideas.ipool.commons</groupId>
-			<artifactId>ipool-commons-test</artifactId>
+			<artifactId>ipool-commons-test-rest</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

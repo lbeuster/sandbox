@@ -9,15 +9,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestService {
 
-	@Retryable(include = RemoteAccessException.class, maxAttempts = 5, backoff = @Backoff(delay = 1000, multiplier = 2))
+	@Retryable(include = NullPointerException.class, maxAttempts = 5, backoff = @Backoff(delay = 1000, maxDelay = 3000, multiplier = 2))
 	public void service() {
 		System.out.println("service");
-		throw new RemoteAccessException("TEST");
+		throw new RuntimeException(new RemoteAccessException("TEST"));
 	}
 
 	@Recover
-	public void recover(RemoteAccessException e) {
-		System.out.println("recovered");
-		// ... panic
+	public void recover(Exception e) throws Exception {
+		throw e;
 	}
 }

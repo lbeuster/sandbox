@@ -7,10 +7,11 @@ import org.junit.Before;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import de.asideas.ipool.commons.lib.spring.boot.context.embedded.EmbeddedServletContainerSupport;
 import de.asideas.ipool.commons.lib.spring.boot.test.AbstractSpringBootIT;
-import de.asideas.ipool.commons.lib.spring.boot.test.EmbeddedTestServletContainer;
 import de.asideas.lib.commons.test.restclient.RestClient;
 
 /**
@@ -18,16 +19,17 @@ import de.asideas.lib.commons.test.restclient.RestClient;
  */
 @SpringApplicationConfiguration(classes = AbstractSpringBootTest.TestConfiguration.class)
 @WebAppConfiguration
+@ActiveProfiles("test")
 public abstract class AbstractSpringBootTest extends AbstractSpringBootIT {
 
 	protected RestClient restClient;
 
 	@Inject
-	private EmbeddedTestServletContainer container;
+	private EmbeddedServletContainerSupport container;
 
 	@Before
 	public void setUp() throws Exception {
-		this.restClient = RestClient.create(container.getWebappContextURL());
+		this.restClient = new RestClient(container.getWebappContextURL());
 
 	}
 
@@ -42,7 +44,7 @@ public abstract class AbstractSpringBootTest extends AbstractSpringBootIT {
 	 *
 	 */
 	@Configuration
-	@Import({ Main.class, EmbeddedTestServletContainer.class })
+	@Import({ Main.class, EmbeddedServletContainerSupport.class })
 	public static class TestConfiguration {
 		// no impl - just the annotations
 	}
