@@ -24,7 +24,6 @@
 	</properties>
 
 	<modules>
-		<module>sandbox-spring-retry</module>
 		<module>sandbox-storm</module>
 		<module>sandbox-spring-boot-jersey1</module>
 		<module>sandbox-spring-boot-jersey2</module>
