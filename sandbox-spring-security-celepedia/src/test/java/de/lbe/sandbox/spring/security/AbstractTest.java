@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import de.asideas.ipool.commons.lib.spring.boot.context.embedded.EmbeddedServletContainerSupport;
 import de.asideas.ipool.commons.lib.spring.boot.test.AbstractSpringBootIT;
-import de.asideas.ipool.commons.lib.spring.boot.test.EmbeddedTestServletContainer;
 import de.asideas.lib.commons.test.restclient.RestClient;
 import de.asideas.lib.commons.test.restclient.RestTarget;
 
@@ -27,7 +27,7 @@ public abstract class AbstractTest extends AbstractSpringBootIT {
 	private SecurityProperties securityProperties;
 
 	@Inject
-	private EmbeddedTestServletContainer tomcat;
+	private EmbeddedServletContainerSupport tomcat;
 
 	/**
 	 *
@@ -48,7 +48,7 @@ public abstract class AbstractTest extends AbstractSpringBootIT {
 	 *
 	 */
 	@Configuration
-	@Import({ EmbeddedTestServletContainer.class, ApplicationConfiguration.class })
+	@Import({ EmbeddedServletContainerSupport.class, Main.class })
 	static class TestConfiguration {
 	}
 }

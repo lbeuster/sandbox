@@ -1,11 +1,16 @@
 package de.lbe.sandbox.spring.security.rest;
 
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
 
-@ApplicationPath("/rest")
-public class TestApplication extends Application {
+import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.stereotype.Component;
+
+@ApplicationPath("/api")
+@Component
+public class TestApplication extends ResourceConfig {
 
 	public TestApplication() {
+		packages(getClass().getPackage().getName());
+		register(RestExceptionMapper.class);
 	}
 }

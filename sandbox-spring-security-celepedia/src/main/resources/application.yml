@@ -1,0 +1,28 @@
+# this file is automatically loaded and added to the global application properties because there is
+# an explicit @PropertySource for this file
+
+# only necessary in ITs but doesn't hurt in production
+spring.main.showBanner: false
+
+#server:
+#	servletPath: /admin
+
+management:
+    context-path: /admin
+    security.enabled: true
+    security.role: admin
+
+security:
+    # username/password are now used by the Chef scripts - so don't change it
+    user.name: admin
+    user.password: ipool2015
+    basic.path: /admin/**
+    basic.realm: iPool
+
+endpoints:
+    health.sensitive: true
+    jolokia.path: /jmx
+    jolokia.sensitive: true
+
+jolokia.config.mimeType: application/json
+

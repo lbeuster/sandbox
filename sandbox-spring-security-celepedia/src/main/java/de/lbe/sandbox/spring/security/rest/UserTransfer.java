@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import de.asideas.ipool.commons.lib.lang.MoreObjects;
+import de.asideas.ipool.commons.lib.lang.ToString;
 
 public class UserTransfer {
 
@@ -50,6 +50,6 @@ public class UserTransfer {
 
 	@Override
 	public String toString() {
-		return MoreObjects.dumpViaReflection(this);
+		return ToString.toString(this);
 	}
 }

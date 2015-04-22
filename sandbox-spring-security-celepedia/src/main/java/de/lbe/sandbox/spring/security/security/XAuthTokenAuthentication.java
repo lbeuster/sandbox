@@ -6,7 +6,7 @@ import java.util.Collections;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import de.asideas.ipool.commons.lib.lang.MoreObjects;
+import de.asideas.ipool.commons.lib.lang.ToString;
 
 public class XAuthTokenAuthentication implements Authentication {
 
@@ -62,6 +62,6 @@ public class XAuthTokenAuthentication implements Authentication {
 
 	@Override
 	public String toString() {
-		return MoreObjects.dumpViaReflection(this);
+		return ToString.toString(this);
 	}
 }

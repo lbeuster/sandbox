@@ -38,8 +38,14 @@ public class MainResource {
 	@Autowired
 	private TestApplicationService testService;
 
-	@Autowired
+	// @Autowired
 	private AuthenticationProvider authProvider;
+
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String ping() {
+		return "pong";
+	}
 
 	/**
 	 * Retrieves the currently logged in user.

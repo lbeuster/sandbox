@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import de.lbe.sandbox.spring.security.rest.TokenTransfer;
 import de.lbe.sandbox.spring.security.rest.UserTransfer;
+import de.lbe.sandbox.spring.security.security.WebSecurityConfigurer;
 
 public class SimpleTest extends AbstractTest {
 
@@ -15,6 +16,15 @@ public class SimpleTest extends AbstractTest {
 	 */
 	@Test
 	public void testStartup() {
+	}
+
+	/**
+	 *
+	 */
+	@Test
+	public void testPing() {
+		String response = this.restClient.path("/api/main").get().assertIsStatusOk().getEntityAsString();
+		assertEquals("pong", response);
 	}
 
 	/**
@@ -50,7 +60,7 @@ public class SimpleTest extends AbstractTest {
 	 */
 	@Test
 	public void testAnonymousUser() {
-		UserTransfer entity = this.restClient.path("/rest/main/me").get().assertIsStatusOk().getEntity(UserTransfer.class);
+		UserTransfer entity = this.restClient.path("/api/main/me").get().assertIsStatusOk().getEntity(UserTransfer.class);
 		assertEquals(WebSecurityConfigurer.ANONYMOUS_USERNAME, entity.getName());
 	}
 
@@ -59,7 +69,7 @@ public class SimpleTest extends AbstractTest {
 	 */
 	@Test
 	public void testMeWithInvalidAuthToken() {
-		UserTransfer entity = this.restClient.path("/rest/main/me").header("X-Auth-Token", "invalid-token").get().assertIsStatusOk().getEntity(UserTransfer.class);
+		UserTransfer entity = this.restClient.path("/api/main/me").header("X-Auth-Token", "invalid-token").get().assertIsStatusOk().getEntity(UserTransfer.class);
 		assertEquals("invalid-token", entity.getName());
 	}
 
@@ -69,7 +79,7 @@ public class SimpleTest extends AbstractTest {
 	@Test
 	public void testMethodSecurity() {
 		String token = login("admin", "admin");
-		String entity = this.restClient.path("/rest/main/service1/param").header("X-Auth-Token", token).get().assertIsStatusOk().getEntityAsString();
+		String entity = this.restClient.path("/api/main/service1/param").header("X-Auth-Token", token).get().assertIsStatusOk().getEntityAsString();
 		System.out.println(entity);
 	}
 
@@ -79,7 +89,7 @@ public class SimpleTest extends AbstractTest {
 	@Test
 	public void testInvalidMethodSecurity() {
 		String token = login("test", "test");
-		this.restClient.path("/rest/main/service2/param").header("X-Auth-Token", token).get().assertIsStatusForbidden();
+		this.restClient.path("/api/main/service2/param").header("X-Auth-Token", token).get().assertIsStatusForbidden();
 	}
 
 	/**
@@ -87,6 +97,6 @@ public class SimpleTest extends AbstractTest {
 	 */
 	private String login(String username, String password) {
 		Form form = new Form().param("username", username).param("password", password);
-		return this.restClient.path("/rest/main/authenticate").post(Entity.form(form)).assertIsStatusOk().getEntity(TokenTransfer.class).getToken();
+		return this.restClient.path("/api/main/authenticate").post(Entity.form(form)).assertIsStatusOk().getEntity(TokenTransfer.class).getToken();
 	}
 }

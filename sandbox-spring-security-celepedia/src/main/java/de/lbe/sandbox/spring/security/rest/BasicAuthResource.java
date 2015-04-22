@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/basic")
+// @Path("/basic")
 public class BasicAuthResource {
 
 	@GET
