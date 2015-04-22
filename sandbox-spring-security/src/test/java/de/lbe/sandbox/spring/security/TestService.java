@@ -2,7 +2,7 @@ package de.lbe.sandbox.spring.security;
 
 import org.springframework.stereotype.Component;
 
-import de.asideas.lib.commons.spring.security.HasAuthority;
+import de.asideas.ipool.commons.lib.spring.security.HasAuthority;
 
 @Component
 // @PreAuthorize("hasRole('ROLE_USERd')")

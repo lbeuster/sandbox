@@ -9,13 +9,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ContextConfiguration;
 
-import de.asideas.lib.commons.spring.test.AbstractJUnitSpringIT;
+import de.asideas.ipool.commons.lib.spring.test.AbstractSpringIT;
 
 /**
  * @author lars.beuster
  */
 @ContextConfiguration(classes = SecurityConfig.class)
-public class SpringSecurityTest extends AbstractJUnitSpringIT {
+public class SpringSecurityTest extends AbstractSpringIT {
 
 	@Autowired
 	private TestService service;
