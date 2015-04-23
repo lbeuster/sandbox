@@ -9,15 +9,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SampleAuthenticationManager implements AuthenticationManager {
-	static final List<GrantedAuthority> AUTHORITIES = new ArrayList<GrantedAuthority>();
+	static final List<GrantedAuthority> AUTHORITIES = new ArrayList<>();
 
 	static {
-		AUTHORITIES.add(new GrantedAuthorityImpl("TestAuthority"));
+		AUTHORITIES.add(new SimpleGrantedAuthority("TestAuthority"));
 	}
 
 	@Override
