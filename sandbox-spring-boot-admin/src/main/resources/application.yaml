@@ -1,0 +1,6 @@
+security.user.name: admin
+security.user.password: admin
+security.basic.enabled: true
+
+spring.boot.admin.username: admin
+spring.boot.admin.password: admin
