@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import de.asideas.ipool.commons.lib.spring.boot.MoreAutoConfiguration;
+import de.asideas.ipool.commons.lib.spring.boot.MoreSpringBootAutoConfiguration;
 import de.asideas.ipool.commons.lib.spring.boot.SpringApplication;
 import de.codecentric.boot.admin.config.EnableAdminServer;
 
@@ -18,7 +18,7 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 @EnableAutoConfiguration
 @ComponentScan
 @Configuration
-@Import(MoreAutoConfiguration.class)
+@Import(MoreSpringBootAutoConfiguration.class)
 @EnableAdminServer
 public class ServerMain {
 

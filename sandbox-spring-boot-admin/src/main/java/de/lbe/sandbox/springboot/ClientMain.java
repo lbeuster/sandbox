@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import de.asideas.ipool.commons.lib.spring.boot.MoreAutoConfiguration;
+import de.asideas.ipool.commons.lib.spring.boot.MoreSpringBootAutoConfiguration;
 import de.asideas.ipool.commons.lib.spring.boot.SpringApplication;
 
 /**
@@ -17,7 +17,7 @@ import de.asideas.ipool.commons.lib.spring.boot.SpringApplication;
 @EnableAutoConfiguration
 @ComponentScan
 @Configuration
-@Import(MoreAutoConfiguration.class)
+@Import(MoreSpringBootAutoConfiguration.class)
 public class ClientMain {
 
 	public static ConfigurableApplicationContext main() {
