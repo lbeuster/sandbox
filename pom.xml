@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-spring-amqp</module>
 		<module>sandbox-ftp</module>
 		<module>sandbox-spring-boot-admin</module>
 		<module>sandbox-storm</module>

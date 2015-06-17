@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.asideas.ipool.commons.lib.test.junit.AbstractJUnitTest;
-import de.asideas.ipool.shared.importer.ftp.test.EmbeddedFtpServer;
+import de.asideas.ipool.shared.importer.type.ftp.test.EmbeddedFtpServer;
 
 /**
  * @author lbeuster
@@ -23,18 +23,6 @@ public class FtpTest extends AbstractJUnitTest {
 	private static final String HOST = "localhost:" + PORT;
 	private static final String USER = "test_ftp";
 	private static final String PASS = "test_ftp_pass";
-
-	// private static final boolean EMBEDDED = false;
-	// private static final String HOST = "ie1.hostedftp.com";
-	// private static final String USER = "test_ftp";
-	// private static final String PASS = "test_ftp_pass";
-	// private static final Integer PORT = null;
-
-	// private static final boolean EMBEDDED = false;
-	// private static final String HOST = "ipooltest.brickftp.com";
-	// private static final String USER = "newAdmin";
-	// private static final String PASS = "12ipool!$";
-	// private static final Integer PORT = null;
 
 	// private static final boolean EMBEDDED = false;
 	// private static final String HOST = "ipooldev.exavault.com";
