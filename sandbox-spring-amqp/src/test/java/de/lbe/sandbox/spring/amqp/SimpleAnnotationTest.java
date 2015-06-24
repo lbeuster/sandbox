@@ -34,18 +34,17 @@ import de.asideas.ipool.commons.lib.util.logging.mdc.RequestId;
 /**
  * @author lbeuster
  */
-@ContextConfiguration(classes = SimpleTest.TestConfiguration.class)
-public class SimpleTest extends AbstractSpringIT {
+@ContextConfiguration(classes = SimpleAnnotationTest.TestConfiguration.class)
+public class SimpleAnnotationTest extends AbstractSpringIT {
 
 	public static final String RABBIT_URL = "amqp://ypecsgox:bSsjVb9EnQdBuo5ZJvyqdTdlzoQ_IzoR@bunny.cloudamqp.com/ypecsgox";
 
 	private static final String QUEUE = "larsq";
+	private static final String EXCHANGE = "larsx";
+	private static final String ROUTING_KEY = "larsr";
 
 	@Inject
 	private RabbitTemplate template;
-
-	@Inject
-	private CachingConnectionFactory connectionFactory;
 
 	@Test
 	public void test() throws Exception {
@@ -64,7 +63,7 @@ public class SimpleTest extends AbstractSpringIT {
 		String requestId = RequestId.getOrInit();
 		MessageProperties properities = MessagePropertiesBuilder.newInstance().setContentType("text/plain").setCorrelationId(requestId.getBytes()).build();
 		for (int i = 0; i < 10; i++) {
-			template.send("larsx", "larsr", new Message("CONTENT".getBytes(), properities));
+			template.send(EXCHANGE, ROUTING_KEY, new Message("CONTENT".getBytes(), properities));
 		}
 		Thread.sleep(5000);
 	}
@@ -93,12 +92,16 @@ public class SimpleTest extends AbstractSpringIT {
 		@Bean
 		RabbitAdmin rabbitAdmin(CachingConnectionFactory connectionFactory) {
 			RabbitAdmin admin = new RabbitAdmin(connectionFactory);
-			admin.declareExchange(new TopicExchange("larsx"));
+			admin.declareExchange(new TopicExchange(EXCHANGE));
 			admin.declareQueue(new Queue(QUEUE));
-			admin.declareBinding(new Binding(QUEUE, DestinationType.QUEUE, "larsx", "larsr", null));
+			admin.declareBinding(new Binding(QUEUE, DestinationType.QUEUE, EXCHANGE, ROUTING_KEY, null));
 			return admin;
 		}
 
+		/**
+		 * This singleton is needed by the rabbit infrastructure with exactly this name:
+		 * RabbitListenerAnnotationBeanPostProcessor.DEFAULT_RABBIT_LISTENER_CONTAINER_FACTORY_BEAN_NAME
+		 */
 		@Bean
 		public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(CachingConnectionFactory connectionFactory) {
 			SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
