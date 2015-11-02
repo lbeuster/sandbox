@@ -12,20 +12,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.Binding.DestinationType;
 import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageListener;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.core.MessagePropertiesBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
-import org.springframework.amqp.rabbit.annotation.EnableRabbit;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.MessageListenerContainer;
+import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.rabbitmq.client.ConnectionFactory;
@@ -36,16 +34,18 @@ import de.asideas.ipool.commons.lib.util.logging.mdc.RequestId;
 /**
  * @author lbeuster
  */
-@ContextConfiguration(classes = SimpleAnnotationTest.TestConfiguration.class)
-public class SimpleAnnotationTest extends AbstractSpringIT {
+@ContextConfiguration(classes = ManualTest.TestConfiguration.class)
+public class ManualTest extends AbstractSpringIT {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(SimpleAnnotationTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ManualTest.class);
 
 	public static final String RABBIT_URL = "amqp://ypecsgox:bSsjVb9EnQdBuo5ZJvyqdTdlzoQ_IzoR@bunny.cloudamqp.com/ypecsgox";
 
-	private static final String QUEUE = "larsq";
-	private static final String EXCHANGE = "larsx";
-	private static final String ROUTING_KEY = "larsr";
+	private static final String EXCHANGE = "exchange";
+	private static final String ROUTING_KEY1 = "routing.1";
+	private static final String ROUTING_KEY2 = "routing.2";
+	private static final String QUEUE1 = "queue1";
+	private static final String QUEUE2 = "queue2";
 
 	@Inject
 	private RabbitTemplate template;
@@ -65,9 +65,10 @@ public class SimpleAnnotationTest extends AbstractSpringIT {
 		// container.start();
 
 		String requestId = RequestId.getOrInit();
-		MessageProperties properities = MessagePropertiesBuilder.newInstance().setContentType("text/plain").setCorrelationId(requestId.getBytes()).build();
+		MessageProperties properties = MessagePropertiesBuilder.newInstance().setContentType("text/plain").setCorrelationId(requestId.getBytes()).build();
 		for (int i = 0; i < 10; i++) {
-			template.send(EXCHANGE, ROUTING_KEY, new Message("CONTENT".getBytes(), properities));
+			template.send(EXCHANGE, ROUTING_KEY1, new Message("CONTENT1".getBytes(), properties));
+			template.send(EXCHANGE, ROUTING_KEY2, new Message("CONTENT2".getBytes(), properties));
 		}
 		Thread.sleep(5000);
 	}
@@ -76,8 +77,6 @@ public class SimpleAnnotationTest extends AbstractSpringIT {
 	 *
 	 */
 	@Configuration
-	@EnableRabbit
-	@Import({ MyListener.class })
 	static class TestConfiguration {
 
 		@Bean
@@ -97,38 +96,48 @@ public class SimpleAnnotationTest extends AbstractSpringIT {
 		RabbitAdmin rabbitAdmin(CachingConnectionFactory connectionFactory) {
 			RabbitAdmin admin = new RabbitAdmin(connectionFactory);
 			admin.declareExchange(new TopicExchange(EXCHANGE));
-			admin.declareQueue(new Queue(QUEUE));
-			admin.declareBinding(new Binding(QUEUE, DestinationType.QUEUE, EXCHANGE, ROUTING_KEY, null));
+			admin.declareQueue(new Queue(QUEUE1));
+			admin.declareQueue(new Queue(QUEUE2));
+			admin.declareBinding(new Binding(QUEUE1, DestinationType.QUEUE, EXCHANGE, ROUTING_KEY1, null));
+			admin.declareBinding(new Binding(QUEUE2, DestinationType.QUEUE, EXCHANGE, ROUTING_KEY2, null));
 			return admin;
 		}
 
-		/**
-		 * This singleton is needed by the rabbit infrastructure with exactly this name:
-		 * RabbitListenerAnnotationBeanPostProcessor.DEFAULT_RABBIT_LISTENER_CONTAINER_FACTORY_BEAN_NAME
-		 */
 		@Bean
-		public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(CachingConnectionFactory connectionFactory) {
-			SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
-			factory.setConnectionFactory(connectionFactory);
-
-			// even if we only have one consumer the work is distributed to several threads
-			factory.setConcurrentConsumers(2);
-			factory.setMaxConcurrentConsumers(10);
-			// factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
-			return factory;
+		public MessageListenerContainer consumerConsumer1(CachingConnectionFactory connectionFactory) {
+			SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+			container.setConnectionFactory(connectionFactory);
+			container.addQueueNames(QUEUE1);
+			container.setMessageListener(new TestMessageListener());
+			container.setConcurrentConsumers(2);
+			return container;
 		}
+
+		@Bean
+		public MessageListenerContainer consumerConsumer2(CachingConnectionFactory connectionFactory) {
+			SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+			container.setConnectionFactory(connectionFactory);
+			container.addQueueNames(QUEUE2);
+			container.setMessageListener(new TestMessageListener());
+			container.setConcurrentConsumers(3);
+			return container;
+		}
+
 	}
 
 	/**
 	 *
 	 */
-	@Component
-	static class MyListener {
+	static class TestMessageListener implements MessageListener {
 
-		@RabbitListener(queues = QUEUE)
-		public void handle(Message message) throws InterruptedException {
+		@Override
+		public void onMessage(Message message) {
 			LOGGER.info("received: {}", message);
-			Thread.sleep(500);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				throw new RuntimeException(e);
+			}
 			LOGGER.info("done: {}", message);
 		}
 	}

@@ -1,0 +1,12 @@
+management:
+    context-path: /admin
+    security.enabled: true
+    security.role: admin
+
+security:
+    user.name: admin
+    user.password: admin
+    basic.path: /admin/**
+    basic.realm: iPool
+
+server.port: 8080

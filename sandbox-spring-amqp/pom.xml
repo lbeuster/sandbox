@@ -9,10 +9,6 @@
 
 	<artifactId>sandbox-spring-amqp</artifactId>
 
-	<properties>
-		<spring-amqp.version>1.4.5.RELEASE</spring-amqp.version>
-	</properties>
-
 	<dependencyManagement>
 		<dependencies>
 
@@ -40,7 +36,6 @@
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit</artifactId>
-			<version>${spring-amqp.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>de.asideas.ipool.commons</groupId>

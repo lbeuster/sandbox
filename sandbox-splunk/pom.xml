@@ -23,46 +23,30 @@
 
 	</repositories>
 
-	<dependencyManagement>
-		<dependencies>
+	<build>
 
-			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
-				<artifactId>commons-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
-				<artifactId>tests-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
-				<artifactId>tomcat7-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.room49.maven.boms</groupId>
-				<artifactId>jee7-bom</artifactId>
-				<version>${room49-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+		<!-- package our jar -->
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 
-		</dependencies>
-	</dependencyManagement>
+	</build>
 
 	<dependencies>
 
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
-			<artifactId>room49-commons-core</artifactId>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -72,30 +56,15 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- Tomcat -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-logging-juli</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- JSP-compiler -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>de.room49.lib.commons</groupId>
-			<artifactId>room49-commons-test</artifactId>
+			<groupId>de.asideas.ipool.commons</groupId>
+			<artifactId>ipool-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
