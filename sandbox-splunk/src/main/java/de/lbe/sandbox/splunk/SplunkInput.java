@@ -6,6 +6,9 @@ import java.util.List;
 /**
  * Common base class for all Splunk Input types. Currently just has shared logic for queuing up events.
  *
+ * @stolenFrom https://github.com/damiendallimore/SplunkJavaLogging.
+ * @lastChangedForChanges 19.01.2016
+ *
  * @author Damien Dallimore damien@dtdsoftware.com
  *
  */
@@ -95,9 +98,6 @@ public abstract class SplunkInput {
 	 */
 	public void setMaxQueueSize(String rawProperty) {
 
-		if (rawProperty == null) {
-			return;
-		}
 		int multiplier;
 		int factor;
 

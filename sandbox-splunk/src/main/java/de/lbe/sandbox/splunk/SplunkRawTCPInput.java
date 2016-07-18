@@ -9,12 +9,13 @@ import java.net.Socket;
 /**
  * Common Raw TCP logic shared by all appenders/handlers
  *
- * @author Damien Dallimore damien@dtdsoftware.com
+ * @stolenFrom https://github.com/damiendallimore/SplunkJavaLogging.
+ * @lastChangedForChanges 19.01.2016
  *
+ * @author Damien Dallimore damien@dtdsoftware.com
  */
-
 public class SplunkRawTCPInput extends SplunkInput {
-	private static int SOCKET_BUFFER_SIZE = 128; // Default to 8192
+	private static int SOCKET_BUFFER_SIZE = 8 * 1024; // Default to 8192
 
 	// connection props
 	private String host = "";
@@ -60,7 +61,6 @@ public class SplunkRawTCPInput extends SplunkInput {
 		streamSocket = new Socket(host, port);
 		if (streamSocket.isConnected()) {
 			streamSocket.setSendBufferSize(getSocketBufferSize());
-			// streamSocket.setSendBufferSize(10);
 			streamSocket.setReceiveBufferSize(getSocketBufferSize());
 			ostream = streamSocket.getOutputStream();
 			writerOut = new OutputStreamWriter(ostream, "UTF8");
@@ -80,8 +80,8 @@ public class SplunkRawTCPInput extends SplunkInput {
 				if (streamSocket != null)
 					streamSocket.close();
 			}
-		} catch (Exception e) {
-			System.err.println(e);
+		} catch (@SuppressWarnings("unused") Exception e) {
+			// ignore
 		} finally {
 			writerOut = null;
 			streamSocket = null;
@@ -113,9 +113,7 @@ public class SplunkRawTCPInput extends SplunkInput {
 				writerOut.flush();
 			}
 
-		} catch (IOException e) {
-
-			System.err.println(e);
+		} catch (@SuppressWarnings("unused") IOException e) {
 
 			// something went wrong , put message on the queue for retry
 			enqueue(currentMessage);

@@ -7,8 +7,10 @@ import ch.qos.logback.core.Layout;
 /**
  * LogBack Appender for sending events to Splunk via Raw TCP
  *
- * @author Damien Dallimore damien@dtdsoftware.com
+ * @stolenFrom https://github.com/damiendallimore/SplunkJavaLogging.
+ * @lastChangedForChanges 19.01.2016
  *
+ * @author Damien Dallimore damien@dtdsoftware.com
  */
 public class SplunkAppender2 extends AppenderBase<ILoggingEvent> {
 
@@ -17,8 +19,8 @@ public class SplunkAppender2 extends AppenderBase<ILoggingEvent> {
 	private int port = 5150;
 
 	// queuing settings
-	private String maxQueueSize;
-	private boolean dropEventsOnQueueFull;
+	private String maxQueueSize = "500";
+	private boolean dropEventsOnQueueFull = false;
 
 	private SplunkRawTCPInput sri;
 
@@ -59,19 +61,15 @@ public class SplunkAppender2 extends AppenderBase<ILoggingEvent> {
 		if (sri == null) {
 			try {
 				sri = new SplunkRawTCPInput(host, port);
-				sri.setMaxQueueSize(maxQueueSize);
+				if (maxQueueSize != null) {
+					sri.setMaxQueueSize(maxQueueSize);
+				}
 				sri.setDropEventsOnQueueFull(dropEventsOnQueueFull);
 			} catch (Exception e) {
-				addError("Couldn't establish Raw TCP connection for SplunkRawTCPAppender named \"" + this.name + "\": " + e);
+				addError("Couldn't establish Raw TCP connection for SplunkRawTCPAppender named \"" + this.name, e);
 			}
 		}
 		super.start();
-	}
-
-	@Override
-	public void addError(String msg) {
-		System.err.println(msg);
-		super.addError(msg);
 	}
 
 	/**

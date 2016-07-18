@@ -6,7 +6,9 @@
 		</encoder>
 	</appender>
 
-	<root level="warn">
+	<logger name="org.springframework.security" level="debug"/>
+
+	<root level="info">
 		<appender-ref ref="CONSOLE" />
 	</root>
 

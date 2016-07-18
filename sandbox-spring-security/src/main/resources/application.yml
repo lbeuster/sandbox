@@ -1,0 +1,11 @@
+management:
+    context-path: /admin
+    security.enabled: true
+    security.role: admin
+
+security:
+    user.name: admin
+    user.password: ipool2015
+    basic.path: /admin/**
+    basic.realm: iPool
+

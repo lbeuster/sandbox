@@ -2,14 +2,13 @@ package de.lbe.sandbox.springboot;
 
 import java.util.Properties;
 
+import org.springframework.boot.Banner.Mode;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
-import de.asideas.ipool.commons.lib.spring.boot.MoreSpringBootAutoConfiguration;
-import de.asideas.ipool.commons.lib.spring.boot.SpringApplication;
 import de.codecentric.boot.admin.config.EnableAdminServer;
 
 /**
@@ -18,7 +17,6 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 @EnableAutoConfiguration
 @ComponentScan
 @Configuration
-@Import(MoreSpringBootAutoConfiguration.class)
 @EnableAdminServer
 public class ServerMain {
 
@@ -26,7 +24,7 @@ public class ServerMain {
 		Properties properties = new Properties();
 		properties.setProperty("server.port", "8081");
 		SpringApplication app = new SpringApplication(ServerMain.class);
-		app.setShowBanner(false);
+		app.setBannerMode(Mode.OFF);
 		app.setWebEnvironment(true);
 		app.setDefaultProperties(properties);
 		return app.run(new String[] {});

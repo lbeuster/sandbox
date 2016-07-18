@@ -1,22 +1,11 @@
-spring.boot.admin.username: admin
-spring.boot.admin.password: ipool2015
-
 management:
-#    context-path: /admin
     security.enabled: true
     security.role: admin
 
 security:
-    # username/password are now used by the Chef scripts - so don't change it
     user.name: admin
     user.password: ipool2015
-#    basic.path: /admin/**
     basic.realm: iPool
 
 endpoints:
-    health.sensitive: true
-    jolokia.path: /jmx
     jolokia.sensitive: true
-
-jolokia.config.mimeType: application/json
-

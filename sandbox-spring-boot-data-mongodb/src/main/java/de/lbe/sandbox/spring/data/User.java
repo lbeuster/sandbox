@@ -1,5 +1,7 @@
 package de.lbe.sandbox.spring.data;
 
+import java.time.ZonedDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,11 +18,14 @@ public class User {
 
 	private final String password;
 
-	public User(String myId, String username, String password) {
+	private final ZonedDateTime zonedDateTime;
+
+	public User(String myId, String username, String password, ZonedDateTime zonedDateTime) {
 		Verify.verifyNotNull(myId, "id");
 		this.myId = myId;
 		this.username = username;
 		this.password = password;
+		this.zonedDateTime = zonedDateTime;
 	}
 
 	public String getUsername() {
@@ -39,5 +44,9 @@ public class User {
 	@Override
 	public String toString() {
 		return ToString.toString(this);
+	}
+
+	public ZonedDateTime getZonedDateTime() {
+		return zonedDateTime;
 	}
 }

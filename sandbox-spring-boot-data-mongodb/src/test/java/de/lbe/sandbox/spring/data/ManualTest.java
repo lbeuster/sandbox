@@ -2,6 +2,7 @@ package de.lbe.sandbox.spring.data;
 
 import static org.hamcrest.Matchers.hasSize;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -29,8 +30,7 @@ public class ManualTest extends AbstractTest {
 	public void testUserLifecycle() {
 
 		String username = "myusername";
-
-		User user = new User(getTestMethodName(), username, "mypassword");
+		User user = new User(getTestMethodName(), username, "mypassword", null);
 
 		// save
 		userRepository.save(user);
@@ -53,11 +53,30 @@ public class ManualTest extends AbstractTest {
 	 *
 	 */
 	@Test
+	public void testZonedDateTime() {
+
+		String username = getTestMethodName();
+		ZonedDateTime now = ZonedDateTime.now();
+		User user = new User(getTestMethodName(), username, "mypassword", now);
+
+		// save
+		userRepository.save(user);
+
+		// find the saved user again.
+		User savedUser = userRepository.findByUsername(username);
+		assertNotNull(savedUser);
+		assertEquals(now, savedUser.getZonedDateTime());
+	}
+
+	/**
+	 *
+	 */
+	@Test
 	public void testClassNameInDatabase() {
 
 		String username = "myusername";
 
-		User user = new User(getTestMethodName(), username, "mypassword");
+		User user = new User(getTestMethodName(), username, "mypassword", null);
 
 		// save
 		userRepository.save(user);

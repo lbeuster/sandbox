@@ -2,15 +2,13 @@ package de.lbe.sandbox.springboot;
 
 import org.junit.Test;
 
-import de.asideas.ipool.commons.lib.test.junit.AbstractJUnitTest;
-
 /**
  * @author lbeuster
  */
-public class ServerTest extends AbstractJUnitTest {
+public class ServerTest {
 
 	@Test
-	public void testStartup() throws Exception {
+	public void startServer() throws Exception {
 		ServerMain.main();
 		System.out.println("started server");
 	}

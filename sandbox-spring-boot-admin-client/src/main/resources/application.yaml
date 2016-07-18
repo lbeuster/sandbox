@@ -1,0 +1,14 @@
+# used by the client to register at the server
+spring.boot.admin.username: admin
+spring.boot.admin.password: ipool2015
+
+management:
+    security.enabled: true
+    security.role: admin
+
+security:
+    user.name: admin
+    user.password: ipool2015
+
+endpoints:
+    jolokia.sensitive: true

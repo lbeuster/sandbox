@@ -2,6 +2,13 @@
 
 	<property scope="system" name="appender" value="1" />
 
+	<if condition='isDefined("DYNO")'>
+		<then>
+			<property name="isHeroku" value="true"/>
+		</then>
+	</if>
+	<property name="logToSplunk" value="${isHeroku}"/>
+
 	<if condition='isDefined("celepedia")'>
 		<then>
 			<property scope="system" name="splunk-host" value="${SPLUNK_HOST:-logging-splunk1.s.asideas.de}" />
@@ -9,39 +16,50 @@
 		</then>
 		<else>
 			<property scope="system" name="splunk-host" value="${SPLUNK_HOST:-splunk.asv.local}" />
-			<property scope="system" name="splunk-port" value="${SPLUNK_PORT:-9997}" />
+			<property scope="system" name="splunk-port" value="${SPLUNK_PORT:-9998}" />
 		</else>
 	</if>
 
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS Z} level=%level thread=%thread %m%n{}</pattern>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS Z} level=%level thread=%thread %mdc %m%n{}</pattern>
 		</encoder>
 	</appender>
 
-	<if condition='isDefined("appender2")'>
+	<if condition='isDefined("isHeroku")'>
 		<then>
-			<appender name="splunk" class="de.lbe.sandbox.splunk.SplunkAppender2">
-				<!-- <host>logging-splunk1.s.asideas.de</host> -->
-				<!-- <port>9995</port> -->
-				<host>${splunk-host}</host>
-				<port>${splunk-port}</port>
-				<layout>
-					<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS Z} APPENDER2 level=%level thread=%thread app=larstest %m%n</pattern>
-				</layout>
-			</appender>
+			<if condition='isDefined("appender1")'>
+				<then>
+					<appender name="splunk" class="de.lbe.sandbox.splunk.SplunkAppender1">
+						<!-- <host>logging-splunk1.s.asideas.de</host> -->
+						<!-- <port>9995</port> -->
+						<host>${splunk-host}</host>
+						<port>${splunk-port}</port>
+						<layout>
+							<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS Z} APPENDER1 level=%level thread=%thread app=larstest %mdc %m%n</pattern>
+						</layout>
+					</appender>
+				</then>
+				<else>
+					<appender name="splunk-impl" class="de.lbe.sandbox.splunk.SplunkAppender2">
+						<!-- <host>logging-splunk1.s.asideas.de</host> -->
+						<!-- <port>9995</port> -->
+						<host>${splunk-host}</host>
+						<port>${splunk-port}</port>
+						<layout>
+							<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS Z} APPENDER2 level=%level thread=%thread app=larstest %mdc %m%n</pattern>
+						</layout>
+					</appender>
+
+				    <appender name="splunk" class="ch.qos.logback.classic.AsyncAppender">
+				    	<appender-ref ref="splunk-impl" />
+				    	<includeCallerData>false</includeCallerData>
+		<!-- 		    	<queueSize>500</queueSize> -->
+				  	</appender>
+
+				</else>
+			</if>
 		</then>
-		<else>
-			<appender name="splunk" class="de.lbe.sandbox.splunk.SplunkAppender1">
-				<!-- <host>logging-splunk1.s.asideas.de</host> -->
-				<!-- <port>9995</port> -->
-				<host>${splunk-host}</host>
-				<port>${splunk-port}</port>
-				<layout>
-					<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS Z} APPENDER1 level=%level thread=%thread app=larstest %m%n</pattern>
-				</layout>
-			</appender>
-		</else>
 	</if>
 
 	<logger name="larstest" level="info" />

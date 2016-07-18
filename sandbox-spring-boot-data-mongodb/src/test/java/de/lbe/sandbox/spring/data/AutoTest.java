@@ -33,7 +33,7 @@ public class AutoTest extends AbstractTest {
 
 		String username = "myusername";
 
-		User user = new User(getTestMethodName(), username, "mypassword");
+		User user = new User(getTestMethodName(), username, "mypassword", null);
 
 		// save
 		userRepository.save(user);
