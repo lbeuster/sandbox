@@ -7,30 +7,28 @@ import javax.inject.Inject;
 import org.junit.Before;
 import org.junit.Rule;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.jayway.restassured.specification.RequestSpecification;
 
-import de.asideas.ipool.commons.lib.spring.boot.MoreSpringBootAutoConfiguration;
-import de.asideas.ipool.commons.lib.spring.boot.context.embedded.EmbeddedServletContainerSupport;
 import de.asideas.ipool.commons.lib.spring.boot.test.AbstractSpringBootIT;
+import de.asideas.ipool.commons.lib.spring.boot.test.EmbeddedServletContainerTestSupport;
 import de.asideas.ipool.commons.lib.test.restassured.RestAssuredRule;
 
 /**
  * @author lars.beuster
  */
-@SpringApplicationConfiguration(classes = { AbstractSecurityIT.TestConfiguration.class })
-@WebAppConfiguration
+@SpringBootTest(classes = AbstractSecurityIT.TestConfiguration.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 public class AbstractSecurityIT extends AbstractSpringBootIT {
 
 	@Rule
 	public final RestAssuredRule restAssured = new RestAssuredRule();
 
 	@Inject
-	private EmbeddedServletContainerSupport container;
+	private EmbeddedServletContainerTestSupport container;
 
 	@Inject
 	private SecurityProperties securityProperties;
@@ -61,13 +59,8 @@ public class AbstractSecurityIT extends AbstractSpringBootIT {
 	}
 
 	@Configuration
-	// @formatter:off
-	@Import({
-		MoreSpringBootAutoConfiguration.class,
-		Main.class
-	})
-	// @formatter:on
+	@Import({ Main.class })
 	static class TestConfiguration {
-		//
+		// only the annotations
 	}
 }

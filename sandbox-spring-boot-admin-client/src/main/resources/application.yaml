@@ -1,6 +1,8 @@
 # used by the client to register at the server
-spring.boot.admin.username: admin
-spring.boot.admin.password: ipool2015
+spring.boot.admin:
+    username: admin
+    password: ipool2015
+    period: 10000000
 
 management:
     security.enabled: true
@@ -12,3 +14,6 @@ security:
 
 endpoints:
     jolokia.sensitive: true
+
+zuul.sensitiveHeaders : Cookie
+

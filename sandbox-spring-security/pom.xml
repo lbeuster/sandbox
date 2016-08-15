@@ -10,48 +10,6 @@
 	<artifactId>sandbox-spring-security</artifactId>
 	<packaging>jar</packaging>
 
-	<dependencyManagement>
-		<dependencies>
-
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>commons-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>tests-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>tomcat8-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>jee7-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>spring-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
 
 		<dependency>
@@ -85,8 +43,8 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
