@@ -23,6 +23,8 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-spring-eureka-dashboard</module>
+		<module>sandbox-spring-eureka</module>
 		<module>sandbox-spring-hystrix</module>
 		<module>sandbox-spring-hystrix-dashboard</module>
 		<module>sandbox-jedis</module>
