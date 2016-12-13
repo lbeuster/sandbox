@@ -1,14 +1,21 @@
 management:
+    context-path: /admin
     security.enabled: true
-#    security.role: admin
+    security.role: admin
 
 security:
     user.name: admin
     user.password: ipool2015
+    user.role: ADMIN
+    basic.path: /admin/**
     basic.realm: iPool
 
 endpoints:
     jolokia.sensitive: true
 
-zuul.sensitiveHeaders : Cookie
+# seems like the autoconfig doesn't work correctly so we have to disable it explicitly
+# if the app can be started without this line then it's fixed
+spring.sleuth.zuul.enabled: false
 
+# per default the "Authorization" header is not passed from the browser to the client because it's in that list - we have to remove it
+zuul.sensitiveHeaders : Cookie, Set-Cookie

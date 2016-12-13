@@ -2,7 +2,7 @@
 
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%-5level %-5relative %date{ISO8601} [%-10thread] %class.%method\(%line\) - %msg :: %mdc%n</pattern>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [trace=%X{X-Trace-Id:-},span=%X{X-Span-Id:-}] [%15.15t] %-40.40logger{39}: %m%n</pattern>
 		</encoder>
 	</appender>
 

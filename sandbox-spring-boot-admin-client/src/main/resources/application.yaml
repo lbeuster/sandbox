@@ -1,16 +1,25 @@
 # used by the client to register at the server
-spring.boot.admin:
-    username: admin
-    password: ipool2015
-    period: 10000000
+#spring.boot.admin:
+#    username: admin
+#    password: ipool2015
+#    period: 10000000
+
+# used by clients to find the service-registry
+spring.boot.admin.url: http://localhost:8081
+# used by clients to find the service-registry
+# spring.boot.admin.url: https://ipool-service-registry-int.herokuapp.com
 
 management:
+    context-path: /admin
     security.enabled: true
     security.role: admin
 
 security:
     user.name: admin
     user.password: ipool2015
+    user.role: ADMIN
+    basic.path: /admin/**
+    basic.realm: iPool
 
 endpoints:
     jolokia.sensitive: true

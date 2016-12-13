@@ -2,7 +2,7 @@ package de.lbe.sandbox.spring.security;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import de.asideas.ipool.commons.lib.spring.boot.SpringApplication;
+import de.asideas.ipool.commons.lib.spring.boot.ExtendedSpringApplication;
 
 /**
  * @author lbeuster
@@ -11,6 +11,6 @@ import de.asideas.ipool.commons.lib.spring.boot.SpringApplication;
 public class Main {
 
 	public static void main(String... args) {
-		new SpringApplication(Main.class).keepMainThreadAlive(true).run();
+		new ExtendedSpringApplication(Main.class).keepMainThreadAlive(true).run();
 	}
 }

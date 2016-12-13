@@ -23,6 +23,9 @@
 	</properties>
 
 	<modules>
+		<module>sandbox-spring-hystrix</module>
+		<module>sandbox-spring-hystrix-dashboard</module>
+		<module>sandbox-jedis</module>
 		<module>sandbox-realtime-co</module>
 		<module>sandbox-firebase</module>
 		<module>sandbox-spring-sleuth</module>
@@ -86,13 +89,13 @@
 				<scope>import</scope>
 			</dependency>
 
-<!-- 			<dependency> -->
-<!-- 				<groupId>de.lbe.celepedia.lib.commons</groupId> -->
-<!-- 				<artifactId>room49-commons-bom</artifactId> -->
-<!-- 				<version>${celepedia.version}</version> -->
-<!-- 				<type>pom</type> -->
-<!-- 				<scope>import</scope> -->
-<!-- 			</dependency> -->
+			<!-- <dependency> -->
+			<!-- <groupId>de.lbe.celepedia.lib.commons</groupId> -->
+			<!-- <artifactId>room49-commons-bom</artifactId> -->
+			<!-- <version>${celepedia.version}</version> -->
+			<!-- <type>pom</type> -->
+			<!-- <scope>import</scope> -->
+			<!-- </dependency> -->
 
 			<dependency>
 				<groupId>de.lbe.lib.commons.old</groupId>
