@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<parent>
-		<groupId>de.asideas.ipool.maven.boms</groupId>
-		<artifactId>ipool-starter-parent</artifactId>
-		<version>1.8-SNAPSHOT</version>
-		<relativePath></relativePath>
-	</parent>
+    <parent>
+        <groupId>de.cts.maven.boms</groupId>
+        <artifactId>cts-starter-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath />
+    </parent>
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.lbe.sandbox</groupId>
@@ -19,7 +19,8 @@
 
 		<celepedia.version>2.0-SNAPSHOT</celepedia.version>
 
-		<ipool-commons.version>1.3-SNAPSHOT</ipool-commons.version>
+		<cts-commons.version>1.0-SNAPSHOT</cts-commons.version>
+        <ipool-commons.version>1.3-SNAPSHOT</ipool-commons.version>
 	</properties>
 
 	<modules>
@@ -84,12 +85,19 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>de.asideas.ipool.commons</groupId>
-				<artifactId>ipool-commons-bom</artifactId>
-				<version>${ipool-commons.version}</version>
+				<groupId>de.cts.commons</groupId>
+				<artifactId>cts-commons-bom</artifactId>
+				<version>${cts-commons.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+            <dependency>
+                <groupId>de.asideas.ipool.commons</groupId>
+                <artifactId>ipool-commons-bom</artifactId>
+                <version>${ipool-commons.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
 			<!-- <dependency> -->
 			<!-- <groupId>de.lbe.celepedia.lib.commons</groupId> -->

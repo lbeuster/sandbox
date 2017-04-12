@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.google.common.base.Verify;
 
-import de.asideas.ipool.commons.lib.lang.ToString;
+import de.cts.commons.lib.lang.ToString;
 
 @Document(collection = "users")
 public class User {

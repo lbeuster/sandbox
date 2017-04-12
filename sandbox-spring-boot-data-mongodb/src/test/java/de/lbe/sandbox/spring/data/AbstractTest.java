@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.Date;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,48 +21,48 @@ import de.asideas.ipool.commons.lib.test.mongo.EmbeddedMongo;
 /**
  * @author lbeuster
  */
-@SpringApplicationConfiguration(classes = AbstractTest.TestConfiguration.class)
+@SpringBootTest(classes = AbstractTest.TestConfiguration.class, webEnvironment = WebEnvironment.NONE)
 public abstract class AbstractTest extends AbstractSpringBootIT {
 
-	@Configuration
-	@ComponentScan
-	@EnableMongoRepositories
-	@EnableAutoConfiguration
-	static class TestConfiguration {
+    @Configuration
+    @ComponentScan
+    @EnableMongoRepositories
+    @EnableAutoConfiguration
+    static class TestConfiguration {
 
-		@Bean(initMethod = "start", destroyMethod = "stop")
-		EmbeddedMongo embeddedMongo() {
-			EmbeddedMongo mongo = new EmbeddedMongo();
-			mongo.setPort(7031);
-			return mongo;
-		}
+        @Bean(initMethod = "start", destroyMethod = "stop")
+        EmbeddedMongo embeddedMongo() {
+            EmbeddedMongo mongo = new EmbeddedMongo();
+            mongo.setPort(7031);
+            return mongo;
+        }
 
-		@Bean
-		public CustomConversions customConversions() {
-			return new CustomConversions(Arrays.asList(DateToZonedDateTimeConverter.INSTANCE, ZonedDateTimeToDateConverter.INSTANCE));
-		}
-	}
+        @Bean
+        public CustomConversions customConversions() {
+            return new CustomConversions(Arrays.asList(DateToZonedDateTimeConverter.INSTANCE, ZonedDateTimeToDateConverter.INSTANCE));
+        }
+    }
 
-	public static enum DateToZonedDateTimeConverter implements Converter<Date, ZonedDateTime> {
+    public static enum DateToZonedDateTimeConverter implements Converter<Date, ZonedDateTime> {
 
-		INSTANCE;
+        INSTANCE;
 
-		@Override
-		public ZonedDateTime convert(Date source) {
-			// we always convert to local TZ because we lost the original TZ during the conversion to Date
-			return source == null ? null : ZonedDateTime.ofInstant(source.toInstant(), ZoneId.systemDefault());
-		}
-	}
+        @Override
+        public ZonedDateTime convert(Date source) {
+            // we always convert to local TZ because we lost the original TZ during the conversion to Date
+            return source == null ? null : ZonedDateTime.ofInstant(source.toInstant(), ZoneId.systemDefault());
+        }
+    }
 
-	public static enum ZonedDateTimeToDateConverter implements Converter<ZonedDateTime, Date> {
+    public static enum ZonedDateTimeToDateConverter implements Converter<ZonedDateTime, Date> {
 
-		INSTANCE;
+        INSTANCE;
 
-		@Override
-		public Date convert(ZonedDateTime source) {
-			// to have a consitent value we always use UTC
-			return source == null ? null : Date.from(source.toInstant());
-		}
-	}
+        @Override
+        public Date convert(ZonedDateTime source) {
+            // to have a consitent value we always use UTC
+            return source == null ? null : Date.from(source.toInstant());
+        }
+    }
 
 }

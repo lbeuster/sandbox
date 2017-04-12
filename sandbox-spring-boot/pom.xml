@@ -30,48 +30,6 @@
 
 	</build>
 
-	<dependencyManagement>
-		<dependencies>
-
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>commons-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>tests-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>tomcat8-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>jee7-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.asideas.ipool.maven.boms</groupId>
-				<artifactId>spring-bom</artifactId>
-				<version>${ipool-maven-boms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
 
 		<dependency>
@@ -114,8 +72,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.asideas.ipool.commons</groupId>
-			<artifactId>ipool-commons-test-rest</artifactId>
+			<groupId>de.cts.commons</groupId>
+			<artifactId>cts-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
