@@ -1,0 +1,15 @@
+CarValueDef[] getDirectory()
+
+CarValue String getValue(String name)
+
+CarValue[] getValues(String[] names)
+
+class CarValueDef {
+	String name;
+	enum type;
+}
+
+class CarValue {
+	String name;
+	String value;
+}  

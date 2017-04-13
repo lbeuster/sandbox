@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+        <module>sandbox-json-schema</module>
 		<module>sandbox-spring-eureka-dashboard</module>
 		<module>sandbox-spring-eureka</module>
 		<module>sandbox-spring-hystrix</module>
