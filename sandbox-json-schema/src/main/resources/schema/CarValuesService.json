@@ -1,0 +1,94 @@
+{
+	"description" : "",
+	"type" : "object",
+	"properties" : {
+		"getValuesRequest" : {
+			"$ref" : "#/definitions/getValuesRequest"
+		},
+		"getValuesResponse" : {
+			"$ref" : "#/definitions/getValuesResponse"
+		},
+		"getSpecsRequest" : {
+			"$ref" : "#/definitions/getSpecsRequest"
+		},
+		"getSpecsResponse" : {
+			"$ref" : "#/definitions/getSpecsResponse"
+		}
+	},
+	"definitions" : {
+		"getSpecsRequest" : {
+			"properties" : {
+				
+			}
+		},
+		"getSpecsResponse" : {
+			"properties" : {
+				"carValueSpecs" : {
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/carValueSpec"
+					},
+					"required" : true
+				}
+			}
+		},
+		"getValuesRequest" : {
+			"properties" : {
+				"names" : {
+					"type" : "array",
+					"items" : {
+						"type" : "string"
+					},
+					"required" : true
+				}
+			}
+		},
+		"getValuesResponse" : {
+			"properties" : {
+				"carValues" : {
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/carValue"
+					},
+					"required" : true
+				}
+			}
+		},
+		"carValue" : {
+			"properties" : {
+				"name" : {
+					"type" : "string",
+					"required" : true
+				},
+				"value" : {
+					"type" : "string",
+					"required" : false
+				}
+			}
+		},
+		"carValueSpec" : {
+			"properties" : {
+				"name" : {
+					"type" : "string",
+					"required" : true
+				},
+				"type" : {
+					"type" : "string",
+					"enum" : [
+						"ABSOLUTE",
+						"ACTIVITY",
+						"ALTERNATIVE",
+						"BINARY",
+						"ENUMERATION",
+						"LISTENTITY",
+						"OBJECTENTITY",
+						"RELATIVE",
+						"TEXT",
+						"TIME"
+					],
+					"required" : true
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+Methode "GetSpecs":
+	* in: GetSpecsRequest
+	* out: getSpecsResponse
+	
+Methods "GetValues":
+	* in: GetValuesRequest
+	* out: GetValuesResponse
+
+P.S. Die generierte Klasse CarValuesService.java braucht man nicht. Sie ist aber leider notwendig, damit
+man alle Objekte in einer Datei definieren kann (alternativ hätte man pro Objekt eine Schema-Datei).

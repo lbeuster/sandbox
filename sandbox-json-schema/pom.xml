@@ -15,18 +15,21 @@
                 <groupId>org.jsonschema2pojo</groupId>
                 <artifactId>jsonschema2pojo-maven-plugin</artifactId>
                 <version>0.4.33</version>
-                <configuration>
-                    <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
-                    <targetPackage>com.example.types</targetPackage>
-                    <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
-                    <includeAdditionalProperties>false</includeAdditionalProperties>
-                    <useCommonsLang3>true</useCommonsLang3>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>generate</goal>
                         </goals>
+                        <configuration>
+                            <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
+                            <targetPackage>de.lbe.sandbox.json</targetPackage>
+                            <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
+                            <includeAdditionalProperties>false</includeAdditionalProperties>
+                            <useCommonsLang3>true</useCommonsLang3>
+                            <includes>
+                                <include>*.json</include>
+                            </includes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -43,7 +46,7 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>de.cts.commons</groupId>
             <artifactId>cts-commons-test</artifactId>
