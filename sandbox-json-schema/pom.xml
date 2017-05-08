@@ -48,7 +48,7 @@
         </dependency>
 
         <dependency>
-            <groupId>de.cts.commons</groupId>
+            <groupId>com.cartelsol.commons</groupId>
             <artifactId>cts-commons-test</artifactId>
             <scope>test</scope>
         </dependency>
