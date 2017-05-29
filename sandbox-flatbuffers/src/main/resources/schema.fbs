@@ -1,0 +1,72 @@
+namespace de.lbe.sandbox.flatbuffers;
+
+
+table ServiceSpecification
+{
+    id:string;              //the id has to be unique on one cate "^[a-zA-Z0-9]{2,16}$"
+    name:string;            //the name descripes the servic in one or two words
+    version:string;         //version number of the service
+    paths:[string];         //[optional]the possible commands/paths the Service can execute
+    messageFormat:string;   //[optional]description of the format from the payload. e.g. json
+    description:string;     //[optional]human readble description of the service
+}
+
+enum ResultCode:byte{SUCCESS, ERROR}
+
+table ServiceBridgeResult
+{
+    code:ResultCode;        // shows if communication between service and commlayer was successful
+    message:string;         // [optional] an human readble version from the result code
+}
+
+enum Compression:byte {YES, NO, AUTO} //YES: zip message; No: don't, Auto: try to zip, if its smaller send zipped
+
+enum Persist:byte {YES, NO} // will message save on HHD?
+
+table Event
+{
+    id:int;                 // id form the event
+    payload:[byte];         // the payload
+    servicePath:string;     // the command/path from the event.
+    createdAt:long;         // timestamp when the message was created
+    ttl:int;                // time to live relative in seconds from createdAt
+    compression:Compression;// will message be zipped
+    persist:Persist;        // will message saved on HDD
+}
+
+table Request
+{
+    id:int;                 // id form the request
+    payload:[byte];         // the payload
+    servicePath:string;     // the command/path from the event.
+    createdAt:long;         // timestamp when the message was created
+    ttl:int;                // time to live relative in seconds from createdAt
+    compression:Compression;// will message be zipped
+    persist:Persist;        // will message saved on HDD
+}
+
+enum StatusCode:byte{OK = 0, BAD_REQUEST = 1, REQUEST_TIME_OUT = 2, NOT_FOUND = 3, METHOD_NOT_ALLOWED = 4, INTERNAL_ERROR = 5}
+
+table Response
+{
+    id:int;                 // id form the response
+    requestID:int;          // id from the corresponding request
+    payload:[byte];         // the payload
+    servicePath:string;     // the command/path from the event.
+    createdAt:long;         // timestamp when the message was created
+    ttl:int;                // time to live relative in seconds from createdAt
+    compression:Compression;// will message be zipped
+    persist:Persist;        // will message saved on HDD
+    statusCode:StatusCode;  // status code from request
+}
+
+// unions cannot be root elements
+// unions have to be inside a table
+union RootElement { ServiceSpecification, ServiceBridgeResult, Event, Request, Response }
+
+table Root 
+{ 
+	root:RootElement;
+}
+
+root_type Root;
