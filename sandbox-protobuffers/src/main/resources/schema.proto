@@ -1,0 +1,48 @@
+syntax = "proto2";
+
+package CL;
+
+option java_package = "de.lbe.sandbox.protobuffers";
+// option java_outer_classname = "AddressBookProtos";
+option java_multiple_files = true;
+
+message ServiceSpecification
+{
+    required string id = 1;              //the id has to be unique on one cate "^[a-zA-Z0-9]{2,16}$"
+    required string name = 2;            //the name descripes the servic in one or two words
+    required string version = 3;         //version number of the service
+    repeated string paths = 4;         //[optional]the possible commands/paths the Service can execute
+    optional string messageFormat = 5;   //[optional]description of the format from the payload. e.g. json
+    optional string description = 6;     //[optional]human readble description of the service
+}
+
+
+message ServiceBridgeResult
+{
+	enum ResultCode 
+	{
+		SUCCESS = 0;
+		ERROR = 1;
+	};
+	
+    required ResultCode resultCode = 1;        // shows if communication between service and commlayer was successful
+    optional string message = 2;         // [optional] an human readble version from the result code
+    
+}
+
+message Request {
+	required string id = 1;
+}
+
+message Response {
+	required string id = 1;
+}
+
+message Root 
+{ 
+	oneof payload 
+	{
+		Request request = 1;
+		Response response = 2;
+	}
+}

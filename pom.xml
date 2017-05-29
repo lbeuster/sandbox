@@ -24,6 +24,7 @@
     </properties>
 
     <modules>
+        <module>sandbox-protobuffers</module>
         <module>sandbox-flatbuffers</module>
         <module>sandbox-snakeyml</module>
         <module>sandbox-json-schema</module>
