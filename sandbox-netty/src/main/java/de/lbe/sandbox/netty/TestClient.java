@@ -12,7 +12,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-public class TimeClient implements Closeable {
+public class TestClient implements Closeable {
 
     private final int port;
 
@@ -20,7 +20,7 @@ public class TimeClient implements Closeable {
 
     private final ChannelHandler[] handlers;
 
-    public TimeClient(int port, ChannelHandler... handlers) {
+    public TestClient(int port, ChannelHandler... handlers) {
         this.port = port;
         this.workerGroup = new NioEventLoopGroup();
         this.handlers = handlers;

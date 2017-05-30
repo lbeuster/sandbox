@@ -1,4 +1,4 @@
-package de.lbe.sandbox.netty;
+package de.lbe.sandbox.netty.tutorial;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

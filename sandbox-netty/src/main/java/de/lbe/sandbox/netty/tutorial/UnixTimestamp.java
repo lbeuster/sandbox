@@ -1,4 +1,4 @@
-package de.lbe.sandbox.netty;
+package de.lbe.sandbox.netty.tutorial;
 import java.util.Date;
 
 public class UnixTimestamp {

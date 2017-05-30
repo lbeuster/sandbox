@@ -1,4 +1,4 @@
-package de.lbe.sandbox.netty;
+package de.lbe.sandbox.netty.tutorial;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
