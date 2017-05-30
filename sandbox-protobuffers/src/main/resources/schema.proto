@@ -5,6 +5,7 @@ package CL;
 option java_package = "de.lbe.sandbox.protobuffers";
 // option java_outer_classname = "AddressBookProtos";
 option java_multiple_files = true;
+option java_generic_services = true;
 
 message ServiceSpecification
 {
@@ -30,6 +31,10 @@ message ServiceBridgeResult
     
 }
 
+message SendResult {
+	required int32 code = 1;
+}
+
 message Request {
 	required string id = 1;
 }
@@ -45,4 +50,9 @@ message Root
 		Request request = 1;
 		Response response = 2;
 	}
+};
+
+service TestService {
+  rpc sendRequest (Request) returns (SendResult);
+  rpc sendResponse (Response) returns (SendResult);
 }

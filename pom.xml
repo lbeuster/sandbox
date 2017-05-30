@@ -24,6 +24,7 @@
     </properties>
 
     <modules>
+        <module>sandbox-netty</module>
         <module>sandbox-protobuffers</module>
         <module>sandbox-flatbuffers</module>
         <module>sandbox-snakeyml</module>
