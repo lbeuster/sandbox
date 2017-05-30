@@ -1,19 +1,22 @@
-package de.lbe.sandbox.netty.tutorial;
+package de.lbe.sandbox.netty;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.ReferenceCountUtil;
 
-public class EchoServerHandler extends ChannelInboundHandlerAdapter { // (1)
+public class PrintServerHandler extends ChannelInboundHandlerAdapter { // (1)
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
+        ByteBuf in = (ByteBuf) msg;
         try {
-            System.out.println("server::read");
-            ctx.write(msg); // (1)
-            ctx.flush(); // (2)
+            while (in.isReadable()) { // (1)
+                System.out.print((char) in.readByte());
+                System.out.flush();
+            }
         } finally {
-            // ((ByteBuf) msg).release();
-            // ReferenceCountUtil.release(msg);
+            ReferenceCountUtil.release(msg); // (2)
         }
     }
 

@@ -10,11 +10,6 @@ import com.cartelsol.commons.lib.test.junit.AbstractJUnitTest;
 
 import de.lbe.sandbox.netty.TestClient;
 import de.lbe.sandbox.netty.TestServer;
-import de.lbe.sandbox.netty.tutorial.TimeClientHandler;
-import de.lbe.sandbox.netty.tutorial.TimeDecoder;
-import de.lbe.sandbox.netty.tutorial.TimeEncoder;
-import de.lbe.sandbox.netty.tutorial.TimeServerHandler;
-import de.lbe.sandbox.netty.tutorial.UnixTimestamp;
 
 /**
  * @author lbeuster
@@ -36,6 +31,7 @@ public class TimeTest extends AbstractJUnitTest {
 
         TestClient client = new TestClient(port, new TimeDecoder(), new TimeClientHandler(consumer));
         client.run();
+        Thread.sleep(1000);
         client.close();
 
         server.close();

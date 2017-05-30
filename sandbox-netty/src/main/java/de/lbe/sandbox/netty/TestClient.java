@@ -3,6 +3,7 @@ package de.lbe.sandbox.netty;
 import java.io.Closeable;
 
 import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
@@ -19,6 +20,8 @@ public class TestClient implements Closeable {
     private final EventLoopGroup workerGroup;
 
     private final ChannelHandler[] handlers;
+
+    private Channel channel;
 
     public TestClient(int port, ChannelHandler... handlers) {
         this.port = port;
@@ -41,9 +44,7 @@ public class TestClient implements Closeable {
 
             // Start the client.
             ChannelFuture f = b.connect("localhost", port).sync(); // (5)
-
-            // Wait until the connection is closed.
-            f.channel().closeFuture().sync();
+            this.channel = f.channel();
         } catch (InterruptedException ex) {
             throw new RuntimeException(ex);
         }
@@ -51,6 +52,11 @@ public class TestClient implements Closeable {
 
     @Override
     public void close() {
+        channel.close();
         workerGroup.shutdownGracefully();
+    }
+
+    public Channel getChannel() {
+        return channel;
     }
 }
