@@ -2,6 +2,7 @@ package de.lbe.sandbox.protobuffers;
 
 import org.junit.Test;
 
+import com.cartelsol.cate.shared.cl.client.ServiceSpecification;
 import com.cartelsol.commons.lib.test.junit.AbstractJUnitTest;
 import com.google.protobuf.InvalidProtocolBufferException;
 

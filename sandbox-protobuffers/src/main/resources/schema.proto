@@ -2,45 +2,85 @@ syntax = "proto2";
 
 package CL;
 
-option java_package = "de.lbe.sandbox.protobuffers";
-// option java_outer_classname = "AddressBookProtos";
+option java_package = "com.cartelsol.cate.shared.cl.client";
 option java_multiple_files = true;
-option java_generic_services = true;
 
 message ServiceSpecification
 {
-    required string id = 1;              //the id has to be unique on one cate "^[a-zA-Z0-9]{2,16}$"
-    required string name = 2;            //the name descripes the servic in one or two words
-    required string version = 3;         //version number of the service
-    repeated string paths = 4;         //[optional]the possible commands/paths the Service can execute
-    optional string messageFormat = 5;   //[optional]description of the format from the payload. e.g. json
-    optional string description = 6;     //[optional]human readble description of the service
+    required string id = 1;            // the id has to be unique on one cate "^[a-zA-Z0-9]{2,16}$"
+    required string name = 2;          // the name descripes the servic in one or two words
+    required string version = 3;       // version number of the service
+    repeated string paths = 4;         // the possible commands/paths the Service can execute
+    optional string messageFormat = 5; // description of the format from the payload. e.g. json
+    optional string description = 6;   // human readble description of the service
 }
-
 
 message ServiceBridgeResult
 {
 	enum ResultCode 
 	{
-		SUCCESS = 0;
-		ERROR = 1;
+		SUCCESS = 1;
+		ERROR = 2;
 	};
 	
-    required ResultCode resultCode = 1;        // shows if communication between service and commlayer was successful
-    optional string message = 2;         // [optional] an human readble version from the result code
-    
+    required ResultCode resultCode = 1; // shows if communication between service and commlayer was successful
+    optional string message = 2;        // a human readble version from the result code
 }
 
-message SendResult {
-	required int32 code = 1;
+enum Compression {
+	COMPRESS = 1;  		 // zip message
+	DO_NOT_COMPRESS = 2; // No zip
+	AUTO_COMPRESS = 3;   // try to zip, if its smaller send zipped
+} 
+
+enum Persistence {
+	PERSIST = 1;
+	DO_NOT_PERSIST = 2;
 }
 
-message Request {
-	required string id = 1;
+message Event
+{
+    required uint32 id = 1;               // id of the event
+    required bytes payload = 2;   		  // the payload
+    optional string servicePath = 3;      // the command/path of the event.
+    required uint64 createdAt = 4;        // timestamp when the message was created
+    required uint64 ttl = 5;          	  // time to live relative in millis from createdAt
+    required Compression compression = 6; // will message be zipped
+    required Persistence persist = 7;     // will message saved on HDD
 }
 
-message Response {
-	required string id = 1;
+message Request
+{
+    required uint32 id = 1;               // id of the request
+    required bytes payload = 2;   		  // the payload
+    optional string servicePath = 3;      // the command/path of the request.
+    required uint64 createdAt = 4;        // timestamp when the message was created
+    required uint64 ttl = 5;          	  // time to live relative in millis from createdAt
+    required Compression compression = 6; // will message be zipped
+    required Persistence persist = 7;     // will message saved on HDD
+}
+
+message Response
+{
+	enum StatusCode
+	{
+		OK = 1;
+		BAD_REQUEST = 2; 
+		REQUEST_TIME_OUT = 3; 
+		NOT_FOUND = 4;
+		METHOD_NOT_ALLOWED = 5; 
+		INTERNAL_ERROR = 6;
+	}
+
+    required uint32 id = 1;               // id of the response
+    required bytes payload = 2;   		  // the payload
+    optional string servicePath = 3;      // the command/path of the response.
+    required uint64 createdAt = 4;        // timestamp when the message was created
+    required uint64 ttl = 5;          	  // time to live relative in millis from createdAt
+    required Compression compression = 6; // will message be zipped
+    required Persistence persist = 7;     // will message saved on HDD
+    required uint32 requestId = 8;        // id of the corresponding request
+    required StatusCode statusCode = 9;   // status code
 }
 
 message Root 
@@ -48,11 +88,7 @@ message Root
 	oneof payload 
 	{
 		Request request = 1;
-		Response response = 2;
+		Event event = 2;
+		Response response = 3;
 	}
-};
-
-service TestService {
-  rpc sendRequest (Request) returns (SendResult);
-  rpc sendResponse (Response) returns (SendResult);
 }
