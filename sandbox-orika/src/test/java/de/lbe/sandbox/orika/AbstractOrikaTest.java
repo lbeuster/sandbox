@@ -1,12 +1,12 @@
 package de.lbe.sandbox.orika;
 
+import com.cartelsol.commons.lib.test.junit.AbstractJUnitTest;
+
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.OrikaSystemProperties;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.impl.generator.EclipseJdtCompilerStrategy;
 import ma.glasnost.orika.metadata.ClassMapBuilderFactory;
-
-import de.asideas.ipool.commons.lib.test.junit.AbstractJUnitTest;
 
 /**
  * @author lbeuster

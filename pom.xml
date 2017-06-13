@@ -24,6 +24,7 @@
     </properties>
 
     <modules>
+        <module>sandbox-orika</module>
         <module>sandbox-netty</module>
         <module>sandbox-protobuffers</module>
         <module>sandbox-flatbuffers</module>
@@ -70,7 +71,6 @@
         <module>sandbox-zookeeper</module>
         <module>sandbox-kafka</module>
         <module>sandbox-java7</module>
-        <module>sandbox-orika</module>
         <!-- currently doesn't compile because of the PostProcessor -->
         <!-- <module>sandbox-cal10n</module> -->
         <module>sandbox-weld</module>

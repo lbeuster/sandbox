@@ -11,7 +11,7 @@
 	<artifactId>sandbox-orika</artifactId>
 
 	<properties>
-		<orika.version>1.4.5</orika.version>
+		<orika.version>1.5.1</orika.version>
 	</properties>
 
 	<dependencies>
@@ -28,8 +28,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.asideas.ipool.commons</groupId>
-			<artifactId>ipool-commons-test</artifactId>
+			<groupId>com.cartelsol.commons</groupId>
+			<artifactId>cts-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
