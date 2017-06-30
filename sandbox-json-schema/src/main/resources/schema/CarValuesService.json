@@ -1,5 +1,5 @@
 {
-	"description" : "",
+	"description" : "JSON definition for data exchange via the CarValueService. Last change 2017-06-30 14:20",
 	"type" : "object",
 	"properties" : {
 		"getValuesRequest" : {
@@ -27,10 +27,12 @@
 					"type" : "array",
 					"items" : {
 						"$ref" : "#/definitions/carValueSpec"
-					},
-					"required" : true
+					}
 				}
-			}
+			},
+			"required" : [
+				"carValueSpecs"
+			]
 		},
 		"getValuesRequest" : {
 			"properties" : {
@@ -38,10 +40,12 @@
 					"type" : "array",
 					"items" : {
 						"type" : "string"
-					},
-					"required" : true
+					}
 				}
-			}
+			},
+			"required" : [
+				"names"
+			]
 		},
 		"getValuesResponse" : {
 			"properties" : {
@@ -49,28 +53,30 @@
 					"type" : "array",
 					"items" : {
 						"$ref" : "#/definitions/carValue"
-					},
-					"required" : true
+					}
 				}
-			}
+			},
+			"required" : [
+				"carValues"
+			]
 		},
 		"carValue" : {
 			"properties" : {
 				"name" : {
-					"type" : "string",
-					"required" : true
+					"type" : "string"
 				},
 				"value" : {
-					"type" : "string",
-					"required" : false
+					"type" : "string"
 				}
-			}
+			},
+			"required" : [
+				"name"
+			]
 		},
 		"carValueSpec" : {
 			"properties" : {
 				"name" : {
-					"type" : "string",
-					"required" : true
+					"type" : "string"
 				},
 				"type" : {
 					"type" : "string",
@@ -85,10 +91,13 @@
 						"RELATIVE",
 						"TEXT",
 						"TIME"
-					],
-					"required" : true
+					]
 				}
-			}
+			},
+			"required" : [
+				"name",
+				"type"
+			]
 		}
 	}
 }
