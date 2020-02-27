@@ -1,42 +1,57 @@
 package de.lbe.sandbox.protobuffers;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.cartelsol.cate.shared.cl.client.ServiceSpecification;
+import org.junit.jupiter.api.Test;
+
+import com.cartelsol.cate.shared.cl.client.NestedObject;
+import com.cartelsol.cate.shared.cl.client.TestRequest;
 import com.cartelsol.commons.lib.test.junit.AbstractJUnitTest;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.util.JsonFormat;
+import com.google.protobuf.util.JsonFormat.Parser;
+import com.google.protobuf.util.JsonFormat.Printer;
 
 /**
- * 
+ * @author lbeuster
  */
 public class ProtoBuffersTest extends AbstractJUnitTest {
 
     @Test
-    public void testServiceSpec() throws InvalidProtocolBufferException {
+    public void test_binary() throws InvalidProtocolBufferException {
 
-        String id = "MyService";
-        String name = "MY_SERVICE";
-        String version = "2.1";
-        String messageFormat = "Message/Format";
-        String description = "This is my description";
-        String path1 = "/path1";
-        String path2 = "/path2";
+        TestRequest.Builder builder = TestRequest.newBuilder();
+        builder.setNested(NestedObject.newBuilder().setId(2).setName("hallo").build());
+        TestRequest request = builder.build();
+        byte[] bytes = request.toByteArray();
 
-        ServiceSpecification.Builder builder = ServiceSpecification.newBuilder();
-        builder.setId(id).setName(name).setVersion(version).setMessageFormat(messageFormat).setDescription(description);
-        builder.addPaths(path1).addPaths(path2);
-        ServiceSpecification spec = builder.build();
-        byte[] bytes = spec.toByteArray();
+        TestRequest request2 = TestRequest.parseFrom(bytes);
+        NestedObject nested1 = request.getNested();
+        NestedObject nested2 = request2.getNested();
+        assertEquals(nested1.getId(), nested2.getId());
+        assertEquals(nested1.getName(), nested2.getName());
+    }
 
-        spec = ServiceSpecification.parseFrom(bytes);
+    @Test
+    public void test_json() throws InvalidProtocolBufferException {
 
-        assertEquals(id, spec.getId());
-        assertEquals(name, spec.getName());
-        assertEquals(version, spec.getVersion());
-        assertEquals(messageFormat, spec.getMessageFormat());
-        assertEquals(description, spec.getDescription());
-        assertEquals(2, spec.getPathsCount());
-        assertEquals(path1, spec.getPaths(0));
-        assertEquals(path2, spec.getPaths(1));
+        TestRequest.Builder builder = TestRequest.newBuilder();
+        builder.setNested(NestedObject.newBuilder().setId(2).setName("hallo").build());
+        TestRequest request = builder.build();
+
+        Printer printer = JsonFormat.printer();
+        String json = printer.print(request);
+        System.out.println(json);
+
+        Parser parser = JsonFormat.parser();
+        builder = TestRequest.newBuilder();
+        parser.merge(json, builder);
+        TestRequest request2 = builder.build();
+
+        NestedObject nested1 = request.getNested();
+        NestedObject nested2 = request2.getNested();
+        assertEquals(nested1.getId(), nested2.getId());
+        assertEquals(nested1.getName(), nested2.getName());
+
     }
 }

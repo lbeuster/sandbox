@@ -3,7 +3,7 @@
     <parent>
         <groupId>com.cartelsol.maven.boms</groupId>
         <artifactId>cts-starter-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.4-SNAPSHOT</version>
         <relativePath />
     </parent>
 
@@ -19,11 +19,12 @@
 
         <celepedia.version>2.0-SNAPSHOT</celepedia.version>
 
-        <cts-commons.version>1.0-SNAPSHOT</cts-commons.version>
+        <cts-commons.version>1.4-SNAPSHOT</cts-commons.version>
         <ipool-commons.version>1.3-SNAPSHOT</ipool-commons.version>
     </properties>
 
     <modules>
+        <module>sandbox-micrometer</module>
         <module>sandbox-orika</module>
         <module>sandbox-netty</module>
         <module>sandbox-protobuffers</module>
