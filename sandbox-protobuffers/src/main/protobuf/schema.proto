@@ -20,12 +20,3 @@ message TestResponse
 {
     bool success = 1;
 }
-
-message Root 
-{ 
-	oneof payload 
-	{
-		TestRequest request = 1;
-		TestResponse response = 3;
-	}
-}
