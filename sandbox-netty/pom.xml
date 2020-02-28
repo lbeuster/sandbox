@@ -18,8 +18,8 @@
     <dependencies>
 
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-codec</artifactId>
+            <groupId>com.cartelsol.commons</groupId>
+            <artifactId>cts-commons-netty</artifactId>
         </dependency>
 
         <dependency>
