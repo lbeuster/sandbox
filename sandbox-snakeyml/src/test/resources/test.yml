@@ -1,3 +1,7 @@
 property : ${test}
 
 invalidProperty: hallo
+
+nested:
+    property1: nested1
+    property2: nested2

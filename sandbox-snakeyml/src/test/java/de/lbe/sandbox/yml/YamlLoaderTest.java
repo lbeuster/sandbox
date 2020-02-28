@@ -1,5 +1,7 @@
 package de.lbe.sandbox.yml;
 
+import java.util.Map;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.yaml.snakeyaml.Yaml;
@@ -23,6 +25,16 @@ public class YamlLoaderTest extends AbstractJUnitTest {
         Yaml yml = new Yaml();
         TestBean bean = yml.loadAs(getClass().getResourceAsStream("/test.yml"), TestBean.class);
         assertEquals("${test}", bean.getProperty());
+    }
+
+    /**
+     * 
+     */
+    @Test
+    public void loadAsMap() throws Exception {
+        Yaml yml = new Yaml();
+        Map<String, String> properties = yml.loadAs(getClass().getResourceAsStream("/test.yml"), Map.class);
+        System.out.println(properties);
     }
 
     /**
