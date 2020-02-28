@@ -14,7 +14,6 @@
             <plugin>
                 <groupId>org.jsonschema2pojo</groupId>
                 <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-                <version>0.4.33</version>
                 <executions>
                     <execution>
                         <goals>
@@ -26,6 +25,7 @@
                             <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
                             <includeAdditionalProperties>false</includeAdditionalProperties>
                             <useCommonsLang3>true</useCommonsLang3>
+                            <removeOldOutput>true</removeOldOutput>
                             <includes>
                                 <include>*.json</include>
                             </includes>
