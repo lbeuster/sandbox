@@ -24,40 +24,64 @@
         </extensions>
 
         <plugins>
-            <plugin>
-                <groupId>com.github.os72</groupId>
-                <artifactId>protoc-jar-maven-plugin</artifactId>
-                <version>3.11.1</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <cleanOutputFolder>true</cleanOutputFolder>
-                            <!-- <includeDirectories> -->
-                            <!-- <includeDirectory>src/main/resources</includeDirectory> -->
-                            <!-- </includeDirectories> -->
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!-- cleanSources funktioniert nicht -->
             <!-- <plugin> -->
-            <!-- <groupId>org.xolstice.maven.plugins</groupId> -->
-            <!-- <artifactId>protobuf-maven-plugin</artifactId> -->
-            <!-- <version>${protobuf-plugin.version}</version> -->
+            <!-- <groupId>com.github.os72</groupId> -->
+            <!-- <artifactId>protoc-jar-maven-plugin</artifactId> -->
+            <!-- <version>3.11.1</version> -->
             <!-- <executions> -->
             <!-- <execution> -->
+            <!-- <phase>generate-sources</phase> -->
             <!-- <goals> -->
-            <!-- <goal>compile</goal> -->
+            <!-- <goal>run</goal> -->
             <!-- </goals> -->
             <!-- <configuration> -->
-            <!-- <protoSourceRoot>src/main/resources</protoSourceRoot> -->
+            <!-- <cleanOutputFolder>true</cleanOutputFolder> -->
+            <!-- <includeDirectories> -->
+            <!-- <includeDirectory>src/main/resources</includeDirectory> -->
+            <!-- </includeDirectories> -->
             <!-- </configuration> -->
             <!-- </execution> -->
             <!-- </executions> -->
             <!-- </plugin> -->
+            
+            <!-- Änderung am proto File ändert sofort die Klassen in Eclipse -->
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>${protobuf-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
+                            <attachProtoSources>true</attachProtoSources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-protobuf-generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>target/generated-sources/protobuf/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 

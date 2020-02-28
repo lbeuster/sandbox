@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package CL;
+
+option java_package = "de.lbe.sandbox.protobuf";
+option java_multiple_files = true;
+
+message CarState {
+	bool locked = 1;
+}
+
+message GetCarStateRequest {
+}
+
+message GetCarStateResponse {
+	CarState carState = 1;
+	bool success = 2;
+	string message = 3;
+}
+
+message NestedObject
+{
+    uint32 id = 1;
+    string name = 2;
+}
+
+message TestRequest
+{
+    NestedObject nested = 1;
+}
+
+message TestPerson
+{
+	string name = 1;
+	uint32 age = 2;
+}
+
+
+message TestResponse
+{
+    bool success = 1;
+}
