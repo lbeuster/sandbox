@@ -11,7 +11,7 @@ import ma.glasnost.orika.metadata.ClassMapBuilderFactory;
 /**
  * @author lbeuster
  */
-public class AbstractOrikaTest extends AbstractJUnitTest {
+public abstract class AbstractOrikaTest extends AbstractJUnitTest {
 
 	/**
 	 *
