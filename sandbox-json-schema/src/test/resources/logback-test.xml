@@ -8,7 +8,7 @@
 
 	<logger name="de.asideas.lib.commons.test.restclient" level="DEBUG"/>
 
-	<root level="debug">
+	<root level="warn">
 		<appender-ref ref="CONSOLE" />
 	</root>
 
