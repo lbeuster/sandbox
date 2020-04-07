@@ -1,24 +1,28 @@
-package de.lbe.sandbox.protobuffers;
+package de.lbe.sandbox.protobuf;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import java.nio.charset.StandardCharsets;
+
 import org.junit.jupiter.api.Test;
 
 import com.cartelsol.commons.lib.test.junit.AbstractJUnitTest;
+import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import com.google.protobuf.util.JsonFormat.Parser;
 import com.google.protobuf.util.JsonFormat.Printer;
 
-import de.lbe.sandbox.protobuf.NestedObject;
-import de.lbe.sandbox.protobuf.TestPerson;
-import de.lbe.sandbox.protobuf.TestRequest;
+import de.lbe.sandbox.protobuf.any.ErrorStatus;
+import de.lbe.sandbox.protobuf.test.NestedObject;
+import de.lbe.sandbox.protobuf.test.TestPerson;
+import de.lbe.sandbox.protobuf.test.TestRequest;
 
 /**
  * @author lbeuster
  */
-public class ProtoBuffersTest extends AbstractJUnitTest {
+public class ProtoBufTest extends AbstractJUnitTest {
 
     @Test
     public void test_binary() throws InvalidProtocolBufferException {
@@ -85,5 +89,21 @@ public class ProtoBuffersTest extends AbstractJUnitTest {
         assertFalse(person.hasField(TestPerson.getDescriptor().findFieldByNumber(TestPerson.NAME_FIELD_NUMBER)));
         assertEquals(0, person.getAge());
         assertFalse(person.hasField(TestPerson.getDescriptor().findFieldByNumber(TestPerson.AGE_FIELD_NUMBER)));
+    }
+
+    @Test
+    void test_any() throws Exception {
+
+        TestPerson.Builder person = TestPerson.newBuilder().setName("TestName");
+
+        Any any = Any.pack(person.build());
+        ErrorStatus status = ErrorStatus.newBuilder().setMessage("Test").setDetails(any).build();
+
+        byte[] bytes = status.toByteArray();
+        System.out.println(new String(bytes, StandardCharsets.US_ASCII));
+        ErrorStatus clone = ErrorStatus.parseFrom(bytes);
+        Any anyClone = clone.getDetails();
+        TestPerson personClone = anyClone.unpack(TestPerson.class);
+        assertEquals(person.getName(), personClone.getName());
     }
 }

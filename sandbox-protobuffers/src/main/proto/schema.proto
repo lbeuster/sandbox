@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package CL;
 
-option java_package = "de.lbe.sandbox.protobuf";
+option java_package = "de.lbe.sandbox.protobuf.test";
 option java_multiple_files = true;
 
 message CarState {
