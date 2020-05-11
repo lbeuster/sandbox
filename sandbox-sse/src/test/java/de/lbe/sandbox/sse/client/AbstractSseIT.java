@@ -60,7 +60,7 @@ public class AbstractSseIT extends AbstractJUnitTest {
 
     @SuppressWarnings("boxing")
     protected String baseUrl() {
-        return String.format("http://localhost:%s%s", httpPort, serverProperties.getServlet().getContextPath());
+        return String.format("http://localhost:%s", httpPort);
     }
 
     protected WebTarget webTarget() {
