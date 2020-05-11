@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
         <groupId>com.cartelsol.maven.boms</groupId>
         <artifactId>cts-starter-parent</artifactId>
-        <version>1.4-SNAPSHOT</version>
+        <version>1.5-SNAPSHOT</version>
         <relativePath />
     </parent>
 
@@ -14,77 +15,16 @@
     <packaging>pom</packaging>
 
     <properties>
+        <cts-commons.version>1.5-SNAPSHOT</cts-commons.version>
+
         <lbe-maven-boms.version>1.1-SNAPSHOT</lbe-maven-boms.version>
         <lbe-commons.version>1.0-SNAPSHOT</lbe-commons.version>
-
         <celepedia.version>2.0-SNAPSHOT</celepedia.version>
-
-        <cts-commons.version>1.4-SNAPSHOT</cts-commons.version>
         <ipool-commons.version>1.3-SNAPSHOT</ipool-commons.version>
     </properties>
 
     <modules>
-        <module>sandbox-micrometer</module>
-        <module>sandbox-orika</module>
-        <module>sandbox-netty</module>
-        <module>sandbox-protobuffers</module>
-        <module>sandbox-flatbuffers</module>
-        <module>sandbox-snakeyml</module>
-        <module>sandbox-json-schema</module>
-        <module>sandbox-spring-eureka-dashboard</module>
-        <module>sandbox-spring-eureka</module>
-        <module>sandbox-spring-hystrix</module>
-        <module>sandbox-spring-hystrix-dashboard</module>
-        <module>sandbox-jedis</module>
-        <module>sandbox-realtime-co</module>
-        <module>sandbox-firebase</module>
-        <module>sandbox-spring-sleuth</module>
-        <module>sandbox-spring-websockets</module>
-        <module>sandbox-spring-amqp</module>
-        <module>sandbox-ftp</module>
-        <module>sandbox-spring-boot-admin</module>
-        <module>sandbox-spring-boot-admin-client</module>
-        <module>sandbox-storm</module>
-        <module>sandbox-spring-boot-jersey1</module>
-        <module>sandbox-spring-boot-jersey2</module>
-        <module>sandbox-spring-boot-resteasy</module>
-        <module>sandbox-spring-boot-data-mongodb</module>
-        <module>sandbox-spring-security-celepedia</module>
-        <module>sandbox-resteasy3-spring</module>
-        <module>sandbox-picketlink-deltaspike</module>
-        <module>sandbox-spring-security</module>
-        <module>sandbox-shiro</module>
-        <module>sandbox-facebook</module>
-        <module>sandbox-splunk</module>
-        <module>sandbox-spring-boot</module>
-        <module>sandbox-tomcat-weld-resteasy3</module>
-        <module>sandbox-tomcat-weld-jersey2</module>
-        <module>sandbox-tomcat-weld-jersey1</module>
-        <module>sandbox-springcloud</module>
-        <module>sandbox-liquibase</module>
-        <module>sandbox-flyway</module>
-        <module>sandbox-aws</module>
-        <module>sandbox-deltaspike</module>
-        <module>sandbox-metrics</module>
-        <module>sandbox-metrics-datadog</module>
-        <module>sandbox-jee6-webapp</module>
-        <module>sandbox-mongodb</module>
-        <module>sandbox-zookeeper</module>
-        <module>sandbox-kafka</module>
-        <module>sandbox-java7</module>
-        <!-- currently doesn't compile because of the PostProcessor -->
-        <!-- <module>sandbox-cal10n</module> -->
-        <module>sandbox-weld</module>
-        <module>sandbox-weld-se</module>
-        <module>sandbox-jetty-embedded-arquillian</module>
-        <module>sandbox-jboss7-embedded</module>
-        <module>sandbox-jboss7-embedded-arquillian</module>
-        <module>sandbox-jboss7-managed-arquillian</module>
-        <module>sandbox-openejb-embedded</module>
-        <module>sandbox-openejb-arquillian</module>
-        <module>sandbox-tomee-embedded</module>
-        <module>sandbox-tomee-jersey-arquillian</module>
-        <module>sandbox-servlet30</module>
+        <module>sandbox-sse</module>
     </modules>
 
     <dependencyManagement>
